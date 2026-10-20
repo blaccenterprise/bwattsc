@@ -1,0 +1,1288 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>MATH PORTAL</title>
+<style>
+/* General body styles */
+body {
+  overflow: hidden;
+  margin: 0;
+  padding: 0;
+    background-color: #000;
+}
+
+/* Reset margins and paddings for all elements */
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+    
+.glow {
+  font-size: 80px;
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 50px 20px 30px #000000, 30px 20px 60px #000000, 50px 20px 30px #000000, 10px 30px 60px #000000, 30px 30px 30px #000000, 50px 30px 60px red, 70px 20px 30px #000000;
+  }
+  
+  to {
+    text-shadow: 40px 30px 60px #FFFFFF, 50px 10px 40px #FFFFFF, 10px 10px 50px red, 10px 40px 60px #FFFFFF, 50px 10px 70px #FFFFFF, 60px 10px 80px red, 40px 10px 90px #FFFFFF;
+  }
+}
+
+
+    
+    
+/* Styling the container for the color picker */
+#colPick {
+  color: #333; /* Text color */
+  font-weight: bold; /* Bold font */
+  font-family: Arial, Helvetica, sans-serif; /* Font style */
+  background: rgba(255, 255, 255, 0.5); /* Semi-transparent white background */
+  width: 240px; /* Fixed width */
+  padding: 0.5em 1em; /* Padding inside the container */
+  border-radius: 4px; /* Rounded corners */
+  position: absolute; /* Positioned relative to the viewport */
+  left: 50%; /* Horizontally centered */
+  top: 50%; /* Vertically centered */
+  box-sizing: border-box; /* Include padding and border in width/height */
+  margin-left: -120px; /* Adjust horizontal centering */
+  margin-top: -80px; /* Adjust vertical centering */
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.1); /* Light shadow for depth */
+}
+
+/* Styling the range inputs for RGB sliders */
+input {
+  width: 180px; /* Set the width of the slider */
+  margin: 0 0 0 9px; /* Add left margin for alignment */
+  padding: 0; /* Remove padding */
+  top: 5px; /* Adjust vertical alignment */
+  position: relative; /* Position relative to its container */
+}
+
+/* Panel at the bottom for controls */
+#controlPanel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(330deg,#00000080, grey); 
+}
+
+/* Panel at the bottom for controls */
+#colorPicker {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 30px;
+  display: flex;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: center;
+  background: linear-gradient(330deg,#00000080, grey); 
+}
+
+/* Individual color buttons in the palette */
+.colorButton {
+  width: 30px;
+  height: 30px;
+  margin-right: 5px;
+  border: none;
+  cursor: pointer;
+    overflow-y:auto;
+}
+
+/* Clear button styles */
+#clearButton {
+  width: 10vw;
+  height: 30px;
+  margin-left: 205px;
+  background: linear-gradient(330deg,#00000080, red); 
+  border: none;
+  cursor: pointer;
+  font-size:17px;
+}
+
+/* Canvas area styles */
+#drawingCanvas {
+  background-color: #fff;
+  position: absolute;
+  top: 30px;
+  width: 100%;
+  height: calc(100% - 30px);
+}
+
+/* Line width selector styles */
+#lineWidthSlider {
+  width: 74vw;
+  margin: 0px 3vw;
+    
+}
+
+/* Color palette container */
+#colorPalette {
+  overflow-y: auto;
+  height: 100%;
+    position: fixed;
+  top: 0;
+  padding: 5px 0;
+  background-color: #333; /* Background color for the color palette */
+}
+
+/* Color palette container */
+#apps {
+  display: flex;
+  overflow-y: auto;
+  width: 100px;
+    height: 790px;
+  position: absolute;
+  top: 33px;
+  padding: 0px 0;
+  left:0; 
+    margin-right: 10px;
+  background-color: #000; /* Background color for the color palette */
+}
+
+/* Color palette container */
+.actiontab {
+  display: fixed;
+  overflow-y: auto;
+  width: 180px;
+  position: absolute;
+  top: 30px;
+  padding: 5px 0;
+  background: linear-gradient(330deg,#00000080, black); 
+    margin-left: 1710px;
+    height: 100%;
+        
+    /* Background color for the color palette */
+}
+
+/* Button styles within the color palette */
+#colorPalette button {
+  flex-shrink: 0;
+}
+    
+.btn-group button {
+  background-color: #000000; /* Green background */
+  border: 1px solid blue; /* Green border */
+  color: white; /* White text */
+  padding: 10px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+  width: 100px; /* Set a width if needed */
+  display: block; /* Make the buttons appear below each other */
+}
+
+.btn-group button:not(:last-child) {
+  border-bottom: none; /* Prevent double borders */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #000000;
+}
+
+    
+.navbar {
+  overflow: hidden;
+  background: linear-gradient(330deg,#00000080, blue); 
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 30px;
+  width: 100%;
+    height: 105px;
+    left: 0;
+    margin-left:0px;
+    color: orange
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: orange;
+  text-align: center;
+  padding: 14px 8px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.navbar a:hover {
+  background: teal;
+  color: purple;
+}
+
+.navbar a.active {
+  background-color: teal;
+  color: orange;
+}
+
+    }
+
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  right: 0;
+  background-color: #000;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+.sidebar .closebtn {
+  position: absolute;
+  top: 0;
+  left: 25px;
+  font-size: 36px;
+  margin-right: 50px;
+}
+
+.openbtn {
+  font-size: 20px;
+  cursor: pointer;
+  background-color: #111;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+}
+
+.openbtn:hover {
+  background-color: #444;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidebar {padding-top: 15px;}
+  .sidebar a {font-size: 18px;}
+}
+</style>
+</head>
+<body id="main" onload="initializeCanvas();">
+
+
+    
+    <!-- Drawing canvas element -->
+<section style="margin-top: 200px; background: linear-gradient(330deg, white, grey); display: none;" width="1010px" height="770px" id="canvas">
+  
+
+    
+    <!-- Drawing canvas element -->
+<canvas id="drawingCanvas" onmouseleave="stopDrawing();" onmousedown="startDrawing();" onmouseup="stopDrawing();" onmousemove="drawLine(event);">
+</canvas>
+
+
+    
+<div class="navbar" style="margin-bottom: 910px; height: 40px; width: 1728px;">
+  <a href="#news" class="active">Open</a>
+  <a href="#contact" class="active" style="margin-right: 500px;">Extentions</a>
+ 
+    <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m307-320-87-360 260-240 260 240-87 360H307Zm63-80h220l61-253-131-121v106q14 10 22 25t8 33q0 29-20.5 49.5T480-540q-29 0-49.5-20.5T410-610q0-18 8-33t22-25v-106L309-653l61 253ZM160-120l22-65q8-25 29-40t47-15h444q26 0 47 15t29 40l22 65H160Z"/></svg></a>
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m240-320 100-360h60v-60l60-140h40l60 140v60h60l100 360H240Zm105-80h270l-56-200H401l-56 200ZM160-120l22-65q8-25 29-40t47-15h444q26 0 47 15t29 40l22 65H160Zm185-280h270-270Z"/></svg></a>
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z"/></svg></a>
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m160-120 22-65q8-25 29-40t47-15h444q26 0 47 15t29 40l22 65H160Zm80-200 200-520h80l200 520H240Zm116-80h248L480-721 356-400Zm0 0h248-248Z"/></svg></a>
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M240-120q-45 0-89-22t-71-58q26 0 53-20.5t27-59.5q0-50 35-85t85-35q50 0 85 35t35 85q0 66-47 113t-113 47Zm0-80q33 0 56.5-23.5T320-280q0-17-11.5-28.5T280-320q-17 0-28.5 11.5T240-280q0 23-5.5 42T220-202q5 2 10 2h10Zm230-160L360-470l358-358q11-11 27.5-11.5T774-828l54 54q12 12 12 28t-12 28L470-360Zm-190 80Z"/></svg></a>
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M480-80q-82 0-155-31.5t-127.5-86Q143-252 111.5-325T80-480q0-83 32.5-156t88-127Q256-817 330-848.5T488-880q80 0 151 27.5t124.5 76q53.5 48.5 85 115T880-518q0 115-70 176.5T640-280h-74q-9 0-12.5 5t-3.5 11q0 12 15 34.5t15 51.5q0 50-27.5 74T480-80Zm0-400Zm-177 23q17-17 17-43t-17-43q-17-17-43-17t-43 17q-17 17-17 43t17 43q17 17 43 17t43-17Zm120-160q17-17 17-43t-17-43q-17-17-43-17t-43 17q-17 17-17 43t17 43q17 17 43 17t43-17Zm200 0q17-17 17-43t-17-43q-17-17-43-17t-43 17q-17 17-17 43t17 43q17 17 43 17t43-17Zm120 160q17-17 17-43t-17-43q-17-17-43-17t-43 17q-17 17-17 43t17 43q17 17 43 17t43-17ZM480-160q9 0 14.5-5t5.5-13q0-14-15-33t-15-57q0-42 29-67t71-25h70q66 0 113-38.5T800-518q0-121-92.5-201.5T488-800q-136 0-232 93t-96 227q0 133 93.5 226.5T480-160Z"/></svg></a>
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M381-116q-44-36-55-92-53 17-107-2t-83-66q-30-48-22-106.5t52-97.5q-42-38-50.5-94T134-678q27-48 81.5-69.5T324-752q11-56 55-92t101-36q57 0 101 36t55 92q56-17 108.5 3t81.5 71q27 50 19.5 104.5T794-480q44 39 52.5 96.5T828-276q-29 51-81.5 68T638-208q-11 56-55 92T482-80q-57 0-101-36Zm101-44q47 0 70.5-40.5T552-280l-28-46q-11 3-21 4.5t-21 1.5q-10 0-20.5-1.5T440-326l-28 46q-24 39-.5 79.5T482-160ZM202-320q24 41 70.5 41t69.5-41l26-46q-8-8-15-17t-12-19q-5-9-9-18.5t-7-19.5h-53q-47 0-70 39.5t0 80.5Zm416 0q23 41 69.5 41t70.5-41q23-41 0-80.5T688-440h-53q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17l26 46ZM480-480Zm-155-40q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16l-26-46q-23-41-69.5-41T202-640q-23 41 0 80.5t70 39.5h53Zm363 0q47 0 70-39.5t0-80.5q-24-41-70.5-41T618-640l-26 46q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520h53ZM437-634q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634l27-46q23-39 0-79.5T480-800q-47 0-70 40t0 80l27 46Zm0 0q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634q-11-3-21.5-4.5T480-640q-11 0-21.5 1.5T437-634Zm-96 232q-5-9-9-18.5t-7-19.5q3 10 7 19.5t9 18.5q5 10 12 19t15 17q-8-8-15-17t-12-19Zm-16-118q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16q-8 8-14.5 16T342-561q-5 9-9.5 19.5T325-520Zm157 200q-10 0-20.5-1.5T440-326q11 3 21.5 4.5T482-320q11 0 21-1.5t21-4.5q-11 3-21 4.5t-21 1.5Zm110-46q8-8 15-17t12-19q5-9 9.5-18.5T635-440q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17Zm43-154q-3-11-7.5-21.5T618-561q-5-9-11.5-17T592-594q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520Zm-98.5 96.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5Z"/></svg></a>
+  <a href="#contact"  class="active" style="float: right;">Profile</a>
+</div>
+    
+<div id="apps">
+<div class="btn-group">
+  <button onclick="colorPicker()" style="background: linear-gradient(330deg,#00000080, #8E44AD);"><svg style="background: linear-gradient(90deg, #A66948, #EFE3DF, #9C4722, #edcdc2, #999E62, #FFBBB9, #A66948);" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentFill"><path d="M1835-183.5Q160-207 160-240t23.5-56.5Q207-320 240-320t56.5 23.5Q320-273 320-240t-23.5 56.5Q273-160 240-160t-56.5-23.5Zm240 0Q400-207 400-240t23.5-56.5Q447-320 480-320t56.5 23.5Q560-273 560-240t-23.5 56.5Q513-160 480-160t-56.5-23.5Zm240 0Q640-207 640-240t23.5-56.5Q687-320 720-320t56.5 23.5Q800-273 800-240t-23.5 56.5Q753-160 720-160t-56.5-23.5Zm-480-240Q160-447 160-480t23.5-56.5Q207-560 240-560t56.5 23.5Q320-513 320-480t-23.5 56.5Q273-400 240-400t-56.5-23.5Zm240 0Q400-447 400-480t23.5-56.5Q447-560 480-560t56.5 23.5Q560-513 560-480t-23.5 56.5Q513-400 480-400t-56.5-23.5Zm240 0Q640-447 640-480t23.5-56.5Q687-560 720-560t56.5 23.5Q800-513 800-480t-23.5 56.5Q753-400 720-400t-56.5-23.5Zm-480-240Q160-687 160-720t23.5-56.5Q207-800 240-800t56.5 23.5Q320-753 320-720t-23.5 56.5Q273-640 240-640t-56.5-23.5Zm240 0Q400-687 400-720t23.5-56.5Q447-800 480-800t56.5 23.5Q560-753 560-720t-23.5 56.5Q513-640 480-640t-56.5-23.5Zm240 0Q640-687 640-720t23.5-56.5Q687-800 720-800t56.5 23.5Q800-753 800-720t-23.5 56.5Q753-640 720-640t-56.5-23.5Z"/></svg>Color Picker</button>
+   
+    <script>
+function colorPicker() {
+  document.getElementById("colorPicker").style.display = "block";
+}
+
+                </script>
+    
+  <button  onclick="getElementById('colPick').style.display='block'"  style="background: linear-gradient(330deg,#00000080, #A66948);"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="sliders" viewBox="0 0 512 512">
+<path fill="currentColor" d="M32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 224zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384z"/>
+</svg>Page Color</button>
+
+    
+  <button  onclick="getElementById('colorSearch').style.display='block'"  style="background: linear-gradient(330deg,#00000080, #633517);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M381-116q-44-36-55-92-53 17-107-2t-83-66q-30-48-22-106.5t52-97.5q-42-38-50.5-94T134-678q27-48 81.5-69.5T324-752q11-56 55-92t101-36q57 0 101 36t55 92q56-17 108.5 3t81.5 71q27 50 19.5 104.5T794-480q44 39 52.5 96.5T828-276q-29 51-81.5 68T638-208q-11 56-55 92T482-80q-57 0-101-36Zm101-44q47 0 70.5-40.5T552-280l-28-46q-11 3-21 4.5t-21 1.5q-10 0-20.5-1.5T440-326l-28 46q-24 39-.5 79.5T482-160ZM202-320q24 41 70.5 41t69.5-41l26-46q-8-8-15-17t-12-19q-5-9-9-18.5t-7-19.5h-53q-47 0-70 39.5t0 80.5Zm416 0q23 41 69.5 41t70.5-41q23-41 0-80.5T688-440h-53q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17l26 46ZM480-480Zm-155-40q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16l-26-46q-23-41-69.5-41T202-640q-23 41 0 80.5t70 39.5h53Zm363 0q47 0 70-39.5t0-80.5q-24-41-70.5-41T618-640l-26 46q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520h53ZM437-634q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634l27-46q23-39 0-79.5T480-800q-47 0-70 40t0 80l27 46Zm0 0q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634q-11-3-21.5-4.5T480-640q-11 0-21.5 1.5T437-634Zm-96 232q-5-9-9-18.5t-7-19.5q3 10 7 19.5t9 18.5q5 10 12 19t15 17q-8-8-15-17t-12-19Zm-16-118q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16q-8 8-14.5 16T342-561q-5 9-9.5 19.5T325-520Zm157 200q-10 0-20.5-1.5T440-326q11 3 21.5 4.5T482-320q11 0 21-1.5t21-4.5q-11 3-21 4.5t-21 1.5Zm110-46q8-8 15-17t12-19q5-9 9.5-18.5T635-440q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17Zm43-154q-3-11-7.5-21.5T618-561q-5-9-11.5-17T592-594q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520Zm-98.5 96.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5Z"/></svg>Color Search</button>
+
+    
+  <button style="background: linear-gradient(330deg,#00000080, #9C4722);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M211.5-371.5Q200-383 200-400t11.5-28.5Q223-440 240-440t28.5 11.5Q280-417 280-400t-11.5 28.5Q257-360 240-360t-28.5-11.5Zm0 160Q200-223 200-240t11.5-28.5Q223-280 240-280t28.5 11.5Q280-257 280-240t-11.5 28.5Q257-200 240-200t-28.5-11.5Zm0-320Q200-543 200-560t11.5-28.5Q223-600 240-600t28.5 11.5Q280-577 280-560t-11.5 28.5Q257-520 240-520t-28.5-11.5ZM106-546q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm105.5-145.5Q200-703 200-720t11.5-28.5Q223-760 240-760t28.5 11.5Q280-737 280-720t-11.5 28.5Q257-680 240-680t-28.5-11.5ZM106-386q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm280 280q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-720q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm-14.5 134.5Q360-703 360-720t11.5-28.5Q383-760 400-760t28.5 11.5Q440-737 440-720t-11.5 28.5Q417-680 400-680t-28.5-11.5Zm-14 334Q340-375 340-400t17.5-42.5Q375-460 400-460t42.5 17.5Q460-425 460-400t-17.5 42.5Q425-340 400-340t-42.5-17.5Zm0-160Q340-535 340-560t17.5-42.5Q375-620 400-620t42.5 17.5Q460-585 460-560t-17.5 42.5Q425-500 400-500t-42.5-17.5Zm14 306Q360-223 360-240t11.5-28.5Q383-280 400-280t28.5 11.5Q440-257 440-240t-11.5 28.5Q417-200 400-200t-28.5-11.5ZM480-120v-80q116 0 198-82t82-198q0-116-82-198t-198-82v-80q74 0 139.5 28.5T734-734q49 49 77.5 114.5T840-480q0 74-28.5 139.5T734-226q-49 49-114.5 77.5T480-120Zm0-360Z"/></svg></button>
+
+    
+  <button style="background: linear-gradient(330deg,#00000080, #FFBBB9);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h200v720H200Zm251.5-11.5Q440-143 440-160t11.5-28.5Q463-200 480-200t28.5 11.5Q520-177 520-160t-11.5 28.5Q497-120 480-120t-28.5-11.5Zm0-160Q440-303 440-320t11.5-28.5Q463-360 480-360t28.5 11.5Q520-337 520-320t-11.5 28.5Q497-280 480-280t-28.5-11.5Zm0-160Q440-463 440-480t11.5-28.5Q463-520 480-520t28.5 11.5Q520-497 520-480t-11.5 28.5Q497-440 480-440t-28.5-11.5Zm0-160Q440-623 440-640t11.5-28.5Q463-680 480-680t28.5 11.5Q520-657 520-640t-11.5 28.5Q497-600 480-600t-28.5-11.5Zm0-160Q440-783 440-800t11.5-28.5Q463-840 480-840t28.5 11.5Q520-817 520-800t-11.5 28.5Q497-760 480-760t-28.5-11.5Zm80 560Q520-223 520-240t11.5-28.5Q543-280 560-280t28.5 11.5Q600-257 600-240t-11.5 28.5Q577-200 560-200t-28.5-11.5Zm0-160Q520-383 520-400t11.5-28.5Q543-440 560-440t28.5 11.5Q600-417 600-400t-11.5 28.5Q577-360 560-360t-28.5-11.5Zm0-160Q520-543 520-560t11.5-28.5Q543-600 560-600t28.5 11.5Q600-577 600-560t-11.5 28.5Q577-520 560-520t-28.5-11.5Zm0-160Q520-703 520-720t11.5-28.5Q543-760 560-760t28.5 11.5Q600-737 600-720t-11.5 28.5Q577-680 560-680t-28.5-11.5Zm80 560Q600-143 600-160t11.5-28.5Q623-200 640-200t28.5 11.5Q680-177 680-160t-11.5 28.5Q657-120 640-120t-28.5-11.5Zm0-160Q600-303 600-320t11.5-28.5Q623-360 640-360t28.5 11.5Q680-337 680-320t-11.5 28.5Q657-280 640-280t-28.5-11.5Zm0-160Q600-463 600-480t11.5-28.5Q623-520 640-520t28.5 11.5Q680-497 680-480t-11.5 28.5Q657-440 640-440t-28.5-11.5Zm0-160Q600-623 600-640t11.5-28.5Q623-680 640-680t28.5 11.5Q680-657 680-640t-11.5 28.5Q657-600 640-600t-28.5-11.5Zm0-160Q600-783 600-800t11.5-28.5Q623-840 640-840t28.5 11.5Q680-817 680-800t-11.5 28.5Q657-760 640-760t-28.5-11.5ZM720-200q-17 0-28.5-11.5T680-240q0-17 11.5-28.5T720-280q17 0 28.5 11.5T760-240q0 17-11.5 28.5T720-200Zm0-160q-17 0-28.5-11.5T680-400q0-17 11.5-28.5T720-440q17 0 28.5 11.5T760-400q0 17-11.5 28.5T720-360Zm0-160q-17 0-28.5-11.5T680-560q0-17 11.5-28.5T720-600q17 0 28.5 11.5T760-560q0 17-11.5 28.5T720-520Zm-28.5-171.5Q680-703 680-720t11.5-28.5Q703-760 720-760t28.5 11.5Q760-737 760-720t-11.5 28.5Q737-680 720-680t-28.5-11.5Zm80 560Q760-143 760-160t11.5-28.5Q783-200 800-200t28.5 11.5Q840-177 840-160t-11.5 28.5Q817-120 800-120t-28.5-11.5Zm0-160Q760-303 760-320t11.5-28.5Q783-360 800-360t28.5 11.5Q840-337 840-320t-11.5 28.5Q817-280 800-280t-28.5-11.5Zm0-160Q760-463 760-480t11.5-28.5Q783-520 800-520t28.5 11.5Q840-497 840-480t-11.5 28.5Q817-440 800-440t-28.5-11.5Zm0-160Q760-623 760-640t11.5-28.5Q783-680 800-680t28.5 11.5Q840-657 840-640t-11.5 28.5Q817-600 800-600t-28.5-11.5Zm0-160Q760-783 760-800t11.5-28.5Q783-840 800-840t28.5 11.5Q840-817 840-800t-11.5 28.5Q817-760 800-760t-28.5-11.5Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #2A293E);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM480-160q134 0 227-93t93-227q0-64-24.5-122.5T706-706L254-254q45 45 103.5 69.5T480-160Zm0-160v-60h200v60H480ZM320-500h60v-80h80v-60h-80v-80h-60v80h-80v60h80v80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #EFE3DF);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M220-160q-25 0-42.5-17.5T160-220q0-25 17.5-42.5T220-280q25 0 42.5 17.5T280-220q0 25-17.5 42.5T220-160Zm173 0q-25 0-42.5-17.5T333-220q0-25 17.5-42.5T393-280q25 0 42.5 17.5T453-220q0 25-17.5 42.5T393-160Zm174 0q-25 0-42.5-17.5T507-220q0-25 17.5-42.5T567-280q25 0 42.5 17.5T627-220q0 25-17.5 42.5T567-160Zm173 0q-25 0-42.5-17.5T680-220q0-25 17.5-42.5T740-280q25 0 42.5 17.5T800-220q0 25-17.5 42.5T740-160ZM220-333q-25 0-42.5-17.5T160-393q0-25 17.5-42.5T220-453q25 0 42.5 17.5T280-393q0 25-17.5 42.5T220-333Zm173 0q-25 0-42.5-17.5T333-393q0-25 17.5-42.5T393-453q25 0 42.5 17.5T453-393q0 25-17.5 42.5T393-333Zm174 0q-25 0-42.5-17.5T507-393q0-25 17.5-42.5T567-453q25 0 42.5 17.5T627-393q0 25-17.5 42.5T567-333Zm173 0q-25 0-42.5-17.5T680-393q0-25 17.5-42.5T740-453q25 0 42.5 17.5T800-393q0 25-17.5 42.5T740-333ZM220-507q-25 0-42.5-17.5T160-567q0-25 17.5-42.5T220-627q25 0 42.5 17.5T280-567q0 25-17.5 42.5T220-507Zm173 0q-25 0-42.5-17.5T333-567q0-25 17.5-42.5T393-627q25 0 42.5 17.5T453-567q0 25-17.5 42.5T393-507Zm174 0q-25 0-42.5-17.5T507-567q0-25 17.5-42.5T567-627q25 0 42.5 17.5T627-567q0 25-17.5 42.5T567-507Zm173 0q-25 0-42.5-17.5T680-567q0-25 17.5-42.5T740-627q25 0 42.5 17.5T800-567q0 25-17.5 42.5T740-507ZM220-680q-25 0-42.5-17.5T160-740q0-25 17.5-42.5T220-800q25 0 42.5 17.5T280-740q0 25-17.5 42.5T220-680Zm173 0q-25 0-42.5-17.5T333-740q0-25 17.5-42.5T393-800q25 0 42.5 17.5T453-740q0 25-17.5 42.5T393-680Zm174 0q-25 0-42.5-17.5T507-740q0-25 17.5-42.5T567-800q25 0 42.5 17.5T627-740q0 25-17.5 42.5T567-680Zm173 0q-25 0-42.5-17.5T680-740q0-25 17.5-42.5T740-800q25 0 42.5 17.5T800-740q0 25-17.5 42.5T740-680Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #F39C12);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560L200-200Zm380-40v-80h-80v-60h80v-80h60v80h80v60h-80v80h-60ZM240-620h200v-60H240v60Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #EDF1FF);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M400-40v-80H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h200v-80h80v880h-80ZM200-240h200v-240L200-240Zm360 120v-360l200 240v-520H560v-80h200q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H560Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #6C244C);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133ZM200-413h133v-134H200v134Zm213 0h134v-134H413v134Zm214 0h133v-134H627v134ZM200-627h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #999E62);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h160v80H200Zm400 0v-80h160v-160h80v160q0 33-23.5 56.5T760-120H600ZM120-600v-160q0-33 23.5-56.5T200-840h160v80H200v160h-80Zm640 0v-160H600v-80h160q33 0 56.5 23.5T840-760v160h-80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #F5D6C6);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M381-116q-44-36-55-92-53 17-107-2t-83-66q-30-48-22-106.5t52-97.5q-42-38-50.5-94T134-678q27-48 81.5-69.5T324-752q11-56 55-92t101-36q57 0 101 36t55 92q56-17 108.5 3t81.5 71q27 50 19.5 104.5T794-480q44 39 52.5 96.5T828-276q-29 51-81.5 68T638-208q-11 56-55 92T482-80q-57 0-101-36Zm101-44q47 0 70.5-40.5T552-280l-28-46q-11 3-21 4.5t-21 1.5q-10 0-20.5-1.5T440-326l-28 46q-24 39-.5 79.5T482-160ZM202-320q24 41 70.5 41t69.5-41l26-46q-8-8-15-17t-12-19q-5-9-9-18.5t-7-19.5h-53q-47 0-70 39.5t0 80.5Zm416 0q23 41 69.5 41t70.5-41q23-41 0-80.5T688-440h-53q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17l26 46ZM480-480Zm-155-40q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16l-26-46q-23-41-69.5-41T202-640q-23 41 0 80.5t70 39.5h53Zm363 0q47 0 70-39.5t0-80.5q-24-41-70.5-41T618-640l-26 46q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520h53ZM437-634q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634l27-46q23-39 0-79.5T480-800q-47 0-70 40t0 80l27 46Zm0 0q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634q-11-3-21.5-4.5T480-640q-11 0-21.5 1.5T437-634Zm-96 232q-5-9-9-18.5t-7-19.5q3 10 7 19.5t9 18.5q5 10 12 19t15 17q-8-8-15-17t-12-19Zm-16-118q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16q-8 8-14.5 16T342-561q-5 9-9.5 19.5T325-520Zm157 200q-10 0-20.5-1.5T440-326q11 3 21.5 4.5T482-320q11 0 21-1.5t21-4.5q-11 3-21 4.5t-21 1.5Zm110-46q8-8 15-17t12-19q5-9 9.5-18.5T635-440q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17Zm43-154q-3-11-7.5-21.5T618-561q-5-9-11.5-17T592-594q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520Zm-98.5 96.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #00758F);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440v-80h80v80h-80Zm-80 80v-80h80v80h-80Zm160 0v-80h80v80h-80Zm80-80v-80h80v80h-80Zm-320 0v-80h80v80h-80Zm-80 320q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm80-80h80v-80h-80v80Zm160 0h80v-80h-80v80Zm320 0v-80 80Zm-560-80h80v-80h80v80h80v-80h80v80h80v-80h80v80h80v-80h-80v-80h80v-320H200v320h80v80h-80v80Zm0 80v-560 560Zm560-240v80-80ZM600-280v80h80v-80h-80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #C62168);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M106-386q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-160q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm105.5 334.5Q200-223 200-240t11.5-28.5Q223-280 240-280t28.5 11.5Q280-257 280-240t-11.5 28.5Q257-200 240-200t-28.5-11.5Zm0-160Q200-383 200-400t11.5-28.5Q223-440 240-440t28.5 11.5Q280-417 280-400t-11.5 28.5Q257-360 240-360t-28.5-11.5Zm0-160Q200-543 200-560t11.5-28.5Q223-600 240-600t28.5 11.5Q280-577 280-560t-11.5 28.5Q257-520 240-520t-28.5-11.5Zm0-160Q200-703 200-720t11.5-28.5Q223-760 240-760t28.5 11.5Q280-737 280-720t-11.5 28.5Q257-680 240-680t-28.5-11.5Zm146 334Q340-375 340-400t17.5-42.5Q375-460 400-460t42.5 17.5Q460-425 460-400t-17.5 42.5Q425-340 400-340t-42.5-17.5Zm0-160Q340-535 340-560t17.5-42.5Q375-620 400-620t42.5 17.5Q460-585 460-560t-17.5 42.5Q425-500 400-500t-42.5-17.5Zm14 306Q360-223 360-240t11.5-28.5Q383-280 400-280t28.5 11.5Q440-257 440-240t-11.5 28.5Q417-200 400-200t-28.5-11.5Zm0-480Q360-703 360-720t11.5-28.5Q383-760 400-760t28.5 11.5Q440-737 440-720t-11.5 28.5Q417-680 400-680t-28.5-11.5ZM386-106q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-720q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm131.5 468.5Q500-375 500-400t17.5-42.5Q535-460 560-460t42.5 17.5Q620-425 620-400t-17.5 42.5Q585-340 560-340t-42.5-17.5Zm0-160Q500-535 500-560t17.5-42.5Q535-620 560-620t42.5 17.5Q620-585 620-560t-17.5 42.5Q585-500 560-500t-42.5-17.5Zm14 306Q520-223 520-240t11.5-28.5Q543-280 560-280t28.5 11.5Q600-257 600-240t-11.5 28.5Q577-200 560-200t-28.5-11.5Zm0-480Q520-703 520-720t11.5-28.5Q543-760 560-760t28.5 11.5Q600-737 600-720t-11.5 28.5Q577-680 560-680t-28.5-11.5ZM546-106q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-720q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm145.5 614.5Q680-223 680-240t11.5-28.5Q703-280 720-280t28.5 11.5Q760-257 760-240t-11.5 28.5Q737-200 720-200t-28.5-11.5Zm0-160Q680-383 680-400t11.5-28.5Q703-440 720-440t28.5 11.5Q760-417 760-400t-11.5 28.5Q737-360 720-360t-28.5-11.5Zm0-160Q680-543 680-560t11.5-28.5Q703-600 720-600t28.5 11.5Q760-577 760-560t-11.5 28.5Q737-520 720-520t-28.5-11.5Zm0-160Q680-703 680-720t11.5-28.5Q703-760 720-760t28.5 11.5Q760-737 760-720t-11.5 28.5Q737-680 720-680t-28.5-11.5ZM826-386q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-160q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Z"/></svg></button>
+</div>
+    </div>
+    
+<div id="main" class="actiontab">
+    
+    <div id="colorSearch" style="display: none;">
+    <label for="textcolor"><i  style="font-size: 25px; color: white;">Color Search: </i></label>
+      <br>
+    <input type="color" id="textcolor" value="#008080">
+  </div>
+      
+<!-- Container for the RGB color picker -->
+<div id="colPick" style="display: none;">
+  <!-- Display the RGB value -->
+  <p align="center" id="colortext"></p>
+  <!-- Slider for the Red component -->
+  <p>R
+    <input type="range" id="colRed" value="49" max="255"></p>
+  <!-- Slider for the Green component -->
+  <p>G
+    <input type="range" id="colGreen" value="38" max="255"></p>
+  <!-- Slider for the Blue component -->
+  <p>B
+    <input type="range" id="colBlue" value="100" max="255"></p>
+</div>
+
+<script>
+/* Get references to the sliders and container */
+var colR = document.getElementById("colRed");
+var colG = document.getElementById("colGreen");
+var colB = document.getElementById("colBlue");
+var colPickHTML = document.getElementById("colPick");
+
+/* Add an event listener to update the background color on input change */
+colPickHTML.addEventListener("input", changeCol, false);
+
+/* Initialize the background color */
+changeCol();
+
+/* Function to update the background color based on slider values */
+function changeCol(e) {
+  gblR = colR.value; // Get the Red value
+  gblG = colG.value; // Get the Green value
+  gblB = colB.value; // Get the Blue value
+
+  /* Set the background color of the page */
+  document.body.style.backgroundColor = "rgb(" + gblR + "," + gblG + "," + gblB + ")";
+  
+  /* Display the current RGB value */
+  document.getElementById("colortext").innerHTML = "rgb(" + gblR + "," + gblG + "," + gblB + ")";
+}
+</script>
+
+
+    <!-- Default Color Picker --->
+<div id="colorPicker"  style="display: none; top:0 ; margin-top: 180px;">
+    <!-- Color palette buttons dynamically added here -->
+<div id="colorPalette">
+<!-- Color buttons will be inserted dynamically -->
+    
+    
+</div>
+    
+    </div>
+
+    
+<section>
+    
+        <script>
+            
+function colorPickeroff() {
+  document.getElementById("colorPicker").style.display = "none";
+}
+</script>
+</section>
+
+</div>
+
+<!-- Panel for controls (line width selector and clear button) -->
+<div id="controlPanel">
+    
+<div class="navbar">
+  <a href="#home" class="active">Download</a>
+  <a href="#news" class="active">Save</a>
+    <br>
+    <hr>
+    <br>
+    <br>
+      <a  onclick="getElementById('colorPicker').style.display='none'" class="active glow" style=" margin-bottom: 100px;">Color Picker Off</a>
+
+     <a onclick="getElementById('colPick').style.display='none'"  class="active glow" style=" margin-bottom: 100px;">Page Color Off</a>
+
+     <a onclick="getElementById('colorSearch').style.display='none'"  class="active glow" style=" margin-bottom: 100px;">Color Search Off</a>
+    
+</div>
+  <!-- Line width selector -->
+  <input type="range" id="lineWidthSlider" value="1" min="1" max="20" step="1" onchange="changeLineWidth(this.value);">
+  <!-- Clear button -->
+  <input id="clearButton" type="button" onclick="clearCanvas();" value="Clear">
+</div>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+   
+<script>
+// Variables to hold canvas, context, and control elements
+var canvas;
+var controlPanel;
+var lineWidthSlider;
+var canvasHeight;
+var canvasWidth;
+var isDrawing = false;
+var ctx;
+var offsetTop = 0;
+// Array of colors for the palette
+var colors = [ "#FF5733", "#33FF57", "#3357FF", "#F4A300", "#FF0099", "#000000", "#FFCC00", "#8E44AD", "#16A085", "#D35400", "#C0392B", "#2980B9", "#27AE60", "#E74C3C", "#F39C12", "#FFBE98", "#FDAC53", "#9BB7D4", "#B55A30", "#F5DF4D", "#0072B5", "#A0DAA9", "#E9897E", "#00A170", "#926AA6", "#D2386C", "#363945", "#939597", "#EFE1CE", "#E0B589", "#9A8B4F", "#005B88", "#378661", "#CA4286", "#FFBBB9", "#A66948", "#A73730", "#302C4D", "#698295", "#714A41", "#EFE3DF", "#D7C49E", "#6A6A45", "#AE4B38", "#E75936", "#708C66", "#FF9A90", "#A4B9DA", "#BEB2D5", "#505C84", "#F8D974", "#00AB78", "#42BDCB", "#EDF1FF", "#BCABA0", "#BDC1C0", "#696C71", "#B99B86", "#FFBE98", "#C57644", "#9F2436", "#AF8D1F", "#005348", "#EF5327", "#999E62", "#51354A", "#C2BEB6", "#A6C0CD", "#F4F7FF", "#A47864", "#A66E4A", "#C67FAE", "#D7E8BC", "#98DDDF", "#A6BE47", "#2E5283", "#6F8D6A", "#E3BD33", "#E2552D", "#C9B27C", "#344148", "#EDE3D2", "#583432", "#CDC6BD", "#717388", "#DCD494", "#D1805F", "#005871", "#854C65", "#EFDADD", "#BE394F", "#704A49", "#8F3D37", "#DC343B", "#82643E", "#F4F5F0", "#58423F", "#BDBEBF", "#464B65", "#5B3644", "#34568B", "#CD212A", "#FFA500", "#56C6A9", "#4B5335", "#798EA4", "#FA7A35", "#00758F", "#EDD59E", "#E8A798", "#9C4722", "#6B5876", "#B89B72", "#282D3C", "#EDF1FF", "#A09998", "#DC793E", "#A2242F", "#C48A69", "#D9CE52", "#D19C97", "#006B54", "#6A2E2A", "#E6AF91", "#6C244C", "#DD4132", "#9E1030", "#FE840E", "#FF6F61", "#C62168", "#8D9440", "#FFD662", "#00539C", "#755139", "#D69C2F", "#616247", "#E8B5CE", "#D2C29D", "#343148", "#F0EAD6", "#615550", "#9B1B30", "#77212E", "#F5D6C6", "#FA9A85", "#5A3E36", "#CE5B78", "#935529", "#E08119", "#2A4B7C", "#577284", "#F96714", "#264E36", "#F3E0BE", "#2A293E", "#9F9C99", "#797B3A", "#DD4132", "#9E1030", "#FE840E", "#FF6F61", "#C62168", "#8D9440", "#FFD662", "#00539C", "#755139", "#D69C2F", "#616247", "#E8B5CE", "#D2C29D", "#343148", "#F0EAD6", "#615550", "#9B1B30", "#77212E", "#F5D6C6", "#FA9A85", "#5A3E36", "#CE5B78", "#935529", "#E08119", "#2A4B7C", "#577284", "#F96714", "#264E36", "#F3E0BE", "#2A293E", "#9F9C99", "#797B3A", "#92B558", "#DC4C46", "#672e3b", "#f3d6e4", "#c48f65", "#223a5e", "#898e8c", "#005960", "#9c9a40", "#4F84C4", "#d2691e", "#578CA9", "#f6d155", "#004b8d", "#f2552c", "#95dee3", "#edcdc2", "#ce3175", "#5a7247", "#cfb095", "#633517", "#a6001a", "FFFFFF"];
+
+var prevX = -1;
+var prevY = -1;
+
+// Initialize the canvas and controls
+function initializeCanvas() {
+  // Set the canvas size based on window dimensions
+  canvasHeight = window.innerHeight;
+  canvasWidth = window.innerWidth;
+  canvas = document.getElementById("drawingCanvas");
+  controlPanel = document.getElementById("controlPanel");
+  ctx = canvas.getContext("2d");
+  canvas.width = canvasWidth;
+  offsetTop = canvas.getBoundingClientRect().top;
+  canvas.height = canvasHeight - offsetTop;
+
+  // Add event listeners for touch events
+  canvas.addEventListener("touchstart", startDrawing, false);
+  canvas.addEventListener("touchend", stopDrawing, false);
+  canvas.addEventListener("touchcancel", stopDrawing, false);
+  canvas.addEventListener("touchleave", stopDrawing, false);
+  canvas.addEventListener("touchmove", handleTouchMove, false);
+
+  // Populate the color palette dynamically
+  var colorPalette = document.getElementById("colorPalette");
+  for (var i = 0; i < colors.length; i++) {
+    var button = document.createElement("button");
+    button.className = "colorButton";
+    button.style.backgroundColor = colors[i];
+    button.onclick = function() { changeColor(this); };
+    colorPalette.appendChild(button);
+  }
+
+  // Set initial line width and color
+  ctx.lineWidth = 1;
+  ctx.strokeStyle = "#000000";
+  ctx.lineCap = "round";
+}
+
+// Handle touch move event
+function handleTouchMove(e) {
+  if (isDrawing) {
+    var touches = e.changedTouches;
+    var x = getMousePosition(touches[0]).x;
+    var y = getMousePosition(touches[0]).y;
+    if (prevX != -1 && prevY != -1) draw(prevX, prevY, x, y);
+    prevX = x;
+    prevY = y;
+  }  
+}
+
+// Start drawing on mouse or touch start
+function startDrawing() {
+  isDrawing = true;
+}
+
+// Change the width of the drawing line
+function changeLineWidth(width) {
+  ctx.lineWidth = width;
+}
+
+// Clear the canvas
+function clearCanvas() {
+  ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+}
+
+// Change the stroke color when a color button is clicked
+function changeColor(button) {
+  ctx.strokeStyle = window.getComputedStyle(button, null).getPropertyValue('background-color');
+}
+
+// Stop drawing on mouse or touch up
+function stopDrawing() {
+  isDrawing = false;
+  prevX = -1;
+  prevY = -1;
+}
+
+// Get the mouse or touch position relative to the canvas
+function getMousePosition(e) {
+  return {
+    x: e.clientX,
+    y: e.clientY - offsetTop
+  };
+}
+
+// Draw a line on the canvas
+function draw(sx, sy, ex, ey) {
+  ctx.beginPath();
+  ctx.moveTo(sx, sy);
+  ctx.lineTo(ex, ey);
+  ctx.stroke();
+  ctx.closePath();
+}
+
+// Handle mouse move event for drawing
+function drawLine(e) {
+  if (isDrawing) {
+    var x = getMousePosition(e).x;
+    var y = getMousePosition(e).y;
+    if (prevX != -1 && prevY != -1) draw(prevX, prevY, x, y);
+    prevX = x;
+    prevY = y;
+  }
+}
+</script>
+</section>
+
+
+    
+<div class="navbar" style="margin-bottom: 910px; height: 40px; width: 1728px; color: orange;">
+  <a href="#news" class="active">Open</a>
+  <a href="#contact" class="active" style="margin-right: 250px;">Extentions</a>
+
+
+
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M760-600v-80q0-17 11.5-28.5T800-720h80v-40H760v-40h120q17 0 28.5 11.5T920-760v40q0 17-11.5 28.5T880-680h-80v40h120v40H760ZM235-160l185-291-172-269h106l124 200h4l123-200h107L539-451l186 291H618L482-377h-4L342-160H235Z"/></svg></a>
+    
+  <a href="#contact"><svg xmlns="http://www.w3.<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M440-240h80v-120h120v-80H520v-120h-80v120H320v80h120v120ZM240-80q-33 0-56.5-23.5T160-160v-640q0-33 23.5-56.5T240-880h320l240 240v480q0 33-23.5 56.5T720-80H240Zm280-520v-200H240v640h480v-440H520ZM240-800v200-200 640-640Z"/></svg></a>
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="m352-522 86-87-56-57-44 44-56-56 43-44-45-45-87 87 159 158Zm328 329 87-87-45-45-44 43-56-56 43-44-57-56-86 86 158 159Zm24-567 57 57-57-57ZM290-120H120v-170l175-175L80-680l200-200 216 216 151-152q12-12 27-18t31-6q16 0 31 6t27 18l53 54q12 12 18 27t6 31q0 16-6 30.5T816-647L665-495l215 215L680-80 465-295 290-120Zm-90-80h56l392-391-57-57-391 392v56Zm420-419-29-29 57 57-28-28Z"/></svg></a>
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M240-520q-83 0-141.5-58.5T40-720q0-84 58.5-142T240-920q84 0 142 58t58 142q0 83-58 141.5T240-520Zm0-80q51 0 85.5-35t34.5-85q0-51-34.5-85.5T240-840q-50 0-85 34.5T120-720q0 50 35 85t85 35ZM640-40q-33 0-56.5-23.5T560-120v-200q0-33 23.5-56.5T640-400h200q33 0 56.5 23.5T920-320v200q0 33-23.5 56.5T840-40H640Zm0-80h200v-200H640v200Zm100-100ZM240-720Zm469 68L308-252q5 12 8.5 25t3.5 27q0 50-34.5 85T200-80q-50 0-85-35t-35-85q0-51 35-85.5t85-34.5q14 0 27 3.5t25 8.5l400-401q-5-12-8.5-24.5T640-760q0-51 35-85.5t85-34.5q51 0 85.5 34.5T880-760q0 50-34.5 85T760-640q-14 0-26.5-3.5T709-652Z"/></svg></a>
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M400-240v-80h62l105-120-105-120h-66l-64 344q-8 45-37 70.5T221-120q-45 0-73-24t-28-64q0-32 17-51.5t43-19.5q25 0 42.5 17t17.5 41q0 5-.5 9t-1.5 9q5-1 8.5-5.5T252-221l62-339H200v-80h129l21-114q7-38 37.5-62t72.5-24q44 0 72 26t28 65q0 30-17 49.5T500-680q-25 0-42.5-17T440-739q0-5 .5-9t1.5-9q-6 2-9 6t-5 12l-17 99h189v80h-32l52 59 52-59h-32v-80h200v80h-62L673-440l105 120h62v80H640v-80h32l-52-60-52 60h32v80H400Z"/></svg>
+  </a>
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M240-160v-80l260-240-260-240v-80h480v120H431l215 200-215 200h289v120H240Z"/></svg></a>
+
+    
+  <a href="#contact"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M181-120q-45 0-73-24t-28-64q0-32 17-51.5t43-19.5q25 0 42.5 17t17.5 41q0 5-.5 9t-1.5 9q5-1 8.5-5.5T212-221l62-339H160v-80h129l21-114q7-38 37.5-62t72.5-24q44 0 72 26t28 65q0 30-17 49.5T460-680q-25 0-42.5-17T400-739q0-5 .5-9t1.5-9q-6 2-9 6t-5 12l-17 99h189v80H356l-64 344q-8 45-37 70.5T181-120Zm643 40L716-188q-22 13-46 20.5t-50 7.5q-75 0-127.5-52.5T440-340q0-75 52.5-127.5T620-520q75 0 127.5 52.5T800-340q0 26-7.5 50T772-244l108 108-56 56ZM691-269q29-29 29-71t-29-71q-29-29-71-29t-71 29q-29 29-29 71t29 71q29 29 71 29t71-29Z"/></svg></a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M224-878h78l135 360h-75l-30-86H194l-30 86H89l135-360Zm5 402q42 0 71 29t29 71q0 20-7.5 38.5T300-305l-15 14 28 28 57-56 57 57-56 56 56 57-57 56-56-56-42 42q-15 15-34 22.5T198-77q-42 0-70-29.5T100-178q0-20 8-38.5t22-32.5l42-42-14-14q-14-14-22-32t-8-38q0-42 29.5-71.5T229-476Zm0 242-43 42q-3 3-4 6.5t-1 7.5q0 8 5.5 14t13.5 6q4 0 7.5-1.5t6.5-4.5l43-42-28-28Zm-1-162q-8 0-13.5 6t-5.5 14q0 4 1 7.5t4 6.5l15 14 13-13q3-3 4.5-6.5t1.5-7.5q0-8-6-14.5t-14-6.5Zm33-404-46 134h96l-46-134h-4Zm438-105q8 13 13.5 27t9.5 28l-43 13h201v80h-67q-11 33-28.5 62.5T744-640q27 16 56 26.5t60 18.5l-19 77q-43-11-83.5-27T680-586q-37 24-77.5 40.5T519-518l-18-77q30-8 59-18.5t56-26.5q-23-25-40.5-54.5T548-757h-68v-80h176q-3-13-8-25.5T638-887l61-18Zm104 444 57 56L549-94l-57-56 311-311Zm-180.5 40.5Q640-403 640-378t-17.5 42.5Q605-318 580-318t-42.5-17.5Q520-353 520-378t17.5-42.5Q555-438 580-438t42.5 17.5ZM633-757q8 19 20 36t27 32q15-15 27-32t21-36h-95Zm189.5 536.5Q840-203 840-178t-17.5 42.5Q805-118 780-118t-42.5-17.5Q720-153 720-178t17.5-42.5Q755-238 780-238t42.5 17.5Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="m240-160 40-160H120l20-80h160l40-160H180l20-80h160l40-160h80l-40 160h160l40-160h80l-40 160h160l-20 80H660l-40 160h160l-20 80H600l-40 160h-80l40-160H360l-40 160h-80Zm140-240h160l40-160H420l-40 160Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M600-160v-80h120v-480H600v-80h200v640H600Zm-440 0v-640h200v80H240v480h120v80H160Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M520-520h278q-15-110-91.5-186.5T520-798v278Zm-80 358v-636q-121 15-200.5 105.5T160-480q0 122 79.5 212.5T440-162Zm80 0q110-14 187-91t91-187H520v278Zm-40-318Zm0 400q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 155.5 31.5t127 86q54.5 54.5 86 127T880-480q0 82-31.5 155T763-197.5q-54 54.5-127 86T480-80Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="m140-100-60-60 300-300 160 160 284-320 56 56-340 384-160-160-240 240Zm0-240-60-60 300-300 160 160 284-320 56 56-340 384-160-160-240 240Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h360v80H200v560h560v-360h80v360q0 33-23.5 56.5T760-120H200Zm80-160h80v-280h-80v280Zm160 0h80v-400h-80v400Zm160 0h80v-160h-80v160Zm80-320v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80ZM480-480Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M320-414v-306h120v306l-60-56-60 56Zm200 60v-526h120v406L520-354ZM120-216v-344h120v224L120-216Zm0 98 258-258 142 122 224-224h-64v-80h200v200h-80v-64L524-146 382-268 232-118H120Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M120-160v-520l160 120 200-280 200 160h160v520H120Zm200-120 160-220 280 218v-318H652L496-725 298-447l-98-73v144l120 96Z"/></svg>  
+  </a>
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M160-160v-440h160v440H160Zm0-480v-160h160v160H160Zm240 480v-320h160v320H400Zm0-360v-160h160v160H400Zm240 360v-200h160v200H640Zm0-240v-160h160v160H640Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M160-240H80v-480h80v480Zm320 0L240-480l240-240 56 56-143 144h487v80H393l144 144-57 56Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M560-280H120v-400h720v120h-80v-40H200v240h360v80Zm-360-80v-240 240Zm560 200v-120H640v-80h120v-120h80v120h120v80H840v120h-80Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M200-200v-160 4-4 160Zm0 80q-33 0-56.5-23.5T120-200v-160q0-33 23.5-56.5T200-440h560q33 0 56.5 23.5T840-360H200v160h400v80H200Zm0-400q-33 0-56.5-23.5T120-600v-160q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v160q0 33-23.5 56.5T760-520H200Zm0-80h560v-160H200v160Zm0 0v-160 160ZM760-40v-80h-80v-80h80v-80h80v80h80v80h-80v80h-80Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+  
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M760-600v-80q0-17 11.5-28.5T800-720h80v-40H760v-40h120q17 0 28.5 11.5T920-760v40q0 17-11.5 28.5T880-680h-80v40h120v40H760ZM235-160l185-291-172-269h106l124 200h4l123-200h107L539-451l186 291H618L482-377h-4L342-160H235Z"/></svg>  </a>
+
+
+
+    
+  <a href="#contact">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M440-440H200v-80h240v-240h80v240h240v80H520v240h-80v-240Z"/></svg> 
+
+    
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M760-160v-80q0-17 11.5-28.5T800-280h80v-40H760v-40h120q17 0 28.5 11.5T920-320v40q0 17-11.5 28.5T880-240h-80v40h120v40H760Zm-525-80 185-291-172-269h106l124 200h4l123-200h107L539-531l186 291H618L482-457h-4L342-240H235Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="m720-80-56-56 63-64H480v-80h247l-63-64 56-56 160 160L720-80ZM80-440v-120h120v120H80Zm201-41q-41-41-41-99v-160q0-58 41-99t99-41q58 0 99 41t41 99v160q0 58-41 99t-99 41q-58 0-99-41Zm360 0q-41-41-41-99v-160q0-58 41-99t99-41q58 0 99 41t41 99v160q0 58-41 99t-99 41q-58 0-99-41Zm-218.5-56.5Q440-555 440-580v-160q0-25-17.5-42.5T380-800q-25 0-42.5 17.5T320-740v160q0 25 17.5 42.5T380-520q25 0 42.5-17.5Zm360 0Q800-555 800-580v-160q0-25-17.5-42.5T740-800q-25 0-42.5 17.5T680-740v160q0 25 17.5 42.5T740-520q25 0 42.5-17.5Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+      
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M640-80 480-240l160-160 56 56-63 64h247v80H633l63 64-56 56ZM80-440v-120h120v120H80Zm201-41q-41-41-41-99v-160q0-58 41-99t99-41q58 0 99 41t41 99v160q0 58-41 99t-99 41q-58 0-99-41Zm141.5-56.5Q440-555 440-580v-160q0-25-17.5-42.5T380-800q-25 0-42.5 17.5T320-740v160q0 25 17.5 42.5T380-520q25 0 42.5-17.5Z"/></svg>  
+  </a>
+
+
+
+    
+  <a href="#contact">
+<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="orange"><path d="M280-280v-80h400v80H280ZM120-440v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80ZM120-600v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Zm160 0v-80h80v80h-80Z"/></svg>  
+  
+  </a>
+
+
+
+    
+  <a href="#contact"  class="active" style="float: right;margin-left: 30px;">Profile</a>
+</div>
+
+
+
+
+
+
+
+
+    
+<div id="apps">
+<div class="btn-group">
+  <button  type="button" onclick="document.getElementById('calculator').style.display='block'"> 
+<svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white;" width="40px"   hieght="40px"  id="mcalculator" viewBox="0 0 384 512">
+<path fill="currentColor" d="M64 0C28.7 0 0 28.7 0 64L0 448c0 35.3 28.7 64 64 64l256 0c35.3 0 64-28.7 64-64l0-384c0-35.3-28.7-64-64-64L64 0zM96 64l192 0c17.7 0 32 14.3 32 32l0 32c0 17.7-14.3 32-32 32L96 160c-17.7 0-32-14.3-32-32l0-32c0-17.7 14.3-32 32-32zm16 168a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zm80 24a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm128-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zM88 352a24 24 0 1 1 0-48 24 24 0 1 1 0 48zm128-24a24 24 0 1 1 -48 0 24 24 0 1 1 48 0zm80 24a24 24 0 1 1 0-48 24 24 0 1 1 0 48zM64 424c0-13.3 10.7-24 24-24l112 0c13.3 0 24 10.7 24 24s-10.7 24-24 24L88 448c-13.3 0-24-10.7-24-24zm232-24c13.3 0 24 10.7 24 24s-10.7 24-24 24-24-10.7-24-24 10.7-24 24-24z"/>
+</svg>
+          
+    </button>
+   
+   <button onclick="colorPicker()" style="background: linear-gradient(330deg,#00000080, #8E44AD);"><svg style="background: linear-gradient(90deg, #A66948, #EFE3DF, #9C4722, #edcdc2, #999E62, #FFBBB9, #A66948);" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentFill"><path d="M1835-183.5Q160-207 160-240t23.5-56.5Q207-320 240-320t56.5 23.5Q320-273 320-240t-23.5 56.5Q273-160 240-160t-56.5-23.5Zm240 0Q400-207 400-240t23.5-56.5Q447-320 480-320t56.5 23.5Q560-273 560-240t-23.5 56.5Q513-160 480-160t-56.5-23.5Zm240 0Q640-207 640-240t23.5-56.5Q687-320 720-320t56.5 23.5Q800-273 800-240t-23.5 56.5Q753-160 720-160t-56.5-23.5Zm-480-240Q160-447 160-480t23.5-56.5Q207-560 240-560t56.5 23.5Q320-513 320-480t-23.5 56.5Q273-400 240-400t-56.5-23.5Zm240 0Q400-447 400-480t23.5-56.5Q447-560 480-560t56.5 23.5Q560-513 560-480t-23.5 56.5Q513-400 480-400t-56.5-23.5Zm240 0Q640-447 640-480t23.5-56.5Q687-560 720-560t56.5 23.5Q800-513 800-480t-23.5 56.5Q753-400 720-400t-56.5-23.5Zm-480-240Q160-687 160-720t23.5-56.5Q207-800 240-800t56.5 23.5Q320-753 320-720t-23.5 56.5Q273-640 240-640t-56.5-23.5Zm240 0Q400-687 400-720t23.5-56.5Q447-800 480-800t56.5 23.5Q560-753 560-720t-23.5 56.5Q513-640 480-640t-56.5-23.5Zm240 0Q640-687 640-720t23.5-56.5Q687-800 720-800t56.5 23.5Q800-753 800-720t-23.5 56.5Q753-640 720-640t-56.5-23.5Z"/></svg>Color Picker</button>
+   
+    <script>
+function colorPicker() {
+  document.getElementById("colorPicker").style.display = "block";
+}
+
+                </script>
+    
+  <button  onclick="getElementById('colPick').style.display='block'"  style="background: linear-gradient(330deg,#00000080, #A66948);"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="sliders" viewBox="0 0 512 512">
+<path fill="currentColor" d="M32 64C14.3 64 0 78.3 0 96s14.3 32 32 32l86.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 128c17.7 0 32-14.3 32-32s-14.3-32-32-32L265.3 64C253 35.7 224.8 16 192 16s-61 19.7-73.3 48L32 64zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l246.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48l54.7 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l-54.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 224zm0 160c-17.7 0-32 14.3-32 32s14.3 32 32 32l54.7 0c12.3 28.3 40.5 48 73.3 48s61-19.7 73.3-48L480 448c17.7 0 32-14.3 32-32s-14.3-32-32-32l-246.7 0c-12.3-28.3-40.5-48-73.3-48s-61 19.7-73.3 48L32 384z"/>
+</svg>Page Color</button>
+
+    
+  <button  onclick="getElementById('colorSearch').style.display='block'"  style="background: linear-gradient(330deg,#00000080, #633517);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M381-116q-44-36-55-92-53 17-107-2t-83-66q-30-48-22-106.5t52-97.5q-42-38-50.5-94T134-678q27-48 81.5-69.5T324-752q11-56 55-92t101-36q57 0 101 36t55 92q56-17 108.5 3t81.5 71q27 50 19.5 104.5T794-480q44 39 52.5 96.5T828-276q-29 51-81.5 68T638-208q-11 56-55 92T482-80q-57 0-101-36Zm101-44q47 0 70.5-40.5T552-280l-28-46q-11 3-21 4.5t-21 1.5q-10 0-20.5-1.5T440-326l-28 46q-24 39-.5 79.5T482-160ZM202-320q24 41 70.5 41t69.5-41l26-46q-8-8-15-17t-12-19q-5-9-9-18.5t-7-19.5h-53q-47 0-70 39.5t0 80.5Zm416 0q23 41 69.5 41t70.5-41q23-41 0-80.5T688-440h-53q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17l26 46ZM480-480Zm-155-40q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16l-26-46q-23-41-69.5-41T202-640q-23 41 0 80.5t70 39.5h53Zm363 0q47 0 70-39.5t0-80.5q-24-41-70.5-41T618-640l-26 46q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520h53ZM437-634q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634l27-46q23-39 0-79.5T480-800q-47 0-70 40t0 80l27 46Zm0 0q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634q-11-3-21.5-4.5T480-640q-11 0-21.5 1.5T437-634Zm-96 232q-5-9-9-18.5t-7-19.5q3 10 7 19.5t9 18.5q5 10 12 19t15 17q-8-8-15-17t-12-19Zm-16-118q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16q-8 8-14.5 16T342-561q-5 9-9.5 19.5T325-520Zm157 200q-10 0-20.5-1.5T440-326q11 3 21.5 4.5T482-320q11 0 21-1.5t21-4.5q-11 3-21 4.5t-21 1.5Zm110-46q8-8 15-17t12-19q5-9 9.5-18.5T635-440q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17Zm43-154q-3-11-7.5-21.5T618-561q-5-9-11.5-17T592-594q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520Zm-98.5 96.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5Z"/></svg>Color Search</button>
+
+    
+  
+  <button  onclick="getElementById('canvas').style.display='block'"  style="background: linear-gradient(330deg,#00000080, #633517);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m160-120 22-65q8-25 29-40t47-15h444q26 0 47 15t29 40l22 65H160Zm80-200 200-520h80l200 520H240Zm116-80h248L480-721 356-400Zm0 0h248-248Z"/></svg>Canvas</button>
+
+  <button style="background: linear-gradient(330deg,#00000080, #FFBBB9);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M160-120v-170l527-526q12-12 27-18t30-6q16 0 30.5 6t25.5 18l56 56q12 11 18 25.5t6 30.5q0 15-6 30t-18 27L330-120H160Zm80-80h56l393-392-28-29-29-28-392 393v56Zm560-503-57-57 57 57Zm-139 82-29-28 57 57-28-29ZM560-120q74 0 137-37t63-103q0-36-19-62t-51-45l-59 59q23 10 36 22t13 26q0 23-36.5 41.5T560-200q-17 0-28.5 11.5T520-160q0 17 11.5 28.5T560-120ZM183-426l60-60q-20-8-31.5-16.5T200-520q0-12 18-24t76-37q88-38 117-69t29-70q0-55-44-87.5T280-840q-45 0-80.5 16T145-785q-11 13-9 29t15 26q13 11 29 9t27-13q14-14 31-20t42-6q41 0 60.5 12t19.5 28q0 14-17.5 25.5T262-654q-80 35-111 63.5T120-520q0 32 17 54.5t46 39.5Z"/></svg><p style="font-size: 12px;">Measure Convert</p></button>
+
+    
+  <button style="background: linear-gradient(330deg,#00000080, #2A293E);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M324-111.5Q251-143 197-197t-85.5-127Q80-397 80-480t31.5-156Q143-709 197-763t127-85.5Q397-880 480-880t156 31.5Q709-817 763-763t85.5 127Q880-563 880-480t-31.5 156Q817-251 763-197t-127 85.5Q563-80 480-80t-156-31.5ZM480-160q134 0 227-93t93-227q0-64-24.5-122.5T706-706L254-254q45 45 103.5 69.5T480-160Zm0-160v-60h200v60H480ZM320-500h60v-80h80v-60h-80v-80h-60v80h-80v60h80v80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #EFE3DF);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M220-160q-25 0-42.5-17.5T160-220q0-25 17.5-42.5T220-280q25 0 42.5 17.5T280-220q0 25-17.5 42.5T220-160Zm173 0q-25 0-42.5-17.5T333-220q0-25 17.5-42.5T393-280q25 0 42.5 17.5T453-220q0 25-17.5 42.5T393-160Zm174 0q-25 0-42.5-17.5T507-220q0-25 17.5-42.5T567-280q25 0 42.5 17.5T627-220q0 25-17.5 42.5T567-160Zm173 0q-25 0-42.5-17.5T680-220q0-25 17.5-42.5T740-280q25 0 42.5 17.5T800-220q0 25-17.5 42.5T740-160ZM220-333q-25 0-42.5-17.5T160-393q0-25 17.5-42.5T220-453q25 0 42.5 17.5T280-393q0 25-17.5 42.5T220-333Zm173 0q-25 0-42.5-17.5T333-393q0-25 17.5-42.5T393-453q25 0 42.5 17.5T453-393q0 25-17.5 42.5T393-333Zm174 0q-25 0-42.5-17.5T507-393q0-25 17.5-42.5T567-453q25 0 42.5 17.5T627-393q0 25-17.5 42.5T567-333Zm173 0q-25 0-42.5-17.5T680-393q0-25 17.5-42.5T740-453q25 0 42.5 17.5T800-393q0 25-17.5 42.5T740-333ZM220-507q-25 0-42.5-17.5T160-567q0-25 17.5-42.5T220-627q25 0 42.5 17.5T280-567q0 25-17.5 42.5T220-507Zm173 0q-25 0-42.5-17.5T333-567q0-25 17.5-42.5T393-627q25 0 42.5 17.5T453-567q0 25-17.5 42.5T393-507Zm174 0q-25 0-42.5-17.5T507-567q0-25 17.5-42.5T567-627q25 0 42.5 17.5T627-567q0 25-17.5 42.5T567-507Zm173 0q-25 0-42.5-17.5T680-567q0-25 17.5-42.5T740-627q25 0 42.5 17.5T800-567q0 25-17.5 42.5T740-507ZM220-680q-25 0-42.5-17.5T160-740q0-25 17.5-42.5T220-800q25 0 42.5 17.5T280-740q0 25-17.5 42.5T220-680Zm173 0q-25 0-42.5-17.5T333-740q0-25 17.5-42.5T393-800q25 0 42.5 17.5T453-740q0 25-17.5 42.5T393-680Zm174 0q-25 0-42.5-17.5T507-740q0-25 17.5-42.5T567-800q25 0 42.5 17.5T627-740q0 25-17.5 42.5T567-680Zm173 0q-25 0-42.5-17.5T680-740q0-25 17.5-42.5T740-800q25 0 42.5 17.5T800-740q0 25-17.5 42.5T740-680Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #F39C12);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h560v-560L200-200Zm380-40v-80h-80v-60h80v-80h60v80h80v60h-80v80h-60ZM240-620h200v-60H240v60Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #EDF1FF);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M400-40v-80H200q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h200v-80h80v880h-80ZM200-240h200v-240L200-240Zm360 120v-360l200 240v-520H560v-80h200q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H560Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #6C244C);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133ZM200-413h133v-134H200v134Zm213 0h134v-134H413v134Zm214 0h133v-134H627v134ZM200-627h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #999E62);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M200-120q-33 0-56.5-23.5T120-200v-160h80v160h160v80H200Zm400 0v-80h160v-160h80v160q0 33-23.5 56.5T760-120H600ZM120-600v-160q0-33 23.5-56.5T200-840h160v80H200v160h-80Zm640 0v-160H600v-80h160q33 0 56.5 23.5T840-760v160h-80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #F5D6C6);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M381-116q-44-36-55-92-53 17-107-2t-83-66q-30-48-22-106.5t52-97.5q-42-38-50.5-94T134-678q27-48 81.5-69.5T324-752q11-56 55-92t101-36q57 0 101 36t55 92q56-17 108.5 3t81.5 71q27 50 19.5 104.5T794-480q44 39 52.5 96.5T828-276q-29 51-81.5 68T638-208q-11 56-55 92T482-80q-57 0-101-36Zm101-44q47 0 70.5-40.5T552-280l-28-46q-11 3-21 4.5t-21 1.5q-10 0-20.5-1.5T440-326l-28 46q-24 39-.5 79.5T482-160ZM202-320q24 41 70.5 41t69.5-41l26-46q-8-8-15-17t-12-19q-5-9-9-18.5t-7-19.5h-53q-47 0-70 39.5t0 80.5Zm416 0q23 41 69.5 41t70.5-41q23-41 0-80.5T688-440h-53q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17l26 46ZM480-480Zm-155-40q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16l-26-46q-23-41-69.5-41T202-640q-23 41 0 80.5t70 39.5h53Zm363 0q47 0 70-39.5t0-80.5q-24-41-70.5-41T618-640l-26 46q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520h53ZM437-634q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634l27-46q23-39 0-79.5T480-800q-47 0-70 40t0 80l27 46Zm0 0q11-3 21.5-4.5T480-640q11 0 21.5 1.5T523-634q-11-3-21.5-4.5T480-640q-11 0-21.5 1.5T437-634Zm-96 232q-5-9-9-18.5t-7-19.5q3 10 7 19.5t9 18.5q5 10 12 19t15 17q-8-8-15-17t-12-19Zm-16-118q3-11 7.5-21.5T342-561q5-9 11.5-17t14.5-16q-8 8-14.5 16T342-561q-5 9-9.5 19.5T325-520Zm157 200q-10 0-20.5-1.5T440-326q11 3 21.5 4.5T482-320q11 0 21-1.5t21-4.5q-11 3-21 4.5t-21 1.5Zm110-46q8-8 15-17t12-19q5-9 9.5-18.5T635-440q-2 10-6.5 19.5T619-402q-5 10-12 19t-15 17Zm43-154q-3-11-7.5-21.5T618-561q-5-9-11.5-17T592-594q8 8 14.5 16t11.5 17q5 9 9.5 19.5T635-520Zm-98.5 96.5Q560-447 560-480t-23.5-56.5Q513-560 480-560t-56.5 23.5Q400-513 400-480t23.5 56.5Q447-400 480-400t56.5-23.5Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #00758F);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M440-440v-80h80v80h-80Zm-80 80v-80h80v80h-80Zm160 0v-80h80v80h-80Zm80-80v-80h80v80h-80Zm-320 0v-80h80v80h-80Zm-80 320q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm80-80h80v-80h-80v80Zm160 0h80v-80h-80v80Zm320 0v-80 80Zm-560-80h80v-80h80v80h80v-80h80v80h80v-80h80v80h80v-80h-80v-80h80v-320H200v320h80v80h-80v80Zm0 80v-560 560Zm560-240v80-80ZM600-280v80h80v-80h-80Z"/></svg></button>
+  <button style="background: linear-gradient(330deg,#00000080, #C62168);"><svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M106-386q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-160q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm105.5 334.5Q200-223 200-240t11.5-28.5Q223-280 240-280t28.5 11.5Q280-257 280-240t-11.5 28.5Q257-200 240-200t-28.5-11.5Zm0-160Q200-383 200-400t11.5-28.5Q223-440 240-440t28.5 11.5Q280-417 280-400t-11.5 28.5Q257-360 240-360t-28.5-11.5Zm0-160Q200-543 200-560t11.5-28.5Q223-600 240-600t28.5 11.5Q280-577 280-560t-11.5 28.5Q257-520 240-520t-28.5-11.5Zm0-160Q200-703 200-720t11.5-28.5Q223-760 240-760t28.5 11.5Q280-737 280-720t-11.5 28.5Q257-680 240-680t-28.5-11.5Zm146 334Q340-375 340-400t17.5-42.5Q375-460 400-460t42.5 17.5Q460-425 460-400t-17.5 42.5Q425-340 400-340t-42.5-17.5Zm0-160Q340-535 340-560t17.5-42.5Q375-620 400-620t42.5 17.5Q460-585 460-560t-17.5 42.5Q425-500 400-500t-42.5-17.5Zm14 306Q360-223 360-240t11.5-28.5Q383-280 400-280t28.5 11.5Q440-257 440-240t-11.5 28.5Q417-200 400-200t-28.5-11.5Zm0-480Q360-703 360-720t11.5-28.5Q383-760 400-760t28.5 11.5Q440-737 440-720t-11.5 28.5Q417-680 400-680t-28.5-11.5ZM386-106q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-720q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm131.5 468.5Q500-375 500-400t17.5-42.5Q535-460 560-460t42.5 17.5Q620-425 620-400t-17.5 42.5Q585-340 560-340t-42.5-17.5Zm0-160Q500-535 500-560t17.5-42.5Q535-620 560-620t42.5 17.5Q620-585 620-560t-17.5 42.5Q585-500 560-500t-42.5-17.5Zm14 306Q520-223 520-240t11.5-28.5Q543-280 560-280t28.5 11.5Q600-257 600-240t-11.5 28.5Q577-200 560-200t-28.5-11.5Zm0-480Q520-703 520-720t11.5-28.5Q543-760 560-760t28.5 11.5Q600-737 600-720t-11.5 28.5Q577-680 560-680t-28.5-11.5ZM546-106q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-720q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm145.5 614.5Q680-223 680-240t11.5-28.5Q703-280 720-280t28.5 11.5Q760-257 760-240t-11.5 28.5Q737-200 720-200t-28.5-11.5Zm0-160Q680-383 680-400t11.5-28.5Q703-440 720-440t28.5 11.5Q760-417 760-400t-11.5 28.5Q737-360 720-360t-28.5-11.5Zm0-160Q680-543 680-560t11.5-28.5Q703-600 720-600t28.5 11.5Q760-577 760-560t-11.5 28.5Q737-520 720-520t-28.5-11.5Zm0-160Q680-703 680-720t11.5-28.5Q703-760 720-760t28.5 11.5Q760-737 760-720t-11.5 28.5Q737-680 720-680t-28.5-11.5ZM826-386q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Zm0-160q-6-6-6-14t6-14q6-6 14-6t14 6q6 6 6 14t-6 14q-6 6-14 6t-14-6Z"/></svg></button>
+</div>
+    </div>
+
+    
+      
+
+ <style>
+     
+.calculator {
+    width:  400px;
+    max-width: 400px;
+    background-color: var(--bg-color);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.display {
+    padding: 20px;
+    text-align: right;
+    background-color: var(--display-color);
+    margin: 10px;
+    border-radius: 10px;
+}
+
+.previous-operand {
+    min-height: 24px;
+    font-size: 1rem;
+    color: rgba(var(--text-color), 0.7);
+    overflow-wrap: break-word;
+}
+
+.current-operand {
+    min-height: 40px;
+    font-size: 2rem;
+    font-weight: bold;
+    overflow-wrap: break-word;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+button {
+    border: none;
+    outline: none;
+    padding: 15px 10px;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    cursor: pointer;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    box-shadow: 0 4px 6px var(--shadow-color);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button[data-action="operation"] {
+    background-color: var(--operation-color);
+    color: white;
+}
+
+button[data-action="function"] {
+    background-color: var(--function-color);
+    color: white;
+    font-size: 1rem;
+}
+
+button[data-action="equals"] {
+    background-color: var(--operation-color);
+    color: white;
+}
+
+button[data-action="clear"],
+button[data-action="delete"] {
+    background-color: #ff3b30;
+    color: white;
+}
+
+.span-2 {
+    grid-column: span 2;
+}
+
+@media (max-width: 400px) {
+    button {
+        padding: 12px 8px;
+        font-size: 1rem;
+    }
+    
+    button[data-action="function"] {
+        font-size: 0.8rem;
+    }
+}
+    </style>
+    
+    <div class="calculator" id="calculator" style="display:block; margin-left: 1200px; top: 0; margin-top: 100px; width: 400px; height: 600px;">
+        <div class="display">
+            <div class="previous-operand"></div>
+            <div class="current-operand">0</div>
+        </div>
+        
+        <div class="buttons">
+           
+            <button class="">
+            <a onclick="document.getElementById('calculator').style.display='none'">
+        
+      <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="power-off" viewBox="0 0 512 512">
+<path fill="currentColor" d="M288 0c0-17.7-14.3-32-32-32S224-17.7 224 0l0 256c0 17.7 14.3 32 32 32s32-14.3 32-32L288 0zM146.3 98.4c14.5-10.1 18-30.1 7.9-44.6s-30.1-18-44.6-7.9C43.4 92.1 0 169 0 256 0 397.4 114.6 512 256 512S512 397.4 512 256c0-87-43.4-163.9-109.7-210.1-14.5-10.1-34.4-6.6-44.6 7.9s-6.6 34.4 7.9 44.6c49.8 34.8 82.3 92.4 82.3 157.6 0 106-86 192-192 192S64 362 64 256c0-65.2 32.5-122.9 82.3-157.6z"/>
+</svg> 
+    </a>
+</button>    
+            <button class="span-2" data-action="clear">AC</button>
+            <button data-action="delete">DEL</button>
+            <button data-action="operation">÷</button>
+            
+            <button data-action="function" data-function="sin">sin</button>
+            <button data-action="function" data-function="cos">cos</button>
+            <button data-action="function" data-function="tan">tan</button>
+            <button data-action="operation">×</button>
+            
+            <button data-action="number">7</button>
+            <button data-action="number">8</button>
+            <button data-action="number">9</button>
+            <button data-action="operation">-</button>
+            
+            <button data-action="number">4</button>
+            <button data-action="number">5</button>
+            <button data-action="number">6</button>
+            <button data-action="operation">+</button>
+            
+            <button data-action="number">1</button>
+            <button data-action="number">2</button>
+            <button data-action="number">3</button>
+            <button data-action="equals">=</button>
+            
+            <button class="span-2" data-action="number">0</button>
+            <button data-action="decimal">.</button>
+            
+            <button data-action="function" data-function="sqrt">√</button>
+            <button data-action="function" data-function="pow">x^y</button>
+            <button data-action="function" data-function="log">log</button>
+            <button data-action="function" data-function="ln">ln</button>
+            <button data-action="function" data-function="pi">π</button>
+            <button data-action="function" data-function="e">e</button>
+            <button data-action="paren" data-paren="(">(</button>
+            <button data-action="paren" data-paren=")">)</button>
+            <button data-action="toggle-mode"><i class="fas fa-moon"></i></button>
+            
+        </div>
+        
+    
+    <script>
+        class Calculator {
+    constructor(previousOperandElement, currentOperandElement) {
+        this.previousOperandElement = previousOperandElement;
+        this.currentOperandElement = currentOperandElement;
+        this.clear();
+    }
+
+    clear() {
+        this.currentOperand = '0';
+        this.previousOperand = '';
+        this.operation = undefined;
+        this.resetScreen = false;
+    }
+
+    delete() {
+        if (this.currentOperand.length === 1 || 
+            (this.currentOperand.length === 2 && this.currentOperand.startsWith('-'))) {
+            this.currentOperand = '0';
+        } else {
+            this.currentOperand = this.currentOperand.slice(0, -1);
+        }
+    }
+
+    appendNumber(number) {
+        if (this.resetScreen) {
+            this.currentOperand = '0';
+            this.resetScreen = false;
+        }
+        if (number === '.' && this.currentOperand.includes('.')) return;
+        if (this.currentOperand === '0' && number !== '.') {
+            this.currentOperand = number;
+        } else {
+            this.currentOperand += number;
+        }
+    }
+
+    chooseOperation(operation) {
+        if (this.currentOperand === '0' && this.previousOperand !== '') {
+            this.operation = operation;
+            return;
+        }
+        if (this.previousOperand !== '') {
+            this.compute();
+        }
+        this.operation = operation;
+        this.previousOperand = this.currentOperand;
+        this.currentOperand = '0';
+    }
+
+    compute() {
+        let computation;
+        const prev = parseFloat(this.previousOperand);
+        const current = parseFloat(this.currentOperand);
+        
+        if (isNaN(prev) || isNaN(current)) return;
+        
+        switch (this.operation) {
+            case '+':
+                computation = prev + current;
+                break;
+            case '-':
+                computation = prev - current;
+                break;
+            case '×':
+                computation = prev * current;
+                break;
+            case '÷':
+                computation = prev / current;
+                break;
+            case 'x^y':
+                computation = Math.pow(prev, current);
+                break;
+            default:
+                return;
+        }
+        
+        this.currentOperand = computation.toString();
+        this.operation = undefined;
+        this.previousOperand = '';
+        this.resetScreen = true;
+    }
+
+    applyFunction(func) {
+        const current = parseFloat(this.currentOperand);
+        if (isNaN(current)) return;
+        
+        switch (func) {
+            case 'sin':
+                this.currentOperand = Math.sin(current * Math.PI / 180).toString();
+                break;
+            case 'cos':
+                this.currentOperand = Math.cos(current * Math.PI / 180).toString();
+                break;
+            case 'tan':
+                this.currentOperand = Math.tan(current * Math.PI / 180).toString();
+                break;
+            case 'sqrt':
+                this.currentOperand = Math.sqrt(current).toString();
+                break;
+            case 'log':
+                this.currentOperand = Math.log10(current).toString();
+                break;
+            case 'ln':
+                this.currentOperand = Math.log(current).toString();
+                break;
+            case 'pi':
+                this.currentOperand = Math.PI.toString();
+                break;
+            case 'e':
+                this.currentOperand = Math.E.toString();
+                break;
+        }
+        this.resetScreen = true;
+    }
+
+    addParenthesis(paren) {
+        if (this.resetScreen) {
+            this.currentOperand = '0';
+            this.resetScreen = false;
+        }
+        if (this.currentOperand === '0') {
+            this.currentOperand = paren;
+        } else {
+            this.currentOperand += paren;
+        }
+    }
+
+    updateDisplay() {
+        this.currentOperandElement.innerText = this.currentOperand;
+        if (this.operation != null) {
+            this.previousOperandElement.innerText = 
+                `${this.previousOperand} ${this.operation}`;
+        } else {
+            this.previousOperandElement.innerText = this.previousOperand;
+        }
+    }
+}
+
+// DOM Elements
+const numberButtons = document.querySelectorAll('[data-action="number"]');
+const operationButtons = document.querySelectorAll('[data-action="operation"]');
+const equalsButton = document.querySelector('[data-action="equals"]');
+const clearButton = document.querySelector('[data-action="clear"]');
+const deleteButton = document.querySelector('[data-action="delete"]');
+const functionButtons = document.querySelectorAll('[data-action="function"]');
+const parenButtons = document.querySelectorAll('[data-action="paren"]');
+const decimalButton = document.querySelector('[data-action="decimal"]');
+const previousOperandElement = document.querySelector('.previous-operand');
+const currentOperandElement = document.querySelector('.current-operand');
+const toggleModeButton = document.querySelector('[data-action="toggle-mode"]');
+
+const calculator = new Calculator(previousOperandElement, currentOperandElement);
+
+// Event Listeners
+numberButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.appendNumber(button.innerText);
+        calculator.updateDisplay();
+    });
+});
+
+operationButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.chooseOperation(button.innerText);
+        calculator.updateDisplay();
+    });
+});
+
+equalsButton.addEventListener('click', () => {
+    calculator.compute();
+    calculator.updateDisplay();
+});
+
+clearButton.addEventListener('click', () => {
+    calculator.clear();
+    calculator.updateDisplay();
+});
+
+deleteButton.addEventListener('click', () => {
+    calculator.delete();
+    calculator.updateDisplay();
+});
+
+decimalButton.addEventListener('click', () => {
+    calculator.appendNumber('.');
+    calculator.updateDisplay();
+});
+
+functionButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.applyFunction(button.dataset.function);
+        calculator.updateDisplay();
+    });
+});
+
+parenButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        calculator.addParenthesis(button.dataset.paren);
+        calculator.updateDisplay();
+    });
+});
+
+toggleModeButton.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    const icon = toggleModeButton.querySelector('i');
+    if (document.body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+});
+
+// Keyboard support
+document.addEventListener('keydown', (e) => {
+    if (e.key >= 0 && e.key <= 9) {
+        calculator.appendNumber(e.key);
+        calculator.updateDisplay();
+    } else if (e.key === '.') {
+        calculator.appendNumber('.');
+        calculator.updateDisplay();
+    } else if (e.key === '+' || e.key === '-' || e.key === '*' || e.key === '/') {
+        calculator.chooseOperation(
+            e.key === '*' ? '×' : e.key === '/' ? '÷' : e.key
+        );
+        calculator.updateDisplay();
+    } else if (e.key === 'Enter' || e.key === '=') {
+        calculator.compute();
+        calculator.updateDisplay();
+    } else if (e.key === 'Backspace') {
+        calculator.delete();
+        calculator.updateDisplay();
+    } else if (e.key === 'Escape') {
+        calculator.clear();
+        calculator.updateDisplay();
+    }
+});
+    </script>
+    </div>
+
+    
+    
+    <div id="colorSearch" style="display: none;">
+    <label for="textcolor"><i  style="font-size: 25px; color: white;">Color Search: </i></label>
+      <br>
+    <input type="color" id="textcolor" value="#008080">
+  </div>
+      
+<!-- Container for the RGB color picker -->
+<div id="colPick" style="display: none;">
+  <!-- Display the RGB value -->
+  <p align="center" id="colortext"></p>
+  <!-- Slider for the Red component -->
+  <p>R
+    <input type="range" id="colRed" value="49" max="255"></p>
+  <!-- Slider for the Green component -->
+  <p>G
+    <input type="range" id="colGreen" value="38" max="255"></p>
+  <!-- Slider for the Blue component -->
+  <p>B
+    <input type="range" id="colBlue" value="100" max="255"></p>
+</div>
+
+<script>
+/* Get references to the sliders and container */
+var colR = document.getElementById("colRed");
+var colG = document.getElementById("colGreen");
+var colB = document.getElementById("colBlue");
+var colPickHTML = document.getElementById("colPick");
+
+/* Add an event listener to update the background color on input change */
+colPickHTML.addEventListener("input", changeCol, false);
+
+/* Initialize the background color */
+changeCol();
+
+/* Function to update the background color based on slider values */
+function changeCol(e) {
+  gblR = colR.value; // Get the Red value
+  gblG = colG.value; // Get the Green value
+  gblB = colB.value; // Get the Blue value
+
+  /* Set the background color of the page */
+  document.body.style.backgroundColor = "rgb(" + gblR + "," + gblG + "," + gblB + ")";
+  
+  /* Display the current RGB value */
+  document.getElementById("colortext").innerHTML = "rgb(" + gblR + "," + gblG + "," + gblB + ")";
+}
+</script>
+
+
+
+
+<!-- Panel for controls (line width selector and clear button) -->
+<div id="controlPanel">
+    
+<div class="navbar">
+  <a href="#home" class="active">Download</a>
+  <a href="#news" class="active">Save</a>
+    <br>
+    <hr>
+    <br>
+    <br>
+      <a  onclick="getElementById('colorPicker').style.display='none'" class="active glow" style=" margin-bottom: 100px; margin-right:20px">Color Picker Off</a>
+
+     <a onclick="getElementById('colPick').style.display='none'"  class="active glow" style=" margin-bottom: 100px; margin-right:20px">Page Color Off</a>
+
+     <a onclick="getElementById('colorSearch').style.display='none'"  class="active glow" style=" margin-bottom: 100px; margin-right:20px">Color Search Off</a>
+
+     <a onclick="getElementById('canvas').style.display='none'"  class="active glow" style=" margin-bottom: 100px;">Canvas Off</a>
+    
+</div>
+  <!-- Line width selector -->
+  <input type="range" id="lineWidthSlider" value="1" min="1" max="20" step="1" onchange="changeLineWidth(this.value);">
+  <!-- Clear button -->
+  <input id="clearButton" type="button" onclick="clearCanvas();" value="Clear">
+</div>
+
+
+<script>
+function openNav() {
+  document.getElementById("mySidebar").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidebar").style.width = "0";
+  document.getElementById("main").style.marginLeft= "0";
+}
+</script>
+   
+</body>
+</html>

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Callbook Application</title>
+    <style>
+    * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(85deg, black, white, red);
+    color: var(--accent-text);
+}
+
+.callbook-container {
+    display: flex;
+    min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+    width: 250px;
+    background: linear-gradient(185deg, red, white, black)
+    color: var(--accent-text);
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-bottom: 30px;
+    font-size: 24px;
+}
+
+.sidebar ul {
+    list-style: none;
+}
+
+.sidebar li {
+    margin-bottom: 10px;
+}
+
+.sidebar a {
+    color: var(--accent-text);
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.sidebar li.active a, .sidebar a:hover {
+    background-color: #334155;
+    color: var(--accent-text);
+}
+
+/* Main Content Layout */
+.main-content {
+    flex: 1;
+    padding: 30px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.search-bar {
+    width: 60%;
+    padding: 12px 20px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+}
+
+.btn-add {
+    background-color: #2563eb;
+    color: var(--accent-text);
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.btn-add:hover {
+    background-color: #1d4ed8;
+}
+
+/* Contact Cards Grid */
+.contacts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.contact-card {
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.avatar {
+    width: 55px;
+    height: 55px;
+    background-color: #e2e8f0;
+    color: #475569;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.info h3 {
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+.info .title {
+    font-size: 14px;
+    color: #64748b;
+    margin-bottom: 8px;
+}
+
+/* Customizing the Call Links */
+.phone-link {
+    font-size: 14px;
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.phone-link:hover {
+    text-decoration: underline;
+}
+</style>
+</head>
+<body>
+
+    <div class="callbook-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar">
+            <h2>Callbook</h2>
+            <nav>
+                <ul>
+                    <li class="active"><a href="#">All Contacts</a></li>
+                    <li><a href="#">Favorites</a></li>
+                    <li><a href="#">Recent Calls</a></li>
+                    <li><a href="#">Groups</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Search & Actions Header -->
+            <header class="header">
+                <input type="text" placeholder="Search contacts..." class="search-bar">
+                <button class="btn-add">+ Add Contact</button>
+            </header>
+
+            <!-- Contacts Grid/List -->
+            <section class="contacts-grid">
+                
+                <!-- Contact Card 1 -->
+                <div class="contact-card">
+                    <div class="avatar">JD</div>
+                    <div class="info">
+                        <h3>John Doe</h3>
+                        <p class="title">Software Engineer</p>
+                        <!-- Click-to-call link protocol -->
+                        <a href="tel:+15551234567" class="phone-link">📱 (555) 123-4567</a>
+                    </div>
+                </div>
+
+                <!-- Contact Card 2 -->
+                <div class="contact-card">
+                    <div class="avatar">AS</div>
+                    <div class="info">
+                        <h3>Alice Smith</h3>
+                        <p class="title">Product Manager</p>
+                        <a href="tel:+15559876543" class="phone-link">📱 (555) 987-6543</a>
+                    </div>
+                </div>
+
+            </section>
+        </main>
+    </div>
+
+</body>
+</html>

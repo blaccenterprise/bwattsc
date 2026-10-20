@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Codeflash - Samples</title> <!-- Sets the title of the webpage displayed in the browser tab -->
+<style>
+/* Container for grid layout */
+.grid-container {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+  gap: 10px; /* Space between grid items */
+}
+    
+/* Individual item styling */
+.item {
+  background-color: #ddd; /* Light gray background */
+  padding: 20px; /* Internal padding */
+  text-align: center; /* Centers the text */
+}
+
+/* Search input styling */
+input {
+  width: 100%; /* Takes full width */
+  margin-bottom: 10px; /* Space below the input */
+  padding: 5px; /* Internal padding */
+}
+</style>
+</head>
+<body>
+
+<!-- Search bar for filtering items -->
+<input type="search" id="searchInput" placeholder="Search...">
+
+<!-- Grid container with multiple items -->
+<div class="grid-container">
+  <div class="item">Apple</div>
+  <div class="item">Milk</div>
+  <div class="item">Tea</div>
+  <div class="item">Jack</div>
+  <div class="item">Orange</div>
+  <div class="item">Html</div>
+  <div class="item">Bad</div>
+  <div class="item">Coffee</div>
+  <div class="item">Hello</div>
+  <div class="item">Snow</div>
+  <div class="item">Book</div>
+  <div class="item">Rain</div>
+</div>
+
+<script>
+/* Get the search input field and all items */
+const searchInput = document.getElementById('searchInput');
+const items = document.getElementsByClassName('item');
+
+/* Add an event listener to trigger on input */
+searchInput.addEventListener('input', function() {
+  const searchTerm = searchInput.value.toLowerCase(); /* Get lowercase search term */
+      
+  /* Loop through all items */
+  Array.from(items).forEach(function(item) {
+    const itemText = item.textContent.toLowerCase(); /* Convert item text to lowercase */
+      
+    /* Check if the item's text includes the search term */
+    if (itemText.includes(searchTerm)) {
+      item.style.display = 'block'; /* Show matching items */
+    } else {
+      item.style.display = 'none'; /* Hide non-matching items */
+    }
+  });
+});
+</script>
+</body>
+</html>
