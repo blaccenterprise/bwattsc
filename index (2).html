@@ -1,0 +1,749 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACC Phone - UI</title>
+<link rel="stylesheet" href="./fontawesome/css/all.min.css">
+<link rel="stylesheet" href="./FrontEnd_Software/bcOSWeb.css">
+<link rel="stylesheet" href="./FrontEnd_Software/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2">
+<link rel="stylesheet" href="./FrontEnd_Software/bcOSBody.css">
+
+<link rel="stylesheet" href="./Icons/Material_Design_Icons/update/current_versions.json">
+<link rel="icon" type="image/x-icon" href="./BC.jpg">
+     <script type="text/javascript" src="./ASE.js"></script>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: linear-gradient(135deg, lightblue, teal);
+  color: black;
+  max-width: 480px;
+  margin: 0 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 70px;
+}
+
+    
+
+.glow {
+  font-size: 80px;
+  color: white;
+  text-align: center;
+  animation: glow 10s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 50px 20px 30px #00BFFF, 10px 20px 60px #88C6E0, 50px 20px 30px #88BED5, 10px 30px 60px #00BFFF, 10px 30px 30px #88AEBF, 50px 30px 60px #87A6B4, 10px 20px 30px #869FA9;
+  }
+  
+  to {
+    text-shadow: 10px 30px 60px #00BFFF, 50px 10px 40px #848F94, 10px 10px 50px #00BFFF, 10px 10px 60px #808080, 50px 10px 70px #87CEEB, 10px 10px 80px #00BFFF, 50px 10px 90px #88AEBF;
+  }
+}
+    
+scrollbar {
+    color: white;
+    }
+    
+header {
+  background: linear-gradient(135deg, teal, purple);
+  color: white;
+  padding: 25px 20px;
+    opacity: .8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  position: fixed;
+    width: 100%;
+  max-width: 480px;
+}
+
+.user-info h1 {
+  font-size: 1.0rem;
+  margin-bottom: 0px;
+}
+
+.user-info p {
+  opacity: 0.9;
+  font-size: 0.5rem;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: grey;
+opacity: .3;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e8efb;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  padding: 15px;
+  background-color: #fff;
+}
+
+.search-container {
+  display: flex;
+  background-color: #f0f0f0;
+  border-radius: 25px;
+  padding: 10px 15px;
+  align-items: center;
+    height: 75px;
+}
+
+.search-container i {
+  color: #888;
+margin-left: 150px;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 5px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  background-image: url('./BLACC-Images/cool_cat.jpg');
+}
+
+.section-title {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title h2 {
+  font-size: 1.2rem;
+}
+
+.section-title a {
+  color: #a777e3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 25px;
+    padding: 15px;
+}
+
+.card {
+  background: linear-gradient(135deg, black, white);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+}
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid #007BFF;
+        }
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card i {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: lightblue;
+    text-position: center;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.large-card {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+    overflow-x: auto;
+}
+
+.large-card .icon {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.large-card .content {
+  flex: 1;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #e6e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.list-item .info {
+  flex: 1;
+}
+
+.list-item .info h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.list-item .info p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.list-item .action {
+  color: #a777e3;
+}
+
+.max-large-card {
+  grid-column: span 5;
+  display: flex;
+  align-items: center;
+     background: linear-gradient(85deg, black, white);
+  border-radius: 15%;
+}
+
+.max-large-card .icon {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.max-large-card .content {
+  flex: 1;
+     background: linear-gradient(85deg, black, white);
+  border-radius: 70%;
+}
+
+.bottom-nav {
+  background: linear-gradient(135deg, white, black);
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  z-index: 100;
+}
+
+
+.cardbottom {
+  background: linear-gradient(135deg, purple, teal);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+}
+
+.cardbottom:active {
+  transform: scale(0.98);
+}
+
+.cardbottom i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.cardbottom h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cardbottom p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+
+.cardheader {
+    height: 20px;
+        width: 20px;
+  background: linear-gradient(135deg, black, white);
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+}
+
+.cardheader:active {
+  transform: scale(0.98);
+}
+
+.cardheader i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+  color: black;
+}
+
+.cardheader h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cardheader p {
+  font-size: 0.8rem;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: #6e8efb;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.notification {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    .mySidebar {
+        display: block;
+        }
+    .overlayBg {
+        display: block;
+        }
+/* Clock container with circular shape */
+.clock {
+  --clock-size: 360px; /* Custom property for clock size */
+  width: 100px; /* Clock's width */
+  height: 100px; /* Clock's height */
+  position: fixed; /* Fixes clock in the center */
+  inset: 0; /* Centers the clock */
+  border-radius: 50%; /* Makes the clock circular */
+}
+
+/* Individual ticks (spikes) for the clock */
+.spike {
+  position: absolute;
+  width: 8px; /* Width of the spike */
+  height: 1px; /* Thickness of the spike */
+  background: black; /* Slightly transparent white color */
+  transform-origin: 50%; /* Origin for rotation */
+  inset: 0;
+  margin: auto;
+  transform: rotate(var(--rotate)) translateX(var(--dail-size)); /* Position based on rotation */
+}
+
+/* Highlights larger spikes for hour markers */
+.spike:nth-child(5n+1) {
+  box-shadow: -7px 0 #fff9; /* Creates a larger spike shadow */
+}
+
+/* Adds numbers to the hour spikes */
+.spike:nth-child(5n+1):after {
+  content: attr(data-i); /* Displays the current hour */
+  position: absolute;
+  right: 22px;
+  top: -10px;
+  transform: rotate(calc(var(--dRotate) - var(--rotate))); /* Keeps text upright */
+}
+
+/* Style for second-hand container */
+.seconds {
+  --dRotate: 0deg; /* Rotation angle for seconds */
+  --dail-size: calc((var(--clock-size)/ 2) - 8px); /* Distance from center */
+  font-weight: 800;
+  font-size: 18px;
+  transform: rotate(calc(-1 * var(--dRotate))); /* Rotates dynamically */
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: 1s linear; /* Smooth animation for transitions */
+}
+
+/* Style for minute-hand container */
+.minutes {
+  --dail-size: calc((var(--clock-size)/ 2) - 65px); /* Distance from center */
+  font-size: 16px;
+  transform: rotate(calc(-1 * var(--dRotate))); /* Rotates dynamically */
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: 1s linear;
+}
+
+/* Stops animation when seconds or minutes reset */
+.stop-anim {
+  transition: 0s linear;
+}
+.stop-anim .spike:after {
+  transition: 0s linear !important; /* Overrides transition for spikes */
+}
+
+/* Style for the hour text in the center */
+.hour {
+  font-size: 40px; /* Larger font size for hours */
+  font-weight: 900;
+  position: absolute;
+  left: 60%; /* Center horizontally */
+  top: 50%; /* Center vertically */
+  transform: translate(-50%, -50%);
+}
+
+/* Style for minute text */
+.minute {
+  font-size: 36px; /* Smaller font size for minutes */
+  font-weight: 900;
+  position: absolute;
+  color: blue;
+    background: black; /* Black background to blend with clock */
+  z-index: 10; /* Ensures it appears above other elements */
+  right: calc(var(--clock-size)/ 4.5); /* Positioned to the right of the clock */
+  top: 50%; /* Centered vertically */
+  transform: translateY(-50%);
+}
+
+/* Adds a curved border to the minute indicator */
+.minute:after {
+  content: "";
+  position: absolute;
+  border: 2px solid #fff; /* White border for the arc */
+  border-right: none; /* Removes the right border */
+  height: 50px;
+  left: -10px;
+  top: 50%;
+  border-radius: 40px 0 0 40px; /* Creates the curved arc */
+  width: calc(var(--clock-size)/ 2.75); /* Width of the arc */
+  transform: translatey(-50%);
+}
+</style>
+</head>
+<body>
+
+<!-- Sidebar/menu -->
+    <div id="sidebar" style="display: none;">
+<nav class="BLACC-sidebar BLACC-collapse BLACC-white BLACC-animate-left" style="z-index:3;width:480px; height: 820px; background-color: white; margin-top: 50px;">
+    <br>
+  <div class="BLACC-container BLACC-row">
+    <div class="BLACC-col s4">
+      <img src="../BLACCimages/BC.jpg" class="BLACC-circle BLACC-margin-right" style="width:46px">
+    </div>
+    <div class="BLACC-col s8 BLACC-bar">
+      <span>Welcome, <strong>Mike</strong></span><br>
+      <a href="#" class="BLACC-bar-item BLACC-button"><i class="fa fa-envelope"></i></a>
+      <a href="#" class="BLACC-bar-item BLACC-button"><i class="fa fa-user"></i></a>
+      <a href="#" class="BLACC-bar-item BLACC-button"><i class="fa fa-cog"></i></a>
+    </div>
+  </div>
+  <hr>
+  <div class="BLACC-container">
+    <h5>Dashboard</h5>
+  </div>
+    
+  <div class="BLACC-bar-block">
+    
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding BLACC-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-history fa-fw"></i>  History</a>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  </div>
+    
+    <div class="cardheader" style="background-color: black;float: left; margin-left: 400px;">
+    <div onclick="closesettings()" style="cursor:pointer" title="close side menu">
+    <i onclick="closesettings()" class="fas fa-remove"></i>
+   </div> 
+        </div>
+
+</nav>
+    </div>
+    
+<header>
+    
+<div id="ase" style="display:none;">
+  <a onclick="openbolt()" target="content"> 
+  <i  style="margin:50px;" class="fas fa-bolt"></i>
+   </a>   
+                <a href="./Analog_Clock/index.html"  target="content">
+<i  style="margin:10px;" class="fas fa-clock">
+
+    </i>              </a>
+
+    <a onclick="opensettings();">
+    <i style="margin:10px;"  class="fas fa-cogs"></i>
+     </a> 
+ <a href="./home.html" target="content">
+        
+
+    <i  style="margin:10px;" class="fas fa-home"></i>
+   </a>
+   
+    <a href="./index.html" target="content">
+    
+    <i  style="margin:10px;" class="fas fa-add"></i>
+    </a>  
+ 
+    <a onclick="">
+    <i  style="margin:10px;" class="fas fa-moon"></i>
+  </a>    
+ 
+    <a onclick="closease()">
+    <i  style="margin:40px;" class="fas fa-lock"></i>
+   </a>   
+    </div>
+</header>
+    
+        <iframe class="main-content" name="content" src="./home.html">
+
+        </iframe>
+
+<div class="bottom-nav">
+    
+  <div class="cardbottom" >
+    <a onclick="openbolt()">
+
+    <i class="fas fa-bolt"></i>
+    </a>
+  </div>
+
+        <section id="bolt" style="display: none;">
+
+ <div class="cardbottom">
+    <a href="./Phone/Phone.html" target="content">
+
+    <i style="margin:10px;" class="fas fa-phone"></i>
+    </a>
+       <a onclick="">
+
+    <i style="margin:10px;" class="fas fa-comments"></i>
+    </a>
+
+  <a href="" target="content"> 
+  <i style="margin:10px;"  class="fas fa-power-off"></i>
+   </a>   
+         
+  <a href="" target="content"> 
+  <i style="margin:10px;"  class="fas fa-refresh"></i>
+   </a>   
+                <a href="./Lock/Lock.html" target="content">
+<i style="margin:25px;"  class="fas fa-lock">
+
+    </i>              </a>
+
+  
+ <a onclick="closebolt()">
+        
+
+    <i class="fas fa-close"></i>
+   </a>
+   
+  </div>
+
+ 
+            
+</section>
+
+
+    
+
+    <div >
+  <a onclick="openase()">
+    
+<img src="./BLACC-Images/Circle.jpg" width="65px" height="65px" style=" border-radius: 90%;"/>
+  </a>  
+</div>
+
+</div>
+<script>
+// Click effects for cards
+document.querySelectorAll('.card').forEach(card => {
+  card.addEventListener('click', function() {
+    console.log(`${this.querySelector('h3').textContent} clicked`);
+  });
+});
+
+// Click effects for list items
+document.querySelectorAll('.list-item').forEach(item => {
+  item.addEventListener('click', function() {
+    console.log(`Viewing details of ${this.querySelector('h3').textContent}`);
+  });
+});
+
+// Navigation items
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', function(e) {
+    e.preventDefault();
+    document.querySelectorAll('.nav-item').forEach(nav => {
+      nav.classList.remove('active');
+    });
+    this.classList.add('active');
+  });
+});
+</script>
+
+
+    <script>
+function openemail() {
+  document.getElementById("email").style.display = "block";
+}
+
+function closeemail() {
+  document.getElementById("email").style.display = "none";
+}
+    </script>
+
+
+ 
+    <script>
+function openbolt() {
+  document.getElementById("bolt").style.display = "block";
+}
+
+function closebolt() {
+  document.getElementById("bolt").style.display = "none";
+}
+    </script>
+
+
+ 
+    <script>
+function unlock() {
+  document.getElementById("unlock").style.display = "block";
+}
+
+function lock() {
+  document.getElementById("lock").style.display = "none";
+}
+    </script>
+
+
+ 
+ 
+    <script>
+function opensettings() {
+  document.getElementById("sidebar").style.display = "block";
+}
+
+function closesettings() {
+  document.getElementById("sidebar").style.display = "none";
+}
+    </script>
+
+ 
+    <script>
+function openase() {
+  document.getElementById("ase").style.display = "block";
+}
+
+function closease() {
+  document.getElementById("ase").style.display = "none";
+}
+    </script>
+
+
+
+<script>
+// Get the Sidebar
+var mySidebar = document.getElementById("mySidebar");
+
+// Get the DIV with overlay effect
+var overlayBg = document.getElementById("myOverlay");
+
+// Toggle between showing and hiding the sidebar, and add overlay effect
+function BLACC_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+    overlayBg.style.display = "none";
+  } else {
+    mySidebar.style.display = 'block';
+    overlayBg.style.display = "block";
+  }
+}
+
+// Close the sidebar with the close button
+function BLACC_close() {
+  mySidebar.style.display = "none";
+  overlayBg.style.display = "none";
+}
+</script>
+</body>
+</html>

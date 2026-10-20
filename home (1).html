@@ -1,0 +1,1341 @@
+<html>
+    
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BLACC Phone - UI</title>
+<link rel="stylesheet" href="./FrontEnd_Software/font.css">
+<link rel="stylesheet" href="./FrontEnd_Software/bcOSWeb.css">
+<link rel="stylesheet" href="./FrontEnd_Software/flUhRq6tzZclQEJ-Vdg-IuiaDsNc.woff2">
+<link rel="stylesheet" href="./FrontEnd_Software/bcOSBody.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<link rel="stylesheet" href="./FrontEnd_Software/Format_Web.css">
+<link rel="stylesheet" href="./FrontEnd_Software/blacc_body.css">
+<link rel="stylesheet" href="./FrontEnd_Software/button.css">
+<link rel="stylesheet" href="./Icons/Material_Design_Icons/update/current_versions.json">
+<link rel="icon" type="image/x-icon" href="./BC.jpg">
+     <script type="text/javascript" src="./ASE.js"></script>
+<style>
+* {
+
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: #FFFFFF80;
+  color: black;
+  max-width: 480px;
+  margin: 50px auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 5px rgba(110, 55, 220, 0.7);
+  position: relative;
+  padding-bottom: 70px;
+}
+
+    
+
+.gow {
+  animation: glow 10s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 50px 20px 30px #00BFFF, 10px 20px 60px #88C6E0, 50px 20px 30px #88BED5, 10px 30px 60px #00BFFF, 10px 30px 30px #88AEBF, 50px 30px 60px #87A6B4, 10px 20px 30px #869FA9;
+  }
+  
+  to {
+    text-shadow: 10px 30px 60px #00BFFF, 50px 10px 40px #848F94, 10px 10px 50px #00BFFF, 10px 10px 60px #808080, 50px 10px 70px #87CEEB, 10px 10px 80px #00BFFF, 50px 10px 90px #88AEBF;
+  }
+}
+    
+scrollbar {
+    color: white;
+    } 
+header {
+  background: linear-gradient(135deg, black, white);
+  color: white;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15px;
+  position: fixed;
+    width: 100%;
+  max-width: 440px;
+}
+
+.user-info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.user-info p {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e8efb;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  padding: 15px;
+  background: linear-gradient(135deg, lightblue, teal);
+}
+
+.search-container {
+  display: flex;
+  background: linear-gradient(135deg, purple, teal);
+  border-radius: 25px;
+  padding: 10px 15px;
+  align-items: center;
+    height: 50px;
+}
+
+.search-container i {
+  color: #888;
+margin-left: 150px;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1px;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  background: linear-gradient(135deg, black, white);
+  border: 1px solid white;
+}
+
+.section-title {
+  margin-bottom: 15px;
+    margin-right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title h2 {
+  font-size: 1.2rem;
+}
+
+.section-title a {
+  color: #a777e3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+  margin-left: 25px;
+  margin-right: 20px;
+    padding: 5px;
+}
+
+.card {
+  background: linear-gradient(185deg, purple, teal);
+  border-radius: 70%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+    width: 70%;
+}
+
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card i {
+  font-size: 2.0rem;
+  margin-bottom: 3px;
+  margin-left: 1.5px;
+  color:  white;
+    text-position: left;
+}
+
+p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  margin-left: 3px;
+  color: black;
+  text-align: left;
+}
+
+.card p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.largeicon {
+  background: linear-gradient(85deg, black, white);
+  border-radius: 90%;
+  padding: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+    width: 70px;
+    height: 150px;
+}
+
+
+.largeicon:active {
+  transform: scale(0.98);
+}
+
+.largeicon i {
+  font-size: 2.0rem;
+  margin-bottom: 3px;
+  margin-left: 1.5px;
+  color: lightblue;
+    text-position: left;
+}
+
+
+.largeicon p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+.large-card {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+     background: linear-gradient(85deg,purple , #FFFFFF80);
+  border-radius: 15%;
+    margin-left:-30px;
+    overflow-x: auto;
+}
+
+.max-large-card {
+  grid-column: span 5;
+  display: flex;
+  align-items: center;
+     background: linear-gradient(85deg, black, white);
+  border-radius: 15%;
+}
+
+.max-large-card .icon {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.max-large-card .content {
+  flex: 1;
+     background: linear-gradient(85deg, black, white);
+  border-radius: 70%;
+}
+
+.large-card .icon {
+  font-size: 2.5rem;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.large-card .content {
+  flex: 1;
+     background: linear-gradient(85deg, black, white);
+  border-radius: 70%;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #e6e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.list-item .info {
+  flex: 1;
+}
+
+.list-item .info p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.list-item .info p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.list-item .action {
+  color: #a777e3;
+}
+
+.bottom-nav {
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+    margin-left: -25px;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  z-index: 100;
+}
+
+
+.cardbottom {
+  background: linear-gradient(135deg, black, white);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+}
+
+.cardbottom:active {
+  transform: scale(0.98);
+}
+
+.cardbottom i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: black;
+}
+
+.cardbottom p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cardbottom p {
+  font-size: 0.8rem;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: #6e8efb;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.notification {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+</style>
+</head>
+<body>
+    <div class="search-bar">
+<div class="search-container">
+  <i class="fas fa-search"></i>
+  <input type="text" placeholder="Search...">
+</div>
+       
+</div>
+<br>
+   
+
+    
+
+  <div style="margin-left:20px; height:175px; width: 400px; border-radius: 5%; padding: 30px;" class="card large-card">
+            <h2 class="section-title glow" > Phone Settings</h2>
+
+    <div class="">
+  <div class="card icon" style="background-color: black;">
+      <a href="./home.html" target="content">
+
+    <i class="fas fa-microchip"></i>
+    </a>
+  </div> 
+                    <p>bcOS</p>
+
+    </div>
+
+    <div>
+    <div class="card icon" style="background-color: black;">
+    <a onclick="opensettings();">
+                  
+    <i class="fas fa-cogs"></i>
+    </a>
+        </div>
+            <p>Settings</p>
+  </div>
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-language"></i>
+    </a>
+      </div>
+            <p>Language</p>
+  </div>
+
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-sun"></i>
+    </a>
+      </div>
+            <p>Brightness</p>
+  </div>
+
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-download"></i>
+    </a>
+      </div>
+            <p>Downloads</p>
+  </div>
+
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-info"></i>
+    </a>
+      </div>
+            <p>Info</p>
+  </div>
+
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-question"> 
+    </i>
+    </a>
+  </div>
+            <p>Q&A</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-server"> 
+    </i>
+    </a>
+  </div>
+            <p>DNS</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-terminal"> 
+    </i>
+    </a>
+  </div>
+            <p>Terminal</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-shield"> 
+    </i>
+    </a>
+  </div>
+            <p>Security</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-wifi"> 
+    </i>
+    </a>
+  </div>
+            <p>Wifi</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-upload"> 
+    </i>
+    </a>
+  </div>
+            <p>Upload</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-file"> 
+    </i>
+    </a>
+  </div>
+            <p>File</p>
+
+    </div>
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-at"> 
+    </i>
+    </a>
+  </div>
+            <p>Account Email</p>
+
+    </div>
+
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-ellipsis-h"> 
+    </i>
+    </a>
+  </div>
+            <p>more</p>
+
+    </div>
+
+
+
+</div>
+
+    <br>
+    <br>
+    
+    
+
+  <div style="margin-left:20px; height:175px; width: 400px; border-radius: 5%; padding: 30px;" class="card large-card">
+            <h2 class="section-title glow" > Phone Apps</h2>
+
+    <div class="">
+  <div class="card icon" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-calendar"></i>
+    </a>
+  </div> 
+                    <p>Calendar</p>
+
+    </div>
+
+    <div>
+    <div class="card icon" style="background-color: black;">
+              <a href="" target="">
+                  
+    <i class="fas fa-music"></i>
+    </a>
+        </div>
+            <p>Music</p>
+  </div>
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-map"></i>
+    </a>
+      </div>
+            <p>Map</p>
+  </div>
+
+
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-video"></i>
+    </a>
+      </div>
+            <p>Videos</p>
+  </div>
+
+
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-camera"></i>
+    </a>
+      </div>
+            <p>Camera</p>
+  </div>
+
+    
+    <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-envelope"> 
+    </i>
+    </a>
+  </div>
+            <p>Email</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-calculator"> 
+    </i>
+    </a>
+  </div>
+            <p>Calculator</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-compass"> 
+    </i>
+    </a>
+  </div>
+            <p>Explore</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-archive"> 
+    </i>
+    </a>
+  </div>
+            <p>Archive</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-edit"> 
+    </i>
+    </a>
+  </div>
+            <p>Post</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-film"> 
+    </i>
+    </a>
+  </div>
+            <p>Movies</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-globe"> 
+    </i>
+    </a>
+  </div>
+            <p>Atlas</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-file"> 
+    </i>
+    </a>
+  </div>
+            <p>Files</p>
+
+    </div>
+
+ <div>
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-code"> 
+    </i>
+    </a>
+  </div>
+            <p>Code Editor</p>
+
+    </div>
+
+ <div>
+     
+     
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-feed"> 
+    </i>
+    </a>
+  </div>
+            <p>Feed</p>
+
+    </div>
+     
+     <div>
+ 
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-sticky-note"> 
+    </i>
+    </a>
+  </div>
+            <p>Notes</p>
+    </div>
+     
+    <div>
+  
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-television"> 
+    </i>
+    </a>
+  </div>
+            <p>T.V.</p>
+
+    </div>
+     
+    <div>
+  
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-tasks"> 
+    </i>
+    </a>
+  </div>
+            <p>To-do</p>
+
+    </div>
+     
+     <div>
+ 
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-th"> 
+    </i>
+    </a>
+  </div>
+            <p>Apps</p>
+
+    </div>
+
+     
+     <div>
+ 
+  <div class="card icon" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-ellipsis-h"> 
+    </i>
+    </a>
+  </div>
+            <p>more</p>
+
+    </div>
+
+
+
+</div>
+
+    <br>
+    <br>
+    
+    
+
+  <div style="margin-left:20px; height:175px; width: 400px; border-radius: 5%; padding: 30px;" class="card large-card">
+            <h2 class="section-title glow" > B.L.A.C.C. Apps</h2>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Ark.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Asclepieion_Of_BLACC.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Connect.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Database.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Messages.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Music.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACC_Tele.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/BLACChole_Icon.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Blacklining.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Email.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Eye.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/New_Nexxus.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/NFT.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/OneiroNet.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Pharaoh_History.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Vital_Mathematic.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      
+<img src="./BLACC-Images/Web_Inquiry.jpg" width="130px" height="100px" style="border-radius: 90%; padding: 5px;"/>
+  </a>  
+</div>
+
+</div>
+
+    <br>
+    <br>
+    
+<div class="card-container">
+    
+
+    
+
+    <div>
+        <div class="largeicon" style="background-color: black;">
+                  <a onclick="openemail()">
+
+    <i class=" fas fa-inbox"></i>
+    </a>
+
+  </div>
+        <p>Inbox</p>
+  </div> 
+
+    
+<div id="email" class="large-card content" style="background-color: black;height: 550px;display: none;">
+<iframe style="height:500px;width: 350px;" src="./BLACC-Corporation/BLACCemailtemplate.html"></iframe>
+<div>
+      
+<a onclick="closeemail()">
+
+    <i style="color:red; display:block; text-align:center; font-size:35px;" class="fas fa-cancel"></i>
+    </a>
+</div>
+</div> 
+
+</div>
+
+    
+<div class="card-container">
+
+    <div>
+        <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-at"></i>
+   </a>   
+  </div>
+        <p>Account Email</p>
+  </div> 
+
+    
+    <div>
+  <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-folder"></i>
+    </a>
+  </div>    
+        <p>Files</p>
+  </div> 
+
+
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-info"></i>
+    </a>
+  </div>
+        <p>Info</p>
+  </div> 
+
+
+    
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-ellipsis-h"></i>
+    </a>
+    
+  </div>
+        <p>Updates</p>
+  </div> 
+
+    
+    <div> 
+    <div class="card" style="background-color: black;">
+                  <a href="" target="">
+
+    <i class="fas fa-compass"></i>
+    </a>
+  </div>
+        <p>Explore</p>
+  </div> 
+
+
+</div>
+    
+<div class="card-container">
+
+    
+    <div>      
+        <div class="card" style="background-color: black;">
+                  <a href="" target="">
+
+    <i class="fas fa-map"></i>
+ </a>
+  </div>
+        <p>Map</p>
+        </div>
+
+
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-video"></i>
+    </a>  
+  </div>
+        <p>Videos</p>
+        </div>
+
+    
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-music"></i>
+      </a>
+  </div>
+        <p>Music</p>
+        </div>
+
+
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-calculator"></i>
+    </a>
+      </div>
+        <p>Calculator</p>
+  </div> 
+
+    
+
+
+    <div>
+  <div class="card" style="background-color: black;">
+            <a href="" target="">
+
+    <i class="fas fa-camera"></i>
+    </a>
+  </div> 
+        <p>Camera</p>
+        </div>
+
+    
+    
+</div>
+
+
+
+<div class="card-container">
+
+
+
+    <div>
+  <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-film"></i>
+    </a>  
+  </div>
+        <p>Movies</p>
+  </div> 
+
+    
+    
+    <div>
+  <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-globe"></i>
+    </a>
+  </div>
+        <p>Atlas</p>
+  </div> 
+
+    
+    <div>
+        <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-rss"></i>
+    </a>
+  </div>
+        <p>Feed</p>
+  </div> 
+
+ 
+    <div>  
+        <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-edit"></i>
+    </a>
+  </div>
+        <p>Post</p>
+  </div> 
+
+    
+</div>
+
+
+    
+    <!--
+<div class="card-container">
+<div>
+        <div class="largeicon" style="background-color: black;">
+                  <a href="" target="">
+
+    <i class="fas fa-camera"></i>
+    </a>
+  </div>
+        <p>Photos</p>
+  </div> 
+
+ 
+<div class="large-card content" style="background-color: black;height: 350px;">
+<iframe style="height:360px;width: 350px;" src="./BLACC-Images/Image_Gallery.html"></iframe>
+</div> 
+
+
+</div>
+-->
+
+
+  <div style="margin-left:70px;" class="card large-card">
+    <div class="icon">
+      <i class="fas fa-calendar"></i>
+    </div>
+    <div class="content">
+      <p>Today's Meeting</p>
+      <p>14:00 • Conference Room</p>
+    </div>
+</div>
+
+    <br>
+    <br>
+
+<div class="card-container">
+    
+
+
+    <div> 
+       <a href="./Coding/index.html" target="content"> <div class="card" style="background-color: black;">
+    <i class="fas fa-code"></i>
+  </div></a>
+        <p>Code Editor</p>
+  </div> 
+
+    
+    
+    <div>
+  <div class="card" style="background-color: black;">
+           <a href="" target="">
+ 
+    <i class="fas fa-gamepad"></i>
+    </a>
+  </div>
+        <p>Gamepad</p>
+        </div>
+
+
+    
+        <div>
+  <a href="./BLACC-Corporation/BLACC_Internet_Search.html" target="content">
+      <div class="card" style="  background: linear-gradient(135deg, black, black);
+">
+<img src="./BLACC-Images/BLACC_Ark.jpg" width="30px" height="30px"/>
+  </div> 
+  </a>  
+        <p>B.L.A.C.C.</p>
+</div>
+
+    
+    <div>
+        <div class="card" style="background-color: black;">
+                  <a href="" target="">
+
+    <i class="fas fa-sticky-note"></i>
+    </a>
+  </div>
+        <p>Sticky-notes</p>
+  </div> 
+
+    <div>
+  <div class="card" style="background-color: black;">
+      <a href="" target="">
+
+    <i class="fas fa-television"></i>
+    </a>
+  </div>
+        <p>T.V.</p>
+  </div> 
+
+</div>
+<!--
+
+    
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-amazon"></i>
+      
+  </div>  <div class="card" style="background-color: black;">
+    <i class="fas fa-andriod"></i>
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-paypal"></i>
+      
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-apple"></i>
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-etsy"></i>
+  </div>    
+
+    
+</div>
+
+<div class="card-container">
+    
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-google"></i>
+      
+  </div>  <div class="card" style="background-color: black;">
+    <i class="fas fa-internet-explorer"></i>
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-linkedin"></i>
+      
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-opera"></i>
+  </div>
+  <div class="card" style="background-color: black;">
+    <i class="fas fa-html5"></i>
+  </div>    
+
+    
+</div>
+
+-->
+
+ 
+    <script>
+function openbolt() {
+  document.getElementById("bolt").style.display = "block";
+}
+
+function closebolt() {
+  document.getElementById("bolt").style.display = "none";
+}
+    </script>
+
+
+    <script>
+function openemail() {
+  document.getElementById("email").style.display = "block";
+}
+
+function closeemail() {
+  document.getElementById("email").style.display = "none";
+}
+    </script>
+
+
+
+</body>
+</html>
