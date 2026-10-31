@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial;
+}
+
+.header {
+  text-align: center;
+  padding: 32px;
+}
+
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+/* Create four equal columns that sits next to each other */
+.column {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+  max-width: 25%;
+  padding: 0 4px;
+}
+
+.column img {
+  margin-top: 8px;
+  vertical-align: middle;
+  width: 100%;
+}
+
+/* Responsive layout - makes a two column-layout instead of four columns */
+@media screen and (max-width: 800px) {
+  .column {
+    -ms-flex: 50%;
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+/* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column {
+    -ms-flex: 100%;
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+</style>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <h1>Photo Gallery</h1>
+</div>
+
+<!-- Photo Grid -->
+<div class="row"> 
+  <div class="column">
+    <img src="./Asclepieion_Of_BLACC_1_.jpg" style="width:100%">
+    <img src="./BLACC_Music_NFT.jpg" style="width:100%">
+    <img src="./ASE_Upload_NFT.jpg" style="width:100%">
+    <img src="./Blacklining_NFT.jpg" style="width:100%">
+    <img src="./BLACC_Database_NFT.jpg" style="width:100%">
+    <img src="./BLACC_Connect_NFT.jpg" style="width:100%">
+    <img src="./BLACC_ARK_NFT.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="./BLACC_Connect_Page_1.jpg" style="width:100%">
+    <img src="./Eye_Background.jpg" style="width:100%">
+    <img src="./OneiroNet.jpg" style="width:100%">
+    <img src="./BLACC_Ark_Photo_1.jpg" style="width:100%">
+    <img src="./Blacklining_1_.jpg" style="width:100%">
+    <img src="./yplogo.jpg" style="width:100%">
+  </div>  
+  <div class="column">
+    <img src="./BLACChole_Icon.jpg" style="width:100%">
+    <img src="./New_Nexxus.jpg" style="width:100%">
+    <img src="./eagle.jpg" style="width:100%">
+    <img src="./Vital_Mathematic_Background.jpg" style="width:100%">
+    <img src="./BLACC_Corporation_Photo_2.jpg" style="width:100%">
+    <img src="./BLACC_Background.jpg" style="width:100%">
+    <img src="./ASE.jpg" style="width:100%">
+  </div>
+  <div class="column">
+    <img src="./Pharaoh_History_1_.jpg" style="width:100%">
+    <img src="./BLACC_Guided_Pathways.jpg" style="width:100%">
+    <img src="./BLACC_Music.jpg" style="width:100%">
+    <img src="./Stevie_W_Carpenter_Profile_Picture.jpg" style="width:100%">
+    <img src="./BLACC_Search_Photo_4.jpg" style="width:100%">
+    <img src="./Money_Movement_Circle.jpg" style="width:100%">
+  </div>
+</div>
+
+</body>
+</html>
