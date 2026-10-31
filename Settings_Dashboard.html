@@ -4,148 +4,2144 @@
 <title>BLACC DAshboard</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/5/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+
+ /* BLACC.CSS 1.21 November 2023 by Stevie W. Carpenter */
+
+html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
+/* Extract from normalize.css by Stevie W. Carpenter git.io/normalize */
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+
+
+body {
+  background-color: var(--bg-page);
+  font-family: sans-serif;
+  transition: 0.3s background-color; /* Smooth transitions make it feel premium */
+}
+
+article,aside,details,figcaption,figure,footer,header,nav,section{display:block}summary{display:list-item}
+audio,canvas,progress,video{display:inline-block}progress{vertical-align:baseline}
+audio:not([controls]){display:none;height:0}[hidden],template{display:none}
+a{background-color:transparent;text-decoration:none}a:active,a:hover{outline-width:0;}
+abbr[title]{border-bottom:none;text-decoration:underline;text-decoration:underline dotted}
+b,strong{font-weight:bolder}dfn{font-style:italic}mark{background:#ff0;color:#000}
+small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}
+sub{bottom:-0.25em}sup{top:-0.5em}figure{margin:1em 40px}img{border-style:none}
+code,kbd,pre,samp{font-family:monospace,monospace;font-size:1em}hr{box-sizing:content-box;height:0;overflow:visible}
+button,input,select,textarea,optgroup{font:inherit;margin:0;}optgroup{font-weight:bold}
+button,input{overflow:visible}button,select{text-transform:none}
+button,[type=button],[type=reset],[type=submit]{-webkit-appearance:button}
+button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner{border-style:none;padding:0}
+button:-moz-focusring,[type=button]:-moz-focusring,[type=reset]:-moz-focusring,[type=submit]:-moz-focusring{outline:1px dotted ButtonText}
+fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:.35em .625em .75em}
+legend{color:inherit;display:table;max-width:100%;padding:0;white-space:normal}textarea{overflow:auto}
+[type=checkbox],[type=radio]{padding:0}
+[type=number]::-webkit-inner-spin-button,[type=number]::-webkit-outer-spin-button{height:auto}
+[type=search]{-webkit-appearance:textfield;outline-offset:-2px}
+[type=search]::-webkit-search-decoration{-webkit-appearance:none}
+::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}
+/* End extract */
+html,body{font-family:Verdana,sans-serif;font-size:15px;line-height:1.5;}
+html{overflow-x:hidden;}
+h1{font-size:36px}
+h2{font-size:30px}
+h3{font-size:24px}
+h4{font-size:20px}
+h5{font-size:18px}
+h6{font-size:16px}
+.BLACC-serif{font-family:serif}
+.BLACC-sans-serif{font-family:sans-serif}
+.BLACC-cursive{font-family:cursive}
+.BLACC-monospace{font-family:monospace}
+h1,h2,h3,h4,h5,h6{font-family:"Segoe UI",Arial,sans-serif;font-weight:400;margin:10px 0}
+.BLACC-wide{letter-spacing:4px}
+hr{border:0;border-top:1px solid #eee;margin:20px 0}
+.BLACC-image{max-width:100%;height:auto}
+img{vertical-align:middle}a{color:inherit}
+.BLACC-table,.BLACC-table-all{border-collapse:collapse;border-spacing:0;width:100%;display:table
+}.BLACC-table-all{border:1px solid #ccc}
+.BLACC-bordered tr,.BLACC-table-all tr{border-bottom:1px solid #ddd}
+.BLACC-striped tbody tr:nth-child(even){background-color:#f1f1f1}
+.BLACC-table-all tr:nth-child(odd){background-color:#fff}
+.BLACC-table-all tr:nth-child(even){background-color:#f1f1f1}
+.BLACC-hoverable tbody tr:hover,.BLACC-ul.BLACC-hoverable li:hover{background-color:#ccc}
+.BLACC-centered tr th,.BLACC-centered tr td{text-align:center}
+.BLACC-table td,.BLACC-table th,.BLACC-table-all td,.BLACC-table-all th{padding:8px 8px;display:table-cell;text-align:left;vertical-align:top}
+.BLACC-table th:first-child,.BLACC-table td:first-child,.BLACC-table-all th:first-child,.BLACC-table-all td:first-child{padding-left:16px}
+.BLACC-btn,.BLACC-button{border:none;display:inline-block;padding:8px 16px;vertical-align:middle;overflow:hidden;text-decoration:none;color:inherit;background-color:inherit;text-align:center;white-space:nowrap}
+.BLACC-btn:hover{box-shadow:0 8px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19)}
+.BLACC-btn,.BLACC-button{-webkit-touch-callout:none;-webkit-user-select:none;-khtml-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}   
+.BLACC-disabled,.BLACC-btn:disabled,.BLACC-button:disabled{cursor:not-allowed;opacity:0.3}
+.BLACC-disabled *,:disabled *{pointer-events:none}
+.BLACC-btn.w3-disabled:hover,.BLACC-btn:disabled:hover{box-shadow:none}
+.BLACC-badge,.BLACC-tag{background-color:#000;color:#fff;display:inline-block;padding-left:8px;padding-right:8px;text-align:center}
+.BLACC-badge{border-radius:50%}
+.BLACC-ul{list-style-type:none;padding:0;margin:0}
+.BLACC-ul li{padding:8px 16px;border-bottom:1px solid #ddd}
+.BLACC-ul li:last-child{border-bottom:none}
+.BLACC-tooltip,.BLACC-display-container{position:relative}
+.BLACC-tooltip .BLACC-text{display:none}
+.BLACC-tooltip:hover .BLACC-text{display:inline-block}
+.BLACC-ripple:active{opacity:0.5}
+.BLACC-ripple{transition:opacity 0s}
+.BLACC-input{padding:8px;display:block;border:none;border-bottom:1px solid #ccc;width:100%}
+.BLACC-select{padding:9px 0;width:100%;border:none;border-bottom:1px solid #ccc}
+.BLACC-dropdown-click,.BLACC-dropdown-hover{position:relative;display:inline-block;cursor:pointer}
+.BLACC-dropdown-hover:hover .BLACC-dropdown-content{display:block}
+.BLACC-dropdown-hover:first-child,.BLACC-dropdown-click:hover{background-color:#ccc;color:#000}
+.BLACC-dropdown-hover:hover > .BLACC-button:first-child,.BLACC-dropdown-click:hover > .BLACC-button:first-child{background-color:#ccc;color:#000}
+.BLACC-dropdown-content{cursor:auto;color:#000;background-color:#fff;display:none;position:absolute;min-width:160px;margin:0;padding:0;z-index:1}
+.BLACC-check,.BLACC-radio{width:24px;height:24px;position:relative;top:6px}
+.BLACC-sidebar{height:100%;width:200px;background-color:black;position:fixed!important;z-index:1;overflow:auto}
+.BLACC-bar-block .BLACC-dropdown-hover,.BLACC-bar-block .BLACC-dropdown-click{width:100%}
+.BLACC-bar-block .BLACC-dropdown-hover .BLACC-dropdown-content,.BLACC-bar-block .BLACC-dropdown-click .BLACC-dropdown-content{min-width:100%}
+.BLACC-bar-block .BLACC-dropdown-hover .BLACC-button,.BLACC-bar-block .BLACC-dropdown-click .BLACC-button{width:100%;text-align:left;padding:8px 16px}
+.BLACC-main,#main{transition:margin-left .4s; cursor: grabbing;}
+.BLACC-modal{z-index:3;display:none;padding-top:100px;position:fixed;left:0;top:0;width:100%;height:100%;overflow:auto;background-color:rgb(0,0,0);background-color:rgba(0,0,0,0.4)}
+.BLACC-modal-content{margin:auto;background-color:#fff;position:relative;padding:0;outline:0;width:600px}
+.BLACC-bar{width:100%;overflow:hidden}.BLACC-center .BLACC-bar{display:block;width:auto}
+.BLACC-bar .BLACC-bar-item{padding:8px 16px;float:left;width:auto;border:none;display:block;outline:0}
+.BLACC-bar .BLACC-dropdown-hover,.BLACC-bar .BLACC-dropdown-click{position:static;float:left}
+.BLACC-bar .BLACC-button{white-space:normal}
+.BLACC-bar-block .BLACC-bar-item{width:100%;display:block;padding:8px 16px;text-align:left;border:none;white-space:normal;float:none;outline:0}
+.BLACC-bar-block.BLACC-center .BLACC-bar-item{text-align:center}
+.BLACC-block{display:block;width:100%}
+.BLACC-responsive{display:block;overflow-x:auto}
+.BLACC-container:after,.BLACC-container:before,.BLACC-panel:after,.BLACC-panel:before,.BLACC-row:after,.BLACC-row:before,.BLACC-row-padding:after,.BLACC-row-padding:before,
+.BLACC-cell-row:before,.BLACC-cell-row:after,.BLACC-clear:after,.BLACC-clear:before,.BLACC-bar:before,.BLACC-bar:after{content:"";display:table;clear:both}
+.BLACC-col,.BLACC-half,.BLACC-third,.BLACC-twothird,.BLACC-threequarter,.BLACC-quarter{float:left;width:100%}
+.BLACC-col.s1{width:8.33333%}
+.BLACC-col.s2{width:16.66666%}
+.BLACC-col.s3{width:24.99999%}
+.BLACC-col.s4{width:33.33333%}
+.BLACC-col.s5{width:41.66666%}
+.BLACC-col.s6{width:49.99999%}
+.BLACC-col.s7{width:58.33333%}
+.BLACC-col.s8{width:66.66666%}
+.BLACC-col.s9{width:74.99999%}
+.BLACC-col.s10{width:83.33333%}
+.BLACC-col.s11{width:91.66666%}
+.BLACC-col.s12{width:99.99999%}
+@media (min-width:601px) {
+.BLACC-col.m1{width:8.33333%}
+.BLACC-col.m2{width:16.66666%}
+.BLACC-col.m3,.BLACC-quarter{width:24.99999%}
+.BLACC-col.m4,.BLACC-third{width:33.33333%}
+.BLACC-col.m5{width:41.66666%}
+.BLACC-col.m6,.BLACC-half{width:49.99999%}
+.BLACC-col.m7{width:58.33333%}
+.BLACC-col.m8,.BLACC-twothird{width:66.66666%}
+.BLACC-col.m9,.BLACC-threequarter{width:74.99999%}
+.BLACC-col.m10{width:83.33333%}
+.BLACC-col.m11{width:91.66666%}
+.BLACC-col.m12{width:99.99999%}}
+@media (min-width:993px)  {
+.BLACC-col.l1{width:8.33333%}
+.BLACC-col.l2{width:16.66666%}
+.BLACC-col.l3{width:24.99999%}
+.BLACC-col.l4{width:33.33333%}
+.BLACC-col.l5{width:41.66666%}
+.BLACC-col.l6{width:49.99999%}
+.BLACC-col.l7{width:58.33333%}
+.BLACC-col.l8{width:66.66666%}
+.BLACC-col.l9{width:74.99999%}
+.BLACC-col.l10{width:83.33333%}
+.BLACC-col.l11{width:91.66666%}
+.BLACC-col.l12{width:99.99999%}}
+.BLACC-rest{overflow:hidden}
+.BLACC-stretch{margin-left:-16px;margin-right:-16px}
+.BLACC-content,.BLACC-auto{margin-left:auto;margin-right:auto}
+.BLACC-content{max-width:980px}
+.BLACC-auto{max-width:1140px}
+.BLACC-cell-row{display:table;width:100%}
+.BLACC-cell{display:table-cell}
+.BLACC-cell-top{vertical-align:top}
+.BLACC-cell-middle{vertical-align:middle}
+.BLACC-cell-bottom{vertical-align:bottom}
+.BLACC-hide{display:none!important}
+.BLACC-show-block,.BLACC-show{display:block!important}
+.BLACC-show-inline-block{display:inline-block!important}
+@media (max-width:1205px) {
+.BLACC-auto{max-width:95%}}
+@media (max-width:600px) {
+.BLACC-modal-content{margin:0 10px;width:auto!important}
+.BLACC-modal{padding-top:30px}
+.BLACC-dropdown-hover.BLACC-mobile .BLACC-dropdown-content,.BLACC-dropdown-click.BLACC-mobile .BLACC-dropdown-content{position:relative}	
+.BLACC-hide-small{display:none!important}
+.BLACC-mobile{display:block;width:100%!important}
+.BLACC-bar-item.BLACC-mobile,.BLACC-dropdown-hover.BLACC-mobile,.BLACC-dropdown-click.BLACC-mobile{text-align:center}
+.BLACC-dropdown-hover.BLACC-mobile,.BLACC-dropdown-hover.BLACC-mobile .BLACC-btn,.BLACC-dropdown-hover.BLACC-mobile .BLACC-button,.BLACC-dropdown-click.BLACC-mobile,.BLACC-dropdown-click.BLACC-mobile .BLACC-btn,.BLACC-dropdown-click.BLACC-mobile .BLACC-button{width:100%}}
+@media (max-width:768px) {
+.BLACC-modal-content{width:500px}
+.BLACC-modal{padding-top:50px}}
+@media (min-width:993px) {
+.BLACC-modal-content{width:900px}
+.BLACC-hide-large{display:none!important}
+.BLACC-sidebar.BLACC-collapse{display:block!important}}
+@media (max-width:992px) and (min-width:601px) {
+.BLACC-hide-medium{display:none!important}}
+@media (max-width:992px) {
+.BLACC-sidebar.BLACC-collapse{display:none}
+.BLACC-main{margin-left:0!important;margin-right:0!important}
+.BLACC-auto{max-width:100%}}
+.BLACC-top,.BLACC-bottom{position:fixed;width:100%;z-index:1}
+.BLACC-top{top:0}
+.BLACC-bottom{bottom:0}
+.BLACC-overlay{position:fixed;display:none;width:100%;height:100%;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,0.5);z-index:2}
+.BLACC-display-topleft{position:absolute;left:0;top:0}
+.BLACC-display-topright{position:absolute;right:0;top:0}
+.BLACC-display-bottomleft{position:absolute;left:0;bottom:0}
+.BLACC-display-bottomright{position:absolute;right:0;bottom:0}
+.BLACC-display-middle {
+position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);-ms-transform:translate(-50%,-50%)
+}
+.BLACC-display-left{position:absolute;top:50%;left:0%;transform:translate(0%,-50%);-ms-transform:translate(-0%,-50%)}
+.BLACC-display-right{position:absolute;top:50%;right:0%;transform:translate(0%,-50%);-ms-transform:translate(0%,-50%)}
+.BLACC-display-topmiddle{position:absolute;left:50%;top:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+.BLACC-display-bottommiddle{position:absolute;left:50%;bottom:0;transform:translate(-50%,0%);-ms-transform:translate(-50%,0%)}
+.BLACC-display-container:hover .BLACC-display-hover{display:block}
+.BLACC-display-container:hover span.BLACC-display-hover{display:inline-block}
+.BLACC-display-hover{display:none}
+.BLACC-display-position{position:absolute}
+.BLACC-circle{border-radius:50%}
+.BLACC-round-small{border-radius:2px}
+.BLACC-round,.BLACC-round-medium{border-radius:4px}
+.BLACC-round-large{border-radius:8px}
+.BLACC-round-xlarge{border-radius:16px}
+.BLACC-round-xxlarge{border-radius:32px}
+.BLACC-row-padding,.BLACC-row-padding>.BLACC-half,.BLACC-row-padding>.BLACC-third,.BLACC-row-padding>.BLACC-twothird,.BLACC-row-padding>.BLACC-threequarter,.BLACC-row-padding>.BLACC-quarter,.BLACC-row-padding>.BLACC-col{padding:0 8px}
+.BLACC-container,.BLACC-panel{padding:0.01em 16px}
+.BLACC-panel{margin-top:16px;margin-bottom:16px}
+.BLACC-code,.BLACC-codespan{font-family:Consolas,"courier new";font-size:16px}
+.BLACC-code{width:auto;background-color:#fff;padding:8px 12px;border-left:4px solid #4CAF50;word-wrap:break-word}
+.BLACC-codespan{color:crimson;background-color:#f1f1f1;padding-left:4px;padding-right:4px;font-size:110%}
+.BLACC-card,.BLACC-card-2{box-shadow:0 2px 5px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12)}
+.BLACC-card-4,.BLACC-hover-shadow:hover{box-shadow:0 4px 10px 0 rgba(0,0,0,0.2),0 4px 20px 0 rgba(0,0,0,0.19)}
+
+.BLACC-spin{animation:BLACC-spin 5s infinite}
+
+@keyframes .BLACC-spin{25%{transform:rotate(90deg)}
+                       50%{transform:rotate(180deg)}
+                       75%{transform:rotate(240deg)}
+                       100%{transform:rotate(359deg)}
+                      }
+
+@keyframes example {
+  from {
+  transform: rotateY(360deg);
+  transform: rotateX(90deg);
+  to {
+  transform: rotateY(360deg);
+  transform: rotateX(360deg);
+
+}
+
+.BLACC-animate-fading{animation:fading 15s infinite}
+@keyframes fading{0%{opacity:0}50%{opacity:1}100%{opacity:0}}
+.BLACC-animate-opacity{animation:opac 20s infinite}
+@keyframes opac{from{opacity:0} to{opacity:1}}
+.BLACC-animate-top{position:relative;animation:animatetop 4s }
+@keyframes animatetop{from{top:-300px;opacity:0} to{top:0;opacity:1}}
+.BLACC-animate-left{position:relative;animation:animateleft 4s }
+@keyframes animateleft{from{left:-300px;opacity:0} to{left:0;opacity:1}}
+.BLACC-animate-right{position:relative;animation:animateright 4s }
+@keyframes animateright{from{right:-300px;opacity:0} to{right:0;opacity:1}}
+.BLACC-animate-bottom{position:relative;animation:animatebottom 3s }
+@keyframes animatebottom{from{bottom:-300px;opacity:0} to{bottom:0;opacity:1}}
+.BLACC-animate-zoom {animation:animatezoom 5s }
+@keyframes animatezoom{from{transform:scale(0)} to{transform:scale(1)}}
+.BLACC-animate-input{transition:width 7s ease-in-out }
+.BLACC-animate-input:focus{width:100%!important}
+.BLACC-opacity,.BLACC-hover-opacity:hover{opacity:0.60}
+.BLACC-opacity-off,.BLACC-hover-opacity-off:hover{opacity:1}
+.BLACC-opacity-max{opacity:0.25}
+.BLACC-opacity-min{opacity:0.75}
+.BLACC-greyscale-max,.BLACC-grayscale-max,.BLACC-hover-greyscale:hover,.BLACC-hover-grayscale:hover{filter:grayscale(100%)}
+.BLACC-greyscale,.BLACC-grayscale{filter:grayscale(75%)}
+.BLACC-greyscale-min,.BLACC-grayscale-min{filter:grayscale(50%)}
+.BLACC-sepia{filter:sepia(75%)}
+.BLACC-sepia-max,.BLACC-hover-sepia:hover{filter:sepia(100%)}
+.BLACC-sepia-min{filter:sepia(50%)}
+.BLACC-tiny{font-size:10px!important}
+.BLACC-small{font-size:12px!important}
+.BLACC-medium{font-size:15px!important}
+.BLACC-large{font-size:18px!important}
+.BLACC-xlarge{font-size:24px!important}
+.BLACC-xxlarge{font-size:36px!important}
+.BLACC-xxxlarge{font-size:48px!important}
+.BLACC-jumbo{font-size:64px!important}
+.BLACC-left-align{text-align:left!important}
+.BLACC-right-align{text-align:right!important}
+.BLACC-justify{text-align:justify!important}
+.BLACC-center{text-align:center!important}
+.BLACC-border-0{border:0!important}
+.BLACC-border{border:1px solid #ccc!important}
+.BLACC-border-top{border-top:1px solid #ccc!important}
+.BLACC-border-bottom{border-bottom:1px solid #ccc!important}
+.BLACC-border-left{border-left:1px solid #ccc!important}
+.BLACC-border-right{border-right:1px solid #ccc!important}
+.BLACC-topbar{border-top:6px solid #ccc!important}
+.BLACC-bottombar{border-bottom:6px solid #ccc!important}
+.BLACC-leftbar{border-left:6px solid #ccc!important}
+.BLACC-rightbar{border-right:6px solid #ccc!important}
+.BLACC-section,.BLACC-code{margin-top:16px!important;margin-bottom:16px!important}
+.BLACC-margin{margin:16px!important}
+.BLACC-margin-top{margin-top:16px!important}
+.BLACC-margin-bottom{margin-bottom:16px!important}
+.BLACC-margin-left{margin-left:16px!important}
+.BLACC-margin-right{margin-right:16px!important}
+.BLACC-padding-small{padding:4px 8px!important}
+.BLACC-padding{padding:8px 16px!important}
+.BLACC-padding-large{padding:12px 24px!important}
+.BLACC-padding-16{padding-top:16px!important;padding-bottom:16px!important}
+.BLACC-padding-24{padding-top:24px!important;padding-bottom:24px!important}
+.BLACC-padding-32{padding-top:32px!important;padding-bottom:32px!important}
+.BLACC-padding-48{padding-top:48px!important;padding-bottom:48px!important}
+.BLACC-padding-64{padding-top:64px!important;padding-bottom:64px!important}
+.BLACC-padding-top-64{padding-top:64px!important}
+.BLACC-padding-top-48{padding-top:48px!important}
+.BLACC-padding-top-32{padding-top:32px!important}
+.BLACC-padding-top-24{padding-top:24px!important}
+.BLACC-left{float:left!important}
+.BLACC-right{float:right!important}
+/*Change color of background for links*/
+.BLACC-button:hover{color: #8AF7FF!important;background-color: #8AF7FF!important}
+.BLACC-transparent,.BLACC-hover-none:hover{background-color:transparent!important}
+.BLACC-hover-none:hover{box-shadow:none!important}
+/* Colors */
+.BLACC-amber,.BLACC-hover-amber:hover{color:#000!important;background-color:#ffc107!important}
+.BLACC-aqua,.BLACC-hover-aqua:hover{color:#000!important;background-color:#00ffff!important}
+.BLACC-blue,.BLACC-hover-blue:hover{color:#fff!important;background-color:#2196F3!important}
+.BLACC-light-blue,.BLACC-hover-light-blue:hover{color:#000!important;background-color:#87CEEB!important}
+.BLACC-brown,.BLACC-hover-brown:hover{color:#fff!important;background-color:#795548!important}
+.BLACC-cyan,.BLACC-hover-cyan:hover{color:#000!important;background-color:#00bcd4!important}
+.BLACC-blue-grey,.BLACC-hover-blue-grey:hover,.BLACC-blue-gray,.BLACC-hover-blue-gray:hover{color:#fff!important;background-color:#607d8b!important}
+.BLACC-green,.BLACC-hover-green:hover{color:#fff!important;background-color:#4CAF50!important}
+.BLACC-light-green,.BLACC-hover-light-green:hover{color:#000!important;background-color:#8bc34a!important}
+.BLACC-indigo,.BLACC-hover-indigo:hover{color:#fff!important;background-color:#3f51b5!important}
+.BLACC-khaki,.BLACC-hover-khaki:hover{color:#000!important;background-color:#f0e68c!important}
+.BLACC-lime,.BLACC-hover-lime:hover{color:#000!important;background-color:#cddc39!important}
+.BLACC-orange,.BLACC-hover-orange:hover{color:#000!important;background-color:#ff9800!important}
+.BLACC-deep-orange,.BLACC-hover-deep-orange:hover{color:#fff!important;background-color:#ff5722!important}
+.BLACC-pink,.BLACC-hover-pink:hover{color:#fff!important;background-color:#e91e63!important}
+.BLACC-purple,.BLACC-hover-purple:hover{color:#fff!important;background-color:#9c27b0!important}
+.BLACC-deep-purple,.BLACC-hover-deep-purple:hover{color:#fff!important;background-color:#673ab7!important}
+.BLACC-red,.BLACC-hover-red:hover{color:#fff!important;background-color:#f44336!important}
+.BLACC-sand,.BLACC-hover-sand:hover{color:#000!important;background-color:#fdf5e6!important}
+.BLACC-teal,.BLACC-hover-teal:hover{color:#fff!important;background-color:#009688!important}
+.BLACC-yellow,.BLACC-hover-yellow:hover{color:#000!important;background-color:#ffeb3b!important}
+.BLACC-white,.BLACC-hover-white:hover{color:#000!important;background-color:#fff!important}
+.BLACC-black,.BLACC-hover-black:hover{color:#fff!important;background-color:#000!important}
+.BLACC-grey,.BLACC-hover-grey:hover,.BLACC-gray,.BLACC-hover-gray:hover{color:#000!important;background-color:#9e9e9e!important}
+.BLACC-light-grey,.BLACC-hover-light-grey:hover,.BLACC-light-gray,.BLACC-hover-light-gray:hover{color:#000!important;background-color:#f1f1f1!important}
+.BLACC-dark-grey,.BLACC-hover-dark-grey:hover,.BLACC-dark-gray,.BLACC-hover-dark-gray:hover{color:#fff!important;background-color:#616161!important}
+.BLACC-pale-red,.BLACC-hover-pale-red:hover{color:#000!important;background-color:#ffdddd!important}
+.BLACC-pale-green,.BLACC-hover-pale-green:hover{color:#000!important;background-color:#ddffdd!important}
+.BLACC-pale-yellow,.BLACC-hover-pale-yellow:hover{color:#000!important;background-color:#ffffcc!important}
+.BLACC-pale-blue,.BLACC-hover-pale-blue:hover{color:#000!important;background-color:#ddffff!important}
+
+.BLACC-text-amber,.BLACC-hover-text-amber:hover{color:#ffc107!important}
+.BLACC-text-aqua,.BLACC-hover-text-aqua:hover{color:#00ffff!important}
+.BLACC-text-blue,.BLACC-hover-text-blue:hover{color:#2196F3!important}
+.BLACC-text-light-blue,.BLACC-hover-text-light-blue:hover{color:#87CEEB!important}
+.BLACC-text-brown,.BLACC-hover-text-brown:hover{color:#795548!important}
+.BLACC-text-cyan,.BLACC-hover-text-cyan:hover{color:#00bcd4!important}
+.BLACC-text-blue-grey,.BLACC-hover-text-blue-grey:hover,.BLACC-text-blue-gray,.BLACC-hover-text-blue-gray:hover{color:#607d8b!important}
+.BLACC-text-green,.BLACC-hover-text-green:hover{color:#4CAF50!important}
+.BLACC-text-light-green,.BLACC-hover-text-light-green:hover{color:#8bc34a!important}
+.BLACC-text-indigo,.BLACC-hover-text-indigo:hover{color:#3f51b5!important}
+.BLACC-text-khaki,.BLACC-hover-text-khaki:hover{color:#b4aa50!important}
+.BLACC-text-lime,.BLACC-hover-text-lime:hover{color:#cddc39!important}
+.BLACC-text-orange,.BLACC-hover-text-orange:hover{color:#ff9800!important}
+.BLACC-text-deep-orange,.BLACC-hover-text-deep-orange:hover{color:#ff5722!important}
+.BLACC-text-pink,.BLACC-hover-text-pink:hover{color:#e91e63!important}
+.BLACC-text-purple,.BLACC-hover-text-purple:hover{color:#9c27b0!important}
+.BLACC-text-deep-purple,.BLACC-hover-text-deep-purple:hover{color:#673ab7!important}
+.BLACC-text-red,.BLACC-hover-text-red:hover{color:#f44336!important}
+.BLACC-text-sand,.BLACC-hover-text-sand:hover{color:#fdf5e6!important}
+.BLACC-text-teal,.BLACC-hover-text-teal:hover{color:#009688!important}
+.BLACC-text-yellow,.BLACC-hover-text-yellow:hover{color:#d2be0e!important}
+.BLACC-text-white,.BLACC-hover-text-white:hover{color:#fff!important}
+.BLACC-text-black,.BLACC-hover-text-black:hover{color:#000!important}
+.BLACC-text-grey,.BLACC-hover-text-grey:hover,.BLACC-text-gray,.BLACC-hover-text-gray:hover{color:#757575!important}
+.BLACC-text-light-grey,.BLACC-hover-text-light-grey:hover,.BLACC-text-light-gray,.BLACC-hover-text-light-gray:hover{color:#f1f1f1!important}
+.BLACC-text-dark-grey,.BLACC-hover-text-dark-grey:hover,.BLACC-text-dark-gray,.BLACC-hover-text-dark-gray:hover{color:#3a3a3a!important}
+.BLACC-border-amber,.BLACC-hover-border-amber:hover{border-color:#ffc107!important}
+.BLACC-border-aqua,.BLACC-hover-border-aqua:hover{border-color:#00ffff!important}
+.BLACC-border-blue,.BLACC-hover-border-blue:hover{border-color:#2196F3!important}
+.BLACC-border-light-blue,.BLACC-hover-border-light-blue:hover{border-color:#87CEEB!important}
+.BLACC-border-brown,.BLACC-hover-border-brown:hover{border-color:#795548!important}
+.BLACC-border-cyan,.BLACC-hover-border-cyan:hover{border-color:#00bcd4!important}
+.BLACC-border-blue-grey,.BLACC-hover-border-blue-grey:hover,.BLACC-border-blue-gray,.BLACC-hover-border-blue-gray:hover{border-color:#607d8b!important}
+.BLACC-border-green,.BLACC-hover-border-green:hover{border-color:#4CAF50!important}
+.BLACC-border-light-green,.BLACC-hover-border-light-green:hover{border-color:#8bc34a!important}
+.BLACC-border-indigo,.BLACC-hover-border-indigo:hover{border-color:#3f51b5!important}
+.BLACC-border-khaki,.BLACC-hover-border-khaki:hover{border-color:#f0e68c!important}
+.BLACC-border-lime,.BLACC-hover-border-lime:hover{border-color:#cddc39!important}
+.BLACC-border-orange,.BLACC-hover-border-orange:hover{border-color:#ff9800!important}
+.BLACC-border-deep-orange,.BLACC-hover-border-deep-orange:hover{border-color:#ff5722!important}
+.BLACC-border-pink,.BLACC-hover-border-pink:hover{border-color:#e91e63!important}
+.BLACC-border-purple,.BLACC-hover-border-purple:hover{border-color:#9c27b0!important}
+.BLACC-border-deep-purple,.BLACC-hover-border-deep-purple:hover{border-color:#673ab7!important}
+.BLACC-border-red,.BLACC-hover-border-red:hover{border-color:#f44336!important}
+.BLACC-border-sand,.BLACC-hover-border-sand:hover{border-color:#fdf5e6!important}
+.BLACC-border-teal,.BLACC-hover-border-teal:hover{border-color:#009688!important}
+.BLACC-border-yellow,.BLACC-hover-border-yellow:hover{border-color:#ffeb3b!important}
+.BLACC-border-white,.BLACC-hover-border-white:hover{border-color:#fff!important}
+.BLACC-border-black,.BLACC-hover-border-black:hover{border-color:#000!important}
+.BLACC-border-grey,.BLACC-hover-border-grey:hover,.BLACC-border-gray,.BLACC-hover-border-gray:hover{border-color:#9e9e9e!important}
+.BLACC-border-light-grey,.BLACC-hover-border-light-grey:hover,.BLACC-border-light-gray,.BLACC-hover-border-light-gray:hover{border-color:#f1f1f1!important}
+.BLACC-border-dark-grey,.BLACC-hover-border-dark-grey:hover,.BLACC-border-dark-gray,.BLACC-hover-border-dark-gray:hover{border-color:#616161!important}
+.BLACC-border-pale-red,.BLACC-hover-border-pale-red:hover{border-color:#ffe7e7!important}
+.BLACC-border-pale-green,.BLACC-hover-border-pale-green:hover{border-color:#e7ffe7!important}
+.BLACC-border-pale-yellow,.BLACC-hover-border-pale-yellow:hover{border-color:#ffffcc!important}
+.BLACC-border-pale-blue,.BLACC-hover-border-pale-blue:hover{border-color:#e7ffff!important}
+
+      
+        .img {
+            border-radius: 50%;
+        }
+        .img {
+            border-radius: 50% solid yellow;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+
+        }
+        .img:hover {
+            border-radius: 50% solid yellow;
+            animation-name: example;
+            animation-duration: 10s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+
+        }
+@keyframes example {
+            from {
+                transform: rotateX(0deg);
+                to {
+                transform: rotateX(-360deg);
+
+            }
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 15px;
+  width: 200px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  position: fixed;
+  z-index: 1;
+  bottom: 75%;
+  right: 50%;
+  margin-left: 60px;
+  padding: .5px;
+  opacity: 0;
+  transition: opacity 3s;
+}
+
+.tooltip .tooltiptext::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+</style>
+
 <style>
-html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+            
+:root {
+  --bg-page: teal;
+  --accent-text: #FFFFFF;
+  --accent-button: #666663;
+  --accent-highlight: purple;
+  --accent-icon: #FFFFFF;
+  --accent-sidenav: lightblue;
+  --accent-secondary: teal;
+  --accent-container: #FFFFFF;
+  --accent-searchbar: #0000FF;
+}
+    
+* {
+
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; "Font Awesome",
+  -webkit-tap-highlight-color: transparent;
+}
+    
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+    padding-top: 60px;
+  cursor: var(--cursor-img);
+    color: var(--accent-text)
+}
+
+/* Modal Content/Box */
+.modal-content {
+
+  background:  var(--accent-hightight); /* Black w/ opacity */
+    opacity: .90;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  cursor: var(--cursor-img);
+}
+
+    
+/* Modal Content/Box */
+.modal-content-icon {
+
+  background:  var(--accent-button); /* Black w/ opacity */
+    opacity: .90;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+  border: 1px solid #888;
+  width: 80%; /* Could be more or less, depending on screen size */
+  cursor: var(--cursor-img);
+}
+
+/* The Close Button (x) */
+.close {
+  position: absolute;
+  right: 25px;
+  top: 0;
+  color: #000;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: var(--accent-button);
+}
+
+.close:hover,
+.close:focus {
+  color:  var(--accent-button);
+  cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+  -webkit-animation: animatezoom 0.6s;
+  animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+  from {-webkit-transform: scale(0)} 
+  to {-webkit-transform: scale(1)}
+}
+  
+@keyframes animatezoom {
+  from {transform: scale(0)} 
+  to {transform: scale(1)}
+}
+
+
+   
+/* Style the input field */
+input[type=text] {
+  width: auto;
+  border-radius: 9px;
+  border: none;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  height: 25px;
+  color: white;
+    top: 10px;
+}
+        
+input[title] {
+    font-size: 25px;
+    }
+       
+/*the container must be positioned relative:*/
+.autocomplete {
+  display: inline-block;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  width: auto;
+    max-width: 320px;
+    height: 50px;
+    opacity: 1;
+  border-radius: var(--radius-main);
+  color: white;
+  margin-top: -35px;
+  text-align: center;
+  font-size: 20px;
+box-shadow: 10px 10px 10px 10px  var(--accent-highlight);
+}
+
+
+
+input {
+  height: 65px;
+  width: auto;
+  outline: none;
+  text-align: center;
+  border: 4px solid blue;
+  border-radius: var(--radius-main);
+  font-size: 30px;
+  background:  linear-gradient(135deg, var(--bg-page), var(--accent-secondary));
+    opacity: 1;
+box-shadow: 0px 10px 80px 40px rgba(219, 212, 193,.8);
+
+}
+
+
+.myInput {
+  height: 65px;
+  width: auto;
+  outline: none;
+  text-align: center;
+  border: 4px solid blue;
+  border-radius: 5px;
+  font-size: 30px;
+background-color: white;
+    opacity: 1;
+box-shadow: 0px 10px 80px 40px rgba(219, 212, 193,.8);
+}
+         
+input[type=text] : hover : active {
+  height: 65px;
+  width: auto;
+  outline: none;
+  text-align: center;
+  border: 4px solid blue;
+  border-radius: 5px;
+  font-size: 30px;
+box-shadow: 0px 10px 80px 40px rgba(219, 212, 193,.8);
+  background:  linear-gradient(135deg, var(--bg-page), var(--accent-secondary));
+    opacity: 1;
+  cursor: var(--cursor-img);
+}
+
+input[type=text] {
+  background-color:  var(--bg-page) ;
+    border: 3px double blue;
+  color:  var(--accent-text);
+  width: auto;
+    max-width: 480px;
+  margin: 0 auto;
+    height: 50px;
+    opacity: .7;
+  text-align: center;
+  cursor: var(--cursor-img);
+box-shadow: 0px 10px 80px 40px rgba(219, 212, 193,.8);
+}
+
+input[type=submit] {
+  background-color:  black;
+  color: white;
+  cursor: var(--cursor-img);
+  box-shadow: 0px 10px 50px 30px rgba(180,150,10,0.22);
+
+}
+ 
+.autocomplete-items {
+  border: 1px solid white;
+  border-bottom: none;
+  border-top: none;
+  z-index: 99;
+  /*position the autocomplete items to be the same width as the container:*/
+  top: 0;
+  left: 0;
+  overflow-y: scroll;
+  max-height: 180px;
+        width: 320px;
+
+}
+
+.autocomplete-items div { 
+  cursor: var(--cursor-img);
+  background:  linear-gradient(135deg, var(--bg-page), var(--accent-secondary));
+  color: var(--accent-text); 
+    border-bottom: 1px solid blue; 
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+  background:  linear-gradient(135deg, var(--accent-searchbar), var(--bg-page));
+  color: var(--accent-text); 
+  border-radius: var(--radius-main);
+}
+
+/*when navigating through the items using the arrow keys:*/
+.autocomplete-active {
+  background-color: DodgerBlue !important; 
+  color: #ffffff; 
+
+}
+.gow {
+  animation: glow 10s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 50px 20px 30px #00BFFF, 10px 20px 60px #88C6E0, 50px 20px 30px #88BED5, 10px 30px 60px #00BFFF, 10px 30px 30px #88AEBF, 50px 30px 60px #87A6B4, 10px 20px 30px #869FA9;
+  }
+  
+  to {
+    text-shadow: 10px 30px 60px #00BFFF, 50px 10px 40px #848F94, 10px 10px 50px #00BFFF, 10px 10px 60px #808080, 50px 10px 70px #87CEEB, 10px 10px 80px #00BFFF, 50px 10px 90px #88AEBF;
+  }
+}
+
+
+.row {
+  margin: 0 auto;
+  width: 280px;
+  clear: both;
+  text-align: center;
+  font-family: 'Exo';
+}
+
+.digit,
+.dig {
+  float: left;
+  padding: 10px 30px;
+    height: 110px;
+  width: 30px;
+  font-size: 2rem;
+  cursor: pointer;
+    color:  var(--accent-text);
+}
+
+.sub {
+  font-size: 0.8rem;
+  color: grey;
+}
+
+.container {
+          background: linear-gradient(270deg, white,var(--accent-secondary), var(--bg-page));
+  width: 320px;
+  margin: 30px auto;
+  height: 720px;
+  text-align: center;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+#output {
+  font-family: "Exo";
+  font-size: 2rem;
+  height: 60px;
+  font-weight: bold;
+  color: #1976d2;
+}
+
+#call {
+  display: inline-block;
+  background-color: #66bb6a;
+  padding: 4px 30px;
+  margin: 10px;
+  color: white;
+  border-radius: 4px;
+  float: left;
+  cursor: pointer;
+}
+
+.botrow {
+  margin: 0 auto;
+  width: 280px;
+  clear: both;
+  text-align: center;
+  font-family: 'Exo';
+}
+
+.digit:active,
+.dig:active {
+  background-color:  var(--accent-text);
+}
+
+#call:hover {
+  background-color: #81c784;
+}
+
+.dig {
+  float: left;
+  padding: 10px 20px;
+  margin: 10px;
+  width: 30px;
+  cursor: pointer;
+}
+scrollbar {
+    color: white;
+    } 
+header {
+  background: linear-gradient(135deg, black, white);
+  color: white;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 15px;
+  position: fixed;
+    width: 100%;
+  max-width: 440px;
+}
+
+.user-info h1 {
+  font-size: 1.5rem;
+  margin-bottom: 0px;
+}
+
+.user-info p {
+  opacity: 0.9;
+  font-size: 0.9rem;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e8efb;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.search-bar {
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+}
+
+.search-container {
+  display: flex;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  border-radius: 25px;
+  align-items: left;
+    height: 28px;
+}
+
+.search-container i {
+  color: #888;
+margin-left: 150px;
+}
+
+.search-container input {
+  border: none;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  font-size: 1rem;
+}
+
+.section-title {
+  margin-bottom: 15px;
+    margin-right: 25px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title h2 {
+  font-size: 1.2rem;
+}
+
+.section-title a {
+  color: #a777e3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 15px;
+  margin-left: 5px;
+  margin-right: 5px;
+    padding: 5px;
+  background:  linear-gradient(135deg, black, var(--bg-page));
+
+}
+
+.card {
+  border-radius: 70%;
+  box-shadow: 0 4px 10px  var(--accent-highlight);
+  transition: transform 0.2s;
+    width: 70%;
+}
+
+
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card i {
+  font-size: 2.0rem;
+  margin-bottom: 3px;
+  color:  purple;
+    text-align: center;
+
+}
+
+p {
+  font-size: 1.0rem;
+  margin-bottom: 5px;
+  color:  var(--accent-text);
+  text-align: center;
+}
+
+.card p {
+  font-size: 1.8rem;
+  color:  var(--accent-text);
+      text-align: center;
+
+}
+
+.largeicon {
+  background:  linear-gradient(135deg, black, var(--bg-page));
+  border-radius: 90%;
+  box-shadow: 0 4px 10px  var(--accent-sidenav);
+  transition: transform 0.2s;
+    width: 70px;
+    height: 150px;
+}
+
+
+.largeicon:active {
+  transform: scale(0.98);
+}
+
+.largeicon i {
+  font-size: 1.0rem;
+  margin-bottom: 3px;
+  color: purple;
+}
+
+.card button {
+  font-size: 1.6rem;
+  margin-bottom: 3px;
+  background:  linear-gradient(135deg, black, white);
+}
+
+
+.largeicon p {
+  font-size: 0.8rem;
+  color:  var(--accent-text);
+}
+
+.large-card {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  background:  linear-gradient(135deg, black, var(--bg-page));
+  border-radius: 15%;
+    margin-left:0px;
+    overflow-x: auto;
+    
+}
+
+.max-large-card {
+  grid-column: span 5;
+  display: flex;
+  align-items: center;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  border-radius: 15%;
+}
+
+.max-large-card .icon {
+  font-size: 2.5rem;
+  color:  var(--accent-sidenav);
+}
+
+.max-large-card .content {
+  flex: 1;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  border-radius: 70%;
+}
+
+.large-card .icon {
+  font-size: 2.5rem;
+  color: var(--accent-icon);
+
+}
+
+.large-card .content {
+  flex: 1;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  border-radius: 70%;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #e6e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.list-item .info {
+  flex: 1;
+}
+
+.list-item .info p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.list-item .info p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.list-item .action {
+  color: #a777e3;
+}
+
+.bottom-nav {
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--bg-page));
+  display: flex;
+  justify-content: space-around;
+  padding: 15px 0;
+    margin-left: -25px;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  z-index: 100;
+    height: 100px;
+}
+
+
+.cardbottom {
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--bg-page));
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 3s;
+}
+
+.cardbottom:active {
+  transform: scale(0.98);
+}
+
+.cardbottom i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: hotpink;
+}
+
+.cardbottom p {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cardbottom p {
+  font-size: 0.8rem;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: #6e8efb;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.notification {
+  position: relative;
+}
+
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.glow {
+  font-size: 80px;
+  color: var(--accent-secondary);
+  text-align: center;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+
+@-webkit-keyframes glow {
+  from {
+    text-shadow: 50px 20px 30px #000000, 30px 20px 60px #000000, 50px 20px 30px #000000, 10px 30px 60px #000000, 30px 30px 30px #000000, 50px 30px 60px (--bg-page), 70px 20px 30px #000000;
+  }
+  
+  to {
+    text-shadow: 40px 30px 60px #FFFFFF, 50px 10px 40px #FFFFFF, 10px 10px 50px  (--accent-icon), 10px 40px 60px #FFFFFF, 50px 10px 70px #FFFFFF, 60px 10px 80px (--accent-secondary), 40px 10px 90px #FFFFFF;
+  }
+}
+    
+scrollbar {
+    color: white;
+    }
+    
+header {
+  background: linear-gradient(135deg, teal, purple);
+  color: white;
+  padding: 25px 20px;
+    opacity: .8;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 25px;
+  position: fixed;
+    width: 100%;
+  max-width: 430px;
+}
+
+.user-info h1 {
+  font-size: 1.0rem;
+  margin-bottom: 0px;
+}
+
+.user-info p {
+  opacity: 0.9;
+  font-size: 0.5rem;
+}
+
+.avatar {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: grey;
+opacity: .3;
+    display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #6e8efb;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.main-content {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20px;
+  background:  linear-gradient(85deg, var(--accent-secondary),  var(--bg-page));
+    width:465px;
+}
+
+.section-title {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.section-title h2 {
+  font-size: 1.2rem;
+}
+
+.section-title a {
+  color: #a777e3;
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+ background: linear-gradient(85deg, var(--bg-page),#00000000 var(--accent-sidenav), #00000000);
+  gap: 5px;
+  margin-bottom: 25px;
+}
+
+.card {
+  background:  linear-gradient(85deg, var(--accent-container), var(--accent-text));
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px var(--accent-highlight);
+  transition: transform 0.2s;
+}
+
+    .card-icon {
+  background:  linear-gradient(85deg, var(--accent-container), var(--accent-button));
+        }
+
+    .triangle {
+        width: 0;
+        height: 0;
+        border-left: 50px solid transparent;
+        border-right: 50px solid transparent;
+        border-bottom: 100px solid #007BFF;
+        }
+
+.card:active {
+  transform: scale(0.98);
+}
+
+.card i {
+  font-size: 2.0rem;
+  margin-bottom: 10px;
+        color:  var(--accent-secondary);
+    text-align: center;
+}
+
+.card h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: black;
+}
+
+.card p {
+  font-size: 1.0rem;
+  color: white;
+      text-align: center;
+
+}
+
+.large-card {
+  grid-column: span 2;
+  display: flex;
+  align-items: center;
+    overflow-x: auto;
+}
+
+.large-card .icon {
+  font-size: 2.5rem;
+text-align:center;
+    color:  var(--accent-secondary);
+    
+}
+
+.large-card .content {
+  flex: 1;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.list-item:last-child {
+  border-bottom: none;
+}
+
+.list-item .icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background-color: #e6e9ff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+  color: #6e8efb;
+}
+
+.list-item .info {
+  flex: 1;
+}
+
+.list-item .info h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+}
+
+.list-item .info p {
+  font-size: 0.8rem;
+  color: #777;
+}
+
+.list-item .action {
+  color: #a777e3;
+}
+
+.max-large-card {
+  grid-column: span 4;
+  display: flex;
+  align-items: center;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--bg-page));
+  border-radius: 15%;
+}
+
+.max-large-card .icon {
+  font-size: 2.5rem;
+  color: #6e8efb;
+}
+
+.max-large-card .content {
+  flex: 1;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--bg-page));
+  border-radius: 70%;
+}
+
+.bottom-nav {
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--accent-secondary));
+  display: flex;
+  justify-content: space-around;
+  padding: 5px 0;
+  border-top: 1px solid #eee;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  max-width: 480px;
+  z-index: 100;
+}
+
+
+.cardbottom {
+  background:  linear-gradient(135deg, black, var(--bg-page));
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 4px 10px var(--accent-text);
+  transition: transform 0.2s;
+}
+
+.cardbottom:active {
+  transform: scale(0.98);
+}
+
+.cardbottom i {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+  color: hotpink;
+}
+
+.cardbottom h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: hotpink;
+}
+
+.cardbottom p {
+  font-size: 0.8rem;
+  color: white;
+}
+
+
+.cardheader {
+    height: 20px;
+        width: 20px;
+  background:  linear-gradient(135deg, var(--accent-sidenav), var(--bg-se));
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.55);
+  transition: transform 0.2s;
+}
+
+.cardheader:active {
+  transform: scale(0.98);
+}
+
+.cardheader i {
+  font-size: 1.5rem;
+  margin-bottom: 2px;
+  color: hotpink;
+}
+
+.cardheader h3 {
+  font-size: 1rem;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.cardheader p {
+  font-size: 0.8rem;
+  color: white;
+}
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #777;
+  font-size: 0.8rem;
+}
+
+.nav-item.active {
+  color: #6e8efb;
+}
+
+.nav-item i {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+.notification {
+  position: relative;
+}
+    
+p {
+    text-align: center;
+    }
+    
+.notification-badge {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background-color: #ff4757;
+  color: white;
+  font-size: 0.7rem;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+    .mySidebar {
+        display: block;
+        }
+    .overlayBg {
+        display: block;
+        }
+/* Clock container with circular shape */
+.clock {
+  --clock-size: 360px; /* Custom property for clock size */
+  width: 100px; /* Clock's width */
+  height: 100px; /* Clock's height */
+  position: fixed; /* Fixes clock in the center */
+  inset: 0; /* Centers the clock */
+  border-radius: 50%; /* Makes the clock circular */
+}
+
+/* Individual ticks (spikes) for the clock */
+.spike {
+  position: absolute;
+  width: 8px; /* Width of the spike */
+  height: 1px; /* Thickness of the spike */
+  background: black; /* Slightly transparent white color */
+  transform-origin: 50%; /* Origin for rotation */
+  inset: 0;
+  margin: auto;
+  transform: rotate(var(--rotate)) translateX(var(--dail-size)); /* Position based on rotation */
+}
+
+/* Highlights larger spikes for hour markers */
+.spike:nth-child(5n+1) {
+  box-shadow: -7px 0 #fff9; /* Creates a larger spike shadow */
+}
+
+/* Adds numbers to the hour spikes */
+.spike:nth-child(5n+1):after {
+  content: attr(data-i); /* Displays the current hour */
+  position: absolute;
+  right: 22px;
+  top: -10px;
+  transform: rotate(calc(var(--dRotate) - var(--rotate))); /* Keeps text upright */
+}
+
+/* Style for second-hand container */
+.seconds {
+  --dRotate: 0deg; /* Rotation angle for seconds */
+  --dail-size: calc((var(--clock-size)/ 2) - 8px); /* Distance from center */
+  font-weight: 800;
+  font-size: 18px;
+  transform: rotate(calc(-1 * var(--dRotate))); /* Rotates dynamically */
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: 1s linear; /* Smooth animation for transitions */
+}
+
+/* Style for minute-hand container */
+.minutes {
+  --dail-size: calc((var(--clock-size)/ 2) - 65px); /* Distance from center */
+  font-size: 16px;
+  transform: rotate(calc(-1 * var(--dRotate))); /* Rotates dynamically */
+  position: absolute;
+  inset: 0;
+  margin: auto;
+  transition: 1s linear;
+}
+
+/* Stops animation when seconds or minutes reset */
+.stop-anim {
+  transition: 0s linear;
+}
+.stop-anim .spike:after {
+  transition: 0s linear !important; /* Overrides transition for spikes */
+}
+
+/* Style for the hour text in the center */
+.hour {
+  font-size: 40px; /* Larger font size for hours */
+  font-weight: 900;
+  position: absolute;
+  left: 60%; /* Center horizontally */
+  top: 50%; /* Center vertically */
+  transform: translate(-50%, -50%);
+}
+
+/* Style for minute text */
+.minute {
+  font-size: 36px; /* Smaller font size for minutes */
+  font-weight: 900;
+  position: absolute;
+  color: blue;
+    background: black; /* Black background to blend with clock */
+  z-index: 10; /* Ensures it appears above other elements */
+  right: calc(var(--clock-size)/ 4.5); /* Positioned to the right of the clock */
+  top: 50%; /* Centered vertically */
+  transform: translateY(-50%);
+}
+
+/* Adds a curved border to the minute indicator */
+.minute:after {
+  content: "";
+  position: absolute;
+  border: 2px solid #fff; /* White border for the arc */
+  border-right: none; /* Removes the right border */
+  height: 50px;
+  left: -10px;
+  top: 50%;
+  border-radius: 40px 0 0 40px; /* Creates the curved arc */
+  width: calc(var(--clock-size)/ 2.75); /* Width of the arc */
+  transform: translatey(-50%);
+}
+
+      * {
+        box-sizing: border-box;
+      }
+    
+      body {
+        font-family: Times; Georgia, "Segoe UI", sans-serif;
+        text-align: center;
+  background:  linear-gradient(85deg, var(--accent-sidenav), var(--accent-text));
+ 
+  max-width: 480px;
+  margin: 5 auto;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  position: relative;
+  padding-bottom: 70px;      }
+      .wrapper {
+          
+      }
+    p {
+    font-family: Georgia;
+    }
+      h1 {
+        font-size: 26px;
+        font-weight: 600;
+        margin: 0;
+        color: #111;
+      }
+      .subtitle {
+        font-size: 15px;
+        color: #666;
+        margin-top: 8px;
+        margin-bottom: 32px;
+      }
+      .loading {
+        display: none;
+        margin: 60px 0;
+      }
+      .spinner {
+        border: 2px solid #ddd;
+        border-top-color: var(--accent-sidenav);
+        border-radius: 50%;
+        width: 32px;
+        height: 32px;
+        animation: spin 0.8s linear infinite;
+        margin: 20px auto;
+      }
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      .loading-text {
+        font-size: 16px;
+        color: #444;
+      }
+      .content {
+        display: block;
+        margin-inline: 10px;
+      }
+
+      .steps-container {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .step {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        text-align: center;
+  background:  linear-gradient(85deg, var(--accent-sidenav), var(--accent-text));
+      }
+      .step-header {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        margin-bottom: 12px;
+      }
+      .step-number {
+        width: 28px;
+        height: 28px;
+        border: 1px solid #999;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        font-size: 14px;
+        flex-shrink: 0;
+        color: #555;
+      }
+      .step-title {
+        font-size: 18px;
+        font-weight: 600;
+        margin: 0;
+        color: #222;
+      }
+      .step-description {
+        font-size: 14px;
+        margin-bottom: 16px;
+        color: #666;
+      }
+
+      .store-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        justify-content: center;
+        flex-wrap: wrap;
+        
+      }
+    
+      
+      .store-button {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 12px 20px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        text-decoration: none;
+        color:  var(--accent-secondary);
+  background:  linear-gradient(85deg, var(--accent-sidenav), var(--accent-text));
+        transition: all 0.15s;
+      }
+      .store-button:hover {
+        background-color: teal;
+        border-color: #999;
+      }
+      .store-link {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        padding: 8px 0;
+        font-size: 13px;
+        font-weight: 400;
+        text-decoration: underline;
+        text-underline-offset: 2px;
+        color: #666;
+        background: none;
+        border: none;
+        transition: color 0.15s;
+      }
+      .store-link:hover {
+        color: #333;
+      }
+      .store-link .store-icon {
+        width: 14px;
+        height: 14px;
+      }
+      .store-icon {
+        width: 18px;
+        height: 18px;
+      }
+
+      .qr-section {
+  background:  linear-gradient(85deg, var(--accent-sidenav), var(--accent-text));
+        color: var(--accent-text)) ;
+        border-color:  var(--accent-highlight);
+      }
+      .qr-section .step-number {
+        border-color: rgba(255, 255, 255, 0.5);
+        color:  var(--accent-secondary);
+      }
+      .qr-section .step-title {
+        color:  var(--accent-secondary);
+      }
+      .qr-section .step-description {
+        color:  var(--accent-secondary);
+      }
+      .qr-code {
+        width: 180px;
+        height: 180px;
+        margin: 0 auto 16px;
+  background:  linear-gradient(85deg, var(--accent-sidenav), var(--accent-text));
+        border-radius: 8px;
+        padding: 12px;
+      }
+      .qr-code canvas {
+        width: 100%;
+        height: 100%;
+      }
+      .open-button {
+        display: inline-block;
+        padding: 12px 24px;
+        font-size: 14px;
+        font-weight: 500;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        border-radius: 8px;
+        text-decoration: none;
+        color: #333;
+        background: #fff;
+        transition: opacity 0.15s;
+      }
+      .open-button:hover {
+        opacity: 0.9;
+      }
+    
+path[fill]{
+    color: var(--accent-icon);
+    }
+
+      /* Desktop styles */
+      @media (min-width: 768px) {
+        body {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .wrapper {
+          max-width: 720px;
+        }
+        h1 {
+          font-size: 32px;
+          margin-bottom: 10px;
+        }
+        .subtitle {
+          font-size: 16px;
+          margin-bottom: 40px;
+        }
+        .steps-container {
+          flex-direction: row;
+          gap: 20px;
+          align-items: stretch;
+        }
+        .step {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          padding: 28px;
+        }
+        .step-description {
+          flex-grow: 1;
+        }
+        .store-buttons {
+          flex-direction: column;
+          gap: 10px;
+        }
+        .qr-code {
+          width: 200px;
+          height: 200px;
+        }
+      }
+
+      /* Large desktop */
+      @media (min-width: 1024px) {
+        .wrapper {
+          max-width: 800px;
+        }
+        h1 {
+          font-size: 36px;
+        }
+        .steps-container {
+          gap: 28px;
+        }
+        .step {
+          padding: 32px;
+        }
+      }
+
+      /* Dark mode */
+      @media (prefers-color-scheme: dark) {
+        body {
+  background:  linear-gradient(160deg, var(--bg-page), black, var(--accent-secondary),  black, var(--accent-sidenav), black,  var(--accent-container), black,  var(--accent-searchbar));
+          color: #e0e0e0;
+        }
+        h1 {
+          color: #f5f5f5;
+        }
+        .subtitle {
+          color: #999;
+        }
+        .spinner {
+          border-color: #444;
+          border-top-color: #ccc;
+        }
+        .loading-text {
+          color: #aaa;
+        }
+        .step {
+          border-color: #333;
+          background: #1a1a1a;
+        }
+        .step-number {
+          border-color: #666;
+          color: #bbb;
+        }
+        .step-title {
+          color: #f0f0f0;
+        }
+        .step-description {
+          color: #888;
+        }
+        .store-button {
+          border-color: #444;
+          color: #e0e0e0;
+          background: #222;
+        }
+        .store-button:hover {
+          background: #2a2a2a;
+          border-color: #666;
+        }
+        .store-link {
+          color: #888;
+        }
+        .store-link:hover {
+          color: #ccc;
+        }
+        .qr-section {
+          background: linear-gradient(270deg, white,var(--accent-sidenav), var(--bg-page));
+          border-color: #333;
+        }
+        .qr-section .step-number {
+          border-color: rgba(255, 255, 255, 0.4);
+        }
+        .qr-section .step-description {
+          color:  var(--accent-text);
+        }
+        .open-button {
+          background: #f0f0f0;
+          color: #111;
+        }
+        .open-button:hover {
+          background: #e0e0e0;
+        }
+      }
+
+    
+/* Circular scroll indicator container */
+#scroll-circular {
+  width: 70px; /* Diameter of the circular indicator */
+  height: 70px;
+  border-radius: 50%; /* Makes the container circular */
+  box-shadow: 0px 5px 15px rgba(0,0,0,0.2); /* Adds shadow effect */
+  position: fixed; /* Fixes position on the screen */
+  top: 95%; /* Position near the bottom of the screen */
+  left: 90%; /* Position near the right edge of the screen */
+  transform: translate(-100%, -100%); /* Adjusts positioning */
+  display: flex; /* Flex container for centering content */
+  align-items: center; 
+  justify-content: center; 
+  background: rgb(210,230,250); /* Initial background color */
+}
+
+/* Inner circle displaying percentage */
+#percent {
+  width: 60px;
+  height: 60px;
+  background: var(--bg-page); /* White background for the percentage text */
+  border-radius: 50%; /* Makes the inner circle circular */
+  text-align: center; /* Centers text horizontally */
+  line-height: 60px; /* Centers text vertically */
+}
+
 </style>
 </head>
-<body class="w3-light-grey">
+<body>
 
 <!-- Top container -->
-<div class="w3-bar w3-top w3-black w3-large" style="z-index:4">
-  <button class="w3-bar-item w3-button w3-hide-large w3-hover-none w3-hover-text-light-grey" onclick="w3_open();"><i class="fa fa-bars"></i>  Menu</button>
-  <span class="w3-bar-item w3-right">Logo</span>
+<div class="BLACC-bar BLACC-top BLACC-black BLACC-large" style="z-index:4" style="">
+  <button class="BLACC-bar-item BLACC-button BLACC-hide-large BLACC-hover-none BLACC-hover-text-light-grey" onclick="BLACC_open();"><i class="fa fa-bars"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="bars" viewBox="0 0 448 512">
+<path fill="currentColor" d="M0 96C0 78.3 14.3 64 32 64l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 128C14.3 128 0 113.7 0 96zM0 256c0-17.7 14.3-32 32-32l384 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 288c-17.7 0-32-14.3-32-32zM448 416c0 17.7-14.3 32-32 32L32 448c-17.7 0-32-14.3-32-32s14.3-32 32-32l384 0c17.7 0 32 14.3 32 32z"/>
+</svg>  </i>  Menu</button>
+  <span class="BLACC-bar-item BLACC-right">Logo</span>
 </div>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
-  <div class="w3-container w3-row">
-    <div class="w3-col s4">
-      <img src="../BLACCimages/BC.jpg" class="w3-circle w3-margin-right" style="width:46px">
+<nav class="BLACC-sidebar BLACC-collapse BLACC-white BLACC-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
+  <div class="BLACC-container BLACC-row">
+    <div class="BLACC-col s4">
+      <img src="./BC.jpg" class="BLACC-circle BLACC-margin-right" style="width:46px">
     </div>
-    <div class="w3-col s8 w3-bar">
+    <div class="BLACC-col s8 BLACC-bar">
       <span>Welcome, <strong>Mike</strong></span><br>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
+      <a href="#" class="BLACC-bar-item BLACC-button"><i class="fa fa-envelope"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="square-envelope" viewBox="0 0 448 512">
+<path fill="currentColor" d="M64 32C28.7 32 0 60.7 0 96L0 416c0 35.3 28.7 64 64 64l320 0c35.3 0 64-28.7 64-64l0-320c0-35.3-28.7-64-64-64L64 32zM209.1 267.9L108.4 207.4c-7.7-4.6-12.4-12.9-12.4-21.9 0-14.1 11.4-25.5 25.5-25.5l204.9 0c14.1 0 25.5 11.4 25.5 25.5 0 9-4.7 17.3-12.4 21.9L238.9 267.9c-4.5 2.7-9.6 4.1-14.9 4.1s-10.4-1.4-14.9-4.1zM352 237.3l0 82.7c0 17.7-14.3 32-32 32l-192 0c-17.7 0-32-14.3-32-32l0-82.7 96.7 58C202.1 301 213 304 224 304s21.9-3 31.3-8.7l96.7-58z"/>
+</svg>       </i></a>
+      <a href="#" class="BLACC-bar-item BLACC-button"><i class="fa fa-user"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="user-check" viewBox="0 0 640 512">
+<path fill="currentColor" d="M286 304c98.5 0 178.3 79.8 178.3 178.3 0 16.4-13.3 29.7-29.7 29.7L78 512c-16.4 0-29.7-13.3-29.7-29.7 0-98.5 79.8-178.3 178.3-178.3l59.4 0zM585.7 105.9c7.8-10.7 22.8-13.1 33.5-5.3s13.1 22.8 5.3 33.5L522.1 274.9c-4.2 5.7-10.7 9.4-17.7 9.8s-14-2.2-18.9-7.3l-46.4-48c-9.2-9.5-9-24.7 .6-33.9 9.5-9.2 24.7-8.9 33.9 .6l26.5 27.4 85.6-117.7zM256.3 248a120 120 0 1 1 0-240 120 120 0 1 1 0 240z"/>
+</svg>      </i></a>
+      <a href="#" class="BLACC-bar-item BLACC-button">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="gears" viewBox="0 0 640 512">
+<path fill="currentColor" d="M415.9 210.5c12.2-3.3 25 2.5 30.5 13.8L465 261.9c10.3 1.4 20.4 4.2 29.9 8.1l35-23.3c10.5-7 24.4-5.6 33.3 3.3l19.2 19.2c8.9 8.9 10.3 22.9 3.3 33.3l-23.3 34.9c1.9 4.7 3.6 9.6 5 14.7 1.4 5.1 2.3 10.1 3 15.2l37.7 18.6c11.3 5.6 17.1 18.4 13.8 30.5l-7 26.2c-3.3 12.1-14.6 20.3-27.2 19.5l-42-2.7c-6.3 8.1-13.6 15.6-21.9 22l2.7 41.9c.8 12.6-7.4 24-19.5 27.2l-26.2 7c-12.2 3.3-24.9-2.5-30.5-13.8l-18.6-37.6c-10.3-1.4-20.4-4.2-29.9-8.1l-35 23.3c-10.5 7-24.4 5.6-33.3-3.3l-19.2-19.2c-8.9-8.9-10.3-22.8-3.3-33.3l23.3-35c-1.9-4.7-3.6-9.6-5-14.7s-2.3-10.2-3-15.2l-37.7-18.6c-11.3-5.6-17-18.4-13.8-30.5l7-26.2c3.3-12.1 14.6-20.3 27.2-19.5l41.9 2.7c6.3-8.1 13.6-15.6 21.9-22l-2.7-41.8c-.8-12.6 7.4-24 19.5-27.2l26.2-7zM448.4 340a44 44 0 1 0 .1 88 44 44 0 1 0 -.1-88zM224.9-45.5l26.2 7c12.1 3.3 20.3 14.7 19.5 27.2l-2.7 41.8c8.3 6.4 15.6 13.8 21.9 22l42-2.7c12.5-.8 23.9 7.4 27.2 19.5l7 26.2c3.2 12.1-2.5 24.9-13.8 30.5l-37.7 18.6c-.7 5.1-1.7 10.2-3 15.2s-3.1 10-5 14.7l23.3 35c7 10.5 5.6 24.4-3.3 33.3L307.3 262c-8.9 8.9-22.8 10.3-33.3 3.3L239 242c-9.5 3.9-19.6 6.7-29.9 8.1l-18.6 37.6c-5.6 11.3-18.4 17-30.5 13.8l-26.2-7c-12.2-3.3-20.3-14.7-19.5-27.2l2.7-41.9c-8.3-6.4-15.6-13.8-21.9-22l-42 2.7c-12.5 .8-23.9-7.4-27.2-19.5l-7-26.2c-3.2-12.1 2.5-24.9 13.8-30.5l37.7-18.6c.7-5.1 1.7-10.1 3-15.2 1.4-5.1 3-10 5-14.7L55.1 46.5c-7-10.5-5.6-24.4 3.3-33.3L77.6-6c8.9-8.9 22.8-10.3 33.3-3.3l35 23.3c9.5-3.9 19.6-6.7 29.9-8.1l18.6-37.6c5.6-11.3 18.3-17 30.5-13.8zM192.4 84a44 44 0 1 0 0 88 44 44 0 1 0 0-88z"/>
+</svg>                   
+      </a>
     </div>
   </div>
   <hr>
-  <div class="w3-container">
+  <div class="BLACC-container">
     <h5>Dashboard</h5>
   </div>
-  <div class="w3-bar-block">
-    <a href="#" class="w3-bar-item w3-button w3-padding-16 w3-hide-large w3-dark-grey w3-hover-black" onclick="w3_close()" title="close menu"><i class="fa fa-remove fa-fw"></i>  Close Menu</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-cog fa-fw"></i>  Settings</a><br><br>
+  <div class="BLACC-bar-block">
+      <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding BLACC-blue"><i class="fa fa-users fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="filter" viewBox="0 0 512 512">
+<path fill="currentColor" d="M32 64C19.1 64 7.4 71.8 2.4 83.8S.2 109.5 9.4 118.6L192 301.3 192 416c0 8.5 3.4 16.6 9.4 22.6l64 64c9.2 9.2 22.9 11.9 34.9 6.9S320 492.9 320 480l0-178.7 182.6-182.6c9.2-9.2 11.9-22.9 6.9-34.9S492.9 64 480 64L32 64z"/>
+</svg>                          </i>  Overview</a>
+            <br>
+
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-eye fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="eye" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6-46.8 43.5-78.1 95.4-93 131.1-3.3 7.9-3.3 16.7 0 24.6 14.9 35.7 46.2 87.7 93 131.1 47.1 43.7 111.8 80.6 192.6 80.6s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1 3.3-7.9 3.3-16.7 0-24.6-14.9-35.7-46.2-87.7-93-131.1-47.1-43.7-111.8-80.6-192.6-80.6zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64-11.5 0-22.3-3-31.7-8.4-1 10.9-.1 22.1 2.9 33.2 13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-12.2-45.7-55.5-74.8-101.1-70.8 5.3 9.3 8.4 20.1 8.4 31.7z"/>
+</svg>             </i>  Views</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-users fa-fw">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="layer-group" viewBox="0 0 512 512">
+<path fill="currentColor" d="M232.5 5.2c14.9-6.9 32.1-6.9 47 0l218.6 101c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 149.8C5.4 145.8 0 137.3 0 128s5.4-17.9 13.9-21.8L232.5 5.2zM48.1 218.4l164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 277.8C5.4 273.8 0 265.3 0 256s5.4-17.9 13.9-21.8l34.1-15.8zM13.9 362.2l34.1-15.8 164.3 75.9c27.7 12.8 59.6 12.8 87.3 0l164.3-75.9 34.1 15.8c8.5 3.9 13.9 12.4 13.9 21.8s-5.4 17.9-13.9 21.8l-218.6 101c-14.9 6.9-32.1 6.9-47 0L13.9 405.8C5.4 401.8 0 393.3 0 384s5.4-17.9 13.9-21.8z"/>
+</svg>      </i>  Traffic</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bullseye fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="bullseye" viewBox="0 0 512 512">
+<path fill="currentColor" d="M448 256a192 192 0 1 0 -384 0 192 192 0 1 0 384 0zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256 80a80 80 0 1 0 0-160 80 80 0 1 0 0 160zm0-224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zM224 256a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+</svg>    </i>  Geo</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-diamond fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="gem" viewBox="0 0 512 512">
+<path fill="currentColor" d="M116.7 33.8c4.5-6.1 11.7-9.8 19.3-9.8l240 0c7.6 0 14.8 3.6 19.3 9.8l112 152c6.8 9.2 6.1 21.9-1.5 30.4l-232 256c-4.5 5-11 7.9-17.8 7.9s-13.2-2.9-17.8-7.9l-232-256c-7.7-8.5-8.3-21.2-1.5-30.4l112-152zm38.5 39.8c-3.3 2.5-4.2 7-2.1 10.5L210.5 179.8 63.3 192c-4.1 .3-7.3 3.8-7.3 8s3.2 7.6 7.3 8l192 16c.4 0 .9 0 1.3 0l192-16c4.1-.3 7.3-3.8 7.3-8s-3.2-7.6-7.3-8l-147.2-12.3 57.4-95.6c2.1-3.5 1.2-8.1-2.1-10.5s-7.9-2-10.7 1L256 172.2 165.9 74.6c-2.8-3-7.4-3.4-10.7-1z"/>
+</svg>   </i>  Orders</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bell fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="bell-concierge" viewBox="0 0 512 512">
+<path fill="currentColor" d="M216 64c-13.3 0-24 10.7-24 24s10.7 24 24 24l16 0 0 33.3C124.8 156.7 40.2 243.7 32.6 352l446.9 0C471.8 243.7 387.2 156.7 280 145.3l0-33.3 16 0c13.3 0 24-10.7 24-24s-10.7-24-24-24l-80 0zM24 400c-13.3 0-24 10.7-24 24s10.7 24 24 24l464 0c13.3 0 24-10.7 24-24s-10.7-24-24-24L24 400z"/>
+</svg>               </i>  News</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-bank fa-fw">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="piggy-bank" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288-32a96 96 0 1 1 0 192 96 96 0 1 1 0-192zM48 304c0-70.1 47-131.4 117.1-164.9 25.3 41.3 70.9 68.9 122.9 68.9 55.7 0 104.1-31.7 128-78 15.8-11.3 35.1-18 56-18l19.5 0c10.4 0 18 9.8 15.5 19.9l-17.1 68.3c9.9 12.4 18.2 25.7 24.4 39.8l21.7 0c13.3 0 24 10.7 24 24l0 112c0 13.3-10.7 24-24 24l-40 0c-16.5 22-38.5 39.6-64 50.7l0 29.3c0 17.7-14.3 32-32 32l-33 0c-14.3 0-26.8-9.5-30.8-23.2l-7.1-24.8-82.3 0-7.1 24.8C235.8 502.5 223.3 512 209 512l-33 0c-17.7 0-32-14.3-32-32l0-29.3C87.5 426 48 369.6 48 304zm376 16a24 24 0 1 0 0-48 24 24 0 1 0 0 48z"/>
+</svg>       </i>  General</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-history fa-fw"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="building-user" viewBox="0 0 640 512">
+<path fill="currentColor" d="M64 64C64 28.7 92.7 0 128 0L384 0c35.3 0 64 28.7 64 64l0 121.3c-46.9 19-80 65-80 118.7 0 27.7 8.8 53.4 23.8 74.4-51.5 21-87.8 71.6-87.8 130.7 0 1 0 1.9 0 2.9l-176 0c-35.3 0-64-28.7-64-64L64 64zM208 400l0 64 53.4 0c7.2-29.4 21.3-56.1 40.4-78.3-6.1-19.5-24.3-33.7-45.8-33.7-26.5 0-48 21.5-48 48zM339 224.3c-1-.2-2-.3-3-.3l-32 0c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l16.7 0c2.1-22.8 8.4-44.3 18.3-63.7zM176 96c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm112 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0c-8.8 0-16 7.2-16 16zM176 224c-8.8 0-16 7.2-16 16l0 32c0 8.8 7.2 16 16 16l32 0c8.8 0 16-7.2 16-16l0-32c0-8.8-7.2-16-16-16l-32 0zm240 80a80 80 0 1 1 160 0 80 80 0 1 1 -160 0zM352 512c0-53 43-96 96-96l96 0c53 0 96 43 96 96 0 17.7-14.3 32-32 32l-224 0c-17.7 0-32-14.3-32-32z"/>
+</svg>                                        </i>  History</a>
+            <br>
+    <a href="#" class="BLACC-bar-item BLACC-button BLACC-padding"><i class="fa fa-cog fa-fw">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="users-gear" viewBox="0 0 640 512">
+<path fill="currentColor" d="M320 224a104 104 0 1 0 0-208 104 104 0 1 0 0 208zM96 232a72 72 0 1 0 0-144 72 72 0 1 0 0 144zM0 416l0 32c0 17.7 14.3 32 32 32l86.7 0c-4.3-9.8-6.7-20.6-6.7-32l0-16c0-53.2 20-101.8 52.9-138.6-11.7-3.5-24.1-5.4-36.9-5.4-70.7 0-128 57.3-128 128zM616 160a72 72 0 1 0 -144 0 72 72 0 1 0 144 0zM160 432l0 16c0 17.7 14.3 32 32 32l156.8 0c-7.1-21.6-6.3-44.4 10.7-64-14-16.2-20.5-39.7-11.4-63.3 6.6-17.1 15.9-33.1 27.4-47.3 5.4-6.6 11.6-11.7 18.3-15.4-22.1-11.5-47.2-18-73.8-18-88.4 0-160 71.6-160 160zm464.6-44.1c6.3-3.6 9.5-11.1 6.8-18-4.8-12.4-11.5-24.1-19.9-34.4-4.6-5.7-12.7-6.7-19-3-21.8 12.6-48.6-2.8-48.6-28.1 0-7.3-4.9-13.8-12.1-14.9-12.9-2-26.8-2-39.7 0-7.2 1.1-12.1 7.6-12.1 14.9 0 25.2-26.8 40.7-48.6 28.1-6.3-3.6-14.4-2.6-19 3-8.4 10.3-15.1 22-19.9 34.4-2.6 6.8 .5 14.3 6.8 17.9 21.9 12.6 21.9 43.5 0 56.2-6.3 3.6-9.5 11.1-6.8 17.9 4.8 12.4 11.5 24.1 19.9 34.4 4.6 5.7 12.7 6.7 19 3 21.8-12.6 48.6 2.9 48.6 28.1 0 7.3 4.9 13.8 12.1 14.9 12.9 2 26.8 2 39.7 0 7.2-1.1 12.1-7.6 12.1-14.9 0-25.2 26.8-40.7 48.6-28.1 6.3 3.6 14.4 2.6 19-3 8.4-10.3 15.1-22 19.9-34.4 2.6-6.8-.5-14.3-6.8-17.9-21.9-12.6-21.9-43.5 0-56.2zM472 416a40 40 0 1 1 80 0 40 40 0 1 1 -80 0z"/>
+</svg>                         </i>  Settings</a><br><br>
+      
+    <a href="#"  class="BLACC-bar-item BLACC-button BLACC-padding-16 BLACC-hide-large BLACC-dark-grey BLACC-hover-black" onclick="BLACC_close()" title="close menu"><i class="fa fa-remove fa-fw"><svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="circle-xmark" viewBox="0 0 512 512">
+<path fill="currentColor" d="M256 512a256 256 0 1 0 0-512 256 256 0 1 0 0 512zM167 167c9.4-9.4 24.6-9.4 33.9 0l55 55 55-55c9.4-9.4 24.6-9.4 33.9 0s9.4 24.6 0 33.9l-55 55 55 55c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-55-55-55 55c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9l55-55-55-55c-9.4-9.4-9.4-24.6 0-33.9z"/></svg></i></a>
   </div>
 </nav>
 
 
 <!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+<div class="BLACC-overlay BLACC-hide-large BLACC-animate-opacity" onclick="BLACC_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:300px;margin-top:43px;">
+<div class="BLACC-main" style="margin-left:5px;margin-top:143px;">
 
   <!-- Header -->
-  <header class="w3-container" style="padding-top:22px">
-    <h5><b><i class="fa fa-dashboard"></i> My Dashboard</b></h5>
-  </header>
-
-  <div class="w3-row-padding w3-margin-bottom">
-    <div class="w3-quarter">
-      <div class="w3-container w3-red w3-padding-16">
-        <div class="w3-left"><i class="fa fa-comment w3-xxxlarge"></i></div>
-        <div class="w3-right">
+<hr>
+  <div class="BLACC-row-padding BLACC-margin-bottom">
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-red BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-comment BLACC-xxxlarge"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="comment" viewBox="0 0 512 512">
+<path fill="currentColor" d="M512 240c0 132.5-114.6 240-256 240-37.1 0-72.3-7.4-104.1-20.7L33.5 510.1c-9.4 4-20.2 1.7-27.1-5.8S-2 485.8 2.8 476.8l48.8-92.2C19.2 344.3 0 294.3 0 240 0 107.5 114.6 0 256 0S512 107.5 512 240z"/>
+</svg>              </i></div>
+        <div class="BLACC-right">
           <h3>52</h3>
         </div>
-        <div class="w3-clear"></div>
+        <div class="BLACC-clear"></div>
         <h4>Messages</h4>
       </div>
     </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-blue w3-padding-16">
-        <div class="w3-left"><i class="fa fa-eye w3-xxxlarge"></i></div>
-        <div class="w3-right">
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-blue BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-eye BLACC-xxxlarge"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="eye" viewBox="0 0 576 512">
+<path fill="currentColor" d="M288 32c-80.8 0-145.5 36.8-192.6 80.6-46.8 43.5-78.1 95.4-93 131.1-3.3 7.9-3.3 16.7 0 24.6 14.9 35.7 46.2 87.7 93 131.1 47.1 43.7 111.8 80.6 192.6 80.6s145.5-36.8 192.6-80.6c46.8-43.5 78.1-95.4 93-131.1 3.3-7.9 3.3-16.7 0-24.6-14.9-35.7-46.2-87.7-93-131.1-47.1-43.7-111.8-80.6-192.6-80.6zM144 256a144 144 0 1 1 288 0 144 144 0 1 1 -288 0zm144-64c0 35.3-28.7 64-64 64-11.5 0-22.3-3-31.7-8.4-1 10.9-.1 22.1 2.9 33.2 13.7 51.2 66.4 81.6 117.6 67.9s81.6-66.4 67.9-117.6c-12.2-45.7-55.5-74.8-101.1-70.8 5.3 9.3 8.4 20.1 8.4 31.7z"/>
+</svg>         </i></div>
+        <div class="BLACC-right">
           <h3>99</h3>
         </div>
-        <div class="w3-clear"></div>
+        <div class="BLACC-clear"></div>
         <h4>Views</h4>
       </div>
     </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-teal w3-padding-16">
-        <div class="w3-left"><i class="fa fa-share-alt w3-xxxlarge"></i></div>
-        <div class="w3-right">
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-teal BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-share-alt BLACC-xxxlarge">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="share" viewBox="0 0 512 512">
+<path fill="currentColor" d="M307.8 18.4c-12 5-19.8 16.6-19.8 29.6l0 80-112 0c-97.2 0-176 78.8-176 176 0 113.3 81.5 163.9 100.2 174.1 2.5 1.4 5.3 1.9 8.1 1.9 10.9 0 19.7-8.9 19.7-19.7 0-7.5-4.3-14.4-9.8-19.5-9.4-8.8-22.2-26.4-22.2-56.7 0-53 43-96 96-96l96 0 0 80c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-9.2-9.2-22.9-11.9-34.9-6.9z"/>
+</svg>       </i></div>
+        <div class="BLACC-right">
           <h3>23</h3>
         </div>
-        <div class="w3-clear"></div>
+        <div class="BLACC-clear"></div>
         <h4>Shares</h4>
       </div>
     </div>
-    <div class="w3-quarter">
-      <div class="w3-container w3-orange w3-text-white w3-padding-16">
-        <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
-        <div class="w3-right">
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-orange BLACC-text-white BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-users BLACC-xxxlarge">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="circle-user" viewBox="0 0 512 512">
+<path fill="currentColor" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2 35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+</svg>                   </i></div>
+        <div class="BLACC-right">
           <h3>50</h3>
         </div>
-        <div class="w3-clear"></div>
+        <div class="BLACC-clear"></div>
         <h4>Users</h4>
       </div>
     </div>
   </div>
-
-  <div class="w3-panel">
-    <div class="w3-row-padding" style="margin:0 -16px">
-      <div class="w3-third">
-        <h5>Regions</h5>
-        <img src="../blaccstore/BLACC_Connect/Level_1_Access/CA.jpg" style="width:100%" alt="Google Regional Map">
+<hr> 
+<hr>
+  <div class="BLACC-row-padding BLACC-margin-bottom">
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-red BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-comment BLACC-xxxlarge">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="shield" viewBox="0 0 512 512">
+<path fill="currentColor" d="M256 0c4.6 0 9.2 1 13.4 2.9L457.8 82.8c22 9.3 38.4 31 38.3 57.2-.5 99.2-41.3 280.7-213.6 363.2-16.7 8-36.1 8-52.8 0-172.4-82.5-213.1-264-213.6-363.2-.1-26.2 16.3-47.9 38.3-57.2L242.7 2.9C246.9 1 251.4 0 256 0z"/>
+</svg>                                 </i></div>
+        <div class="BLACC-right">
+          <h3>52</h3>
+        </div>
+        <div class="BLACC-clear"></div>
+        <h4>Security</h4>
       </div>
-      <div class="w3-twothird">
+    </div>
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-blue BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-eye BLACC-xxxlarge">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="eye-slash" viewBox="0 0 576 512">
+<path fill="currentColor" d="M41-24.9c-9.4-9.4-24.6-9.4-33.9 0S-2.3-.3 7 9.1l528 528c9.4 9.4 24.6 9.4 33.9 0s9.4-24.6 0-33.9l-96.4-96.4c2.7-2.4 5.4-4.8 8-7.2 46.8-43.5 78.1-95.4 93-131.1 3.3-7.9 3.3-16.7 0-24.6-14.9-35.7-46.2-87.7-93-131.1-47.1-43.7-111.8-80.6-192.6-80.6-56.8 0-105.6 18.2-146 44.2L41-24.9zM204.5 138.7c23.5-16.8 52.4-26.7 83.5-26.7 79.5 0 144 64.5 144 144 0 31.1-9.9 59.9-26.7 83.5l-34.7-34.7c12.7-21.4 17-47.7 10.1-73.7-13.7-51.2-66.4-81.6-117.6-67.9-8.6 2.3-16.7 5.7-24 10l-34.7-34.7zM325.3 395.1c-11.9 3.2-24.4 4.9-37.3 4.9-79.5 0-144-64.5-144-144 0-12.9 1.7-25.4 4.9-37.3L69.4 139.2c-32.6 36.8-55 75.8-66.9 104.5-3.3 7.9-3.3 16.7 0 24.6 14.9 35.7 46.2 87.7 93 131.1 47.1 43.7 111.8 80.6 192.6 80.6 37.3 0 71.2-7.9 101.5-20.6l-64.2-64.2z"/>
+</svg>         </i></div>
+        <div class="BLACC-right">
+          <h3>99</h3>
+        </div>
+        <div class="BLACC-clear"></div>
+        <h4>Privacy</h4>
+      </div>
+    </div>
+    <div class="BLACC-quarter">
+      <div class="BLACC-container BLACC-teal BLACC-padding-16">
+        <div class="BLACC-left"><i class="fa fa-share-alt BLACC-xxxlarge">   <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="130px"   hieght="120px"  id="file-shield" viewBox="0 0 576 512">
+<path fill="currentColor" d="M96 0C60.7 0 32 28.7 32 64l0 384c0 35.3 28.7 64 64 64l201.2 0C261 469.4 240 414.5 240 356.4l0-31.1c0-34.4 22-65 54.7-75.9l112-37.3c3.1-1 6.2-1.8 9.3-2.5l0-39.1c0-17-6.7-33.3-18.7-45.3L290.7 18.7C278.7 6.7 262.5 0 245.5 0L96 0zM357.5 176L264 176c-13.3 0-24-10.7-24-24L240 58.5 357.5 176zm87.8 312.5l-13.3 6.3 0-188.1 96 32 0 19.6c0 55.8-32.2 106.5-82.7 130.3zM421.9 259.5l-112 37.3c-13.1 4.4-21.9 16.6-21.9 30.4l0 31.1c0 74.4 43 142.1 110.2 173.7l18.5 8.7c4.8 2.2 10 3.4 15.2 3.4s10.5-1.2 15.2-3.4l18.5-8.7C533 500.3 576 432.6 576 358.2l0-31.1c0-13.8-8.8-26-21.9-30.4l-112-37.3c-6.6-2.2-13.7-2.2-20.2 0z"/>
+</svg>          </i></div>
+        <div class="BLACC-right">
+          <h3>23</h3>
+        </div>
+        <div class="BLACC-clear"></div>
+        <h4>Secure Files</h4>
+      </div>
+    </div>
+  </div>
+<hr>
+  <div class="BLACC-panel">
+    <div class="BLACC-row-padding" style="margin:0 -16px">
+      <div class="BLACC-third">
+        <h5>Regions</h5>
+        <img src="../BLACCstore/BLACC_Connect/Level_1_Access/CA.jpg" style="width:100%" alt="Google Regional Map">
+      </div>
+        <hr>
+      <div class="BLACC-twothird">
         <h5>Feeds</h5>
-        <table class="w3-table w3-striped w3-white">
+        <table class="BLACC-table BLACC-striped BLACC-white">
           <tr>
-            <td><i class="fa fa-user w3-text-blue w3-large"></i></td>
+            <td><i class="fa fa-user BLACC-text-blue BLACC-large"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="circle-user" viewBox="0 0 512 512">
+<path fill="currentColor" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2 35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+</svg>                   </i></td>
             <td>New record, over 90 views.</td>
             <td><i>10 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bell w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-bell BLACC-text-red BLACC-large"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="bell" viewBox="0 0 448 512">
+<path fill="currentColor" d="M224 0c-17.7 0-32 14.3-32 32l0 3.2C119 50 64 114.6 64 192l0 21.7c0 48.1-16.4 94.8-46.4 132.4L7.8 358.3C2.7 364.6 0 372.4 0 380.5 0 400.1 15.9 416 35.5 416l376.9 0c19.6 0 35.5-15.9 35.5-35.5 0-8.1-2.7-15.9-7.8-22.2l-9.8-12.2C400.4 308.5 384 261.8 384 213.7l0-21.7c0-77.4-55-142-128-156.8l0-3.2c0-17.7-14.3-32-32-32zM162 464c7.1 27.6 32.2 48 62 48s54.9-20.4 62-48l-124 0z"/>
+</svg>              </i></td>
             <td>Database error.</td>
             <td><i>15 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-users w3-text-yellow w3-large"></i></td>
+            <td><i class="fa fa-users BLACC-text-yellow BLACC-large"><svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="circle-user" viewBox="0 0 512 512">
+<path fill="currentColor" d="M399 384.2C376.9 345.8 335.4 320 288 320l-64 0c-47.4 0-88.9 25.8-111 64.2 35.2 39.2 86.2 63.8 143 63.8s107.8-24.7 143-63.8zM0 256a256 256 0 1 1 512 0 256 256 0 1 1 -512 0zm256 16a72 72 0 1 0 0-144 72 72 0 1 0 0 144z"/>
+</svg>               </i></td>
             <td>New record, over 40 users.</td>
             <td><i>17 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-comment w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-comment BLACC-text-red BLACC-large"><svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="comment-dots" viewBox="0 0 512 512">
+<path fill="currentColor" d="M256 480c141.4 0 256-107.5 256-240S397.4 0 256 0 0 107.5 0 240c0 54.3 19.2 104.3 51.6 144.5L2.8 476.8c-4.8 9-3.3 20 3.6 27.5s17.8 9.8 27.1 5.8l118.4-50.7C183.7 472.6 218.9 480 256 480zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z"/>
+</svg>                    </i></td>
             <td>New comments.</td>
             <td><i>25 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-bookmark w3-text-blue w3-large"></i></td>
+            <td><i class="fa fa-bookmark BLACC-text-blue BLACC-large"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="book-bookmark" viewBox="0 0 448 512">
+<path fill="currentColor" d="M96 512l320 0c17.7 0 32-14.3 32-32s-14.3-32-32-32l0-66.7c18.6-6.6 32-24.4 32-45.3l0-288c0-26.5-21.5-48-48-48l-48 0 0 169.4c0 12.5-10.1 22.6-22.6 22.6-6 0-11.8-2.4-16-6.6L272 144 230.6 185.4c-4.2 4.2-10 6.6-16 6.6-12.5 0-22.6-10.1-22.6-22.6L192 0 96 0C43 0 0 43 0 96L0 416c0 53 43 96 96 96zM64 416c0-17.7 14.3-32 32-32l256 0 0 64-256 0c-17.7 0-32-14.3-32-32z"/>
+</svg>                           </i></td>
             <td>Check transactions.</td>
             <td><i>28 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-laptop w3-text-red w3-large"></i></td>
+            <td><i class="fa fa-laptop BLACC-text-red BLACC-large"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="laptop" viewBox="0 0 640 512">
+<path fill="currentColor" d="M128 32C92.7 32 64 60.7 64 96l0 240 64 0 0-240 384 0 0 240 64 0 0-240c0-35.3-28.7-64-64-64L128 32zM19.2 384C8.6 384 0 392.6 0 403.2 0 445.6 34.4 480 76.8 480l486.4 0c42.4 0 76.8-34.4 76.8-76.8 0-10.6-8.6-19.2-19.2-19.2L19.2 384z"/>
+</svg>          </i></td>
             <td>CPU overload.</td>
             <td><i>35 mins</i></td>
           </tr>
           <tr>
-            <td><i class="fa fa-share-alt w3-text-green w3-large"></i></td>
+            <td><i class="fa fa-share-alt BLACC-text-green BLACC-large">  <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="share" viewBox="0 0 512 512">
+<path fill="currentColor" d="M307.8 18.4c-12 5-19.8 16.6-19.8 29.6l0 80-112 0c-97.2 0-176 78.8-176 176 0 113.3 81.5 163.9 100.2 174.1 2.5 1.4 5.3 1.9 8.1 1.9 10.9 0 19.7-8.9 19.7-19.7 0-7.5-4.3-14.4-9.8-19.5-9.4-8.8-22.2-26.4-22.2-56.7 0-53 43-96 96-96l96 0 0 80c0 12.9 7.8 24.6 19.8 29.6s25.7 2.2 34.9-6.9l160-160c12.5-12.5 12.5-32.8 0-45.3l-160-160c-9.2-9.2-22.9-11.9-34.9-6.9z"/>
+</svg>     </i></td>
             <td>New shares.</td>
             <td><i>39 mins</i></td>
           </tr>
@@ -154,28 +2150,28 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
     </div>
   </div>
   <hr>
-  <div class="w3-container">
+  <div class="BLACC-container">
     <h5>General Stats</h5>
     <p>New Visitors</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-green" style="width:25%">+25%</div>
+    <div class="BLACC-grey">
+      <div class="BLACC-container BLACC-center BLACC-padding BLACC-green" style="width:25%">+25%</div>
     </div>
 
     <p>New Users</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-orange" style="width:50%">50%</div>
+    <div class="BLACC-grey">
+      <div class="BLACC-container BLACC-center BLACC-padding BLACC-orange" style="width:50%">50%</div>
     </div>
 
     <p>Bounce Rate</p>
-    <div class="w3-grey">
-      <div class="w3-container w3-center w3-padding w3-red" style="width:75%">75%</div>
+    <div class="BLACC-grey">
+      <div class="BLACC-container BLACC-center BLACC-padding BLACC-red" style="width:75%">75%</div>
     </div>
   </div>
   <hr>
 
-  <div class="w3-container">
+  <div class="BLACC-container">
     <h5>Countries</h5>
-    <table class="w3-table w3-striped w3-bordered w3-border w3-hoverable w3-white">
+    <table class="BLACC-table BLACC-striped BLACC-bordered BLACC-border BLACC-hoverable BLACC-white">
       <tr>
         <td>United States</td>
         <td>65%</td>
@@ -201,67 +2197,69 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         <td>1.5%</td>
       </tr>
     </table><br>
-    <button class="w3-button w3-dark-grey">More Countries  <i class="fa fa-arrow-right"></i></button>
+    <button class="BLACC-button BLACC-dark-grey">More Countries  <i class="fa fa-arrow-right"> <svg  style="background: linear-gradient(85deg, purple, teal); border-radius: 10%; color: white" width="30px"   hieght="20px"  id="arrow-right-long" viewBox="0 0 576 512">
+<path fill="currentColor" d="M566.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-128-128c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L466.7 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l434.7 0-73.4 73.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l128-128z"/>
+</svg>         </i></button>
   </div>
   <hr>
-  <div class="w3-container">
+  <div class="BLACC-container">
     <h5>Recent Users</h5>
-    <ul class="w3-ul w3-card-4 w3-white">
-      <li class="w3-padding-16">
-        <img src="../BLACCimages/BC.jpg" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Mike</span><br>
+    <ul class="BLACC-ul BLACC-card-4 BLACC-white">
+      <li class="BLACC-padding-16">
+        <img src="./BC.jpg" class="BLACC-left BLACC-circle BLACC-margin-right" style="width:35px">
+        <span class="BLACC-xlarge">Mike</span><br>
       </li>
-      <li class="w3-padding-16">
-        <img src="../BLACCimages/BC.jpg" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jill</span><br>
+      <li class="BLACC-padding-16">
+        <img src="./BC.jpg" class="BLACC-left BLACC-circle BLACC-margin-right" style="width:35px">
+        <span class="BLACC-xlarge">Jill</span><br>
       </li>
-      <li class="w3-padding-16">
-        <img src="../BLACCimages/BC.jpg" class="w3-left w3-circle w3-margin-right" style="width:35px">
-        <span class="w3-xlarge">Jane</span><br>
+      <li class="BLACC-padding-16">
+        <img src="./BC.jpg" class="BLACC-left BLACC-circle BLACC-margin-right" style="width:35px">
+        <span class="BLACC-xlarge">Jane</span><br>
       </li>
     </ul>
   </div>
   <hr>
 
-  <div class="w3-container">
+  <div class="BLACC-container">
     <h5>Recent Comments</h5>
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="../BLACCimages/BC.jpg" style="width:96px;height:96px">
+    <div class="BLACC-row">
+      <div class="BLACC-col m2 text-center">
+        <img class="BLACC-circle" src="./BC.jpg" style="width:96px;height:96px">
       </div>
-      <div class="w3-col m10 w3-container">
-        <h4>John <span class="w3-opacity w3-medium">Sep 29, 2014, 9:12 PM</span></h4>
+      <div class="BLACC-col m10 BLACC-container">
+        <h4>John <span class="BLACC-opacity BLACC-medium">Sep 29, 2014, 9:12 PM</span></h4>
         <p>Keep up the GREAT work! I am cheering for you!! Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
       </div>
     </div>
 
-    <div class="w3-row">
-      <div class="w3-col m2 text-center">
-        <img class="w3-circle" src="../BLACCimages/BC.jpg" style="width:96px;height:96px">
+    <div class="BLACC-row">
+      <div class="BLACC-col m2 text-center">
+        <img class="BLACC-circle" src="./BC.jpg" style="width:96px;height:96px">
       </div>
-      <div class="w3-col m10 w3-container">
-        <h4>Bo <span class="w3-opacity w3-medium">Sep 28, 2014, 10:15 PM</span></h4>
+      <div class="BLACC-col m10 BLACC-container">
+        <h4>Bo <span class="BLACC-opacity BLACC-medium">Sep 28, 2014, 10:15 PM</span></h4>
         <p>Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p><br>
       </div>
     </div>
   </div>
   <br>
-  <div class="w3-container w3-dark-grey w3-padding-32">
-    <div class="w3-row">
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-green">Demographic</h5>
+  <div class="BLACC-container BLACC-dark-grey BLACC-padding-32">
+    <div class="BLACC-row">
+      <div class="BLACC-container BLACC-third">
+        <h5 class="BLACC-bottombar BLACC-border-green">Demographic</h5>
         <p>Language</p>
         <p>Country</p>
         <p>City</p>
       </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-red">System</h5>
+      <div class="BLACC-container BLACC-third">
+        <h5 class="BLACC-bottombar BLACC-border-red">System</h5>
         <p>Browser</p>
         <p>OS</p>
         <p>More</p>
       </div>
-      <div class="w3-container w3-third">
-        <h5 class="w3-bottombar w3-border-orange">Target</h5>
+      <div class="BLACC-container BLACC-third">
+        <h5 class="BLACC-bottombar BLACC-border-orange">Target</h5>
         <p>Users</p>
         <p>Active</p>
         <p>Geo</p>
@@ -271,9 +2269,9 @@ html,body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
   </div>
 
   <!-- Footer -->
-  <footer class="w3-container w3-padding-16 w3-light-grey">
+  <footer class="BLACC-container BLACC-padding-16 BLACC-light-grey">
     <h4>FOOTER</h4>
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <p>Powered by <a href="https://www.BLACCschools.com/BLACCcss/default.asp" target="_blank">BLACC.css</a></p>
   </footer>
 
   <!-- End page content -->
@@ -287,7 +2285,7 @@ var mySidebar = document.getElementById("mySidebar");
 var overlayBg = document.getElementById("myOverlay");
 
 // Toggle between showing and hiding the sidebar, and add overlay effect
-function w3_open() {
+function BLACC_open() {
   if (mySidebar.style.display === 'block') {
     mySidebar.style.display = 'none';
     overlayBg.style.display = "none";
@@ -298,7 +2296,7 @@ function w3_open() {
 }
 
 // Close the sidebar with the close button
-function w3_close() {
+function BLACC_close() {
   mySidebar.style.display = "none";
   overlayBg.style.display = "none";
 }
@@ -306,3 +2304,6 @@ function w3_close() {
 
 </body>
 </html>
+
+
+
